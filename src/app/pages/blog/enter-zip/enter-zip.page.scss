@@ -1,0 +1,1083 @@
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+.container-main {
+  background-color: #99dffb;
+  padding-bottom: 5rem;
+}
+
+.logo {
+  width: 20%;
+  margin: 0rem 0rem 0rem 2rem;
+
+  img {
+    padding: 10%;
+  }
+}
+
+.input-icons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+
+  input {
+    width: 48%;
+    height: 40px;
+  }
+
+  .zip-code {
+    padding-left: 1rem;
+  }
+
+  .prices {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #c36;
+    font-weight: 600;
+  }
+
+  .prices:hover {
+    background-color: #3d81eb;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1% 0% 3% 0%;
+  .content {
+    display: flex;
+    margin: 0rem 2rem 0rem 0rem;
+    width: 25%;
+    justify-content: space-between;
+    align-items: center;
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    button {
+      background-color: transparent;
+      border: 1px solid #c36;
+      padding: 0.5rem 2rem;
+      border-radius: 3px;
+      font-size: 17px;
+      line-height: 0;
+      font-weight: 700;
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    img {
+      width: 10%;
+    }
+  }
+}
+
+.section {
+  width: 80%;
+  margin: 0 auto;
+  background-color: transparent;
+}
+
+.prices-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  .lists,
+  .delivery {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .list {
+      color: #000;
+      font-style: normal;
+      font-weight: 700;
+      text-align: left;
+      font-size: 30px;
+    }
+  }
+
+  .delivery {
+    background-color: #b6eaff;
+    padding: 35px;
+    width: 50%;
+    border-radius: 40px;
+
+    h1 {
+      color: #000000;
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1.3em;
+    }
+
+    h3 {
+      color: #000000;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    img {
+      height: 70px;
+    }
+  }
+
+  .sale {
+    .text {
+      background-image: url("../../../../assets/blog/enter-zip/star-bg.svg");
+      height: 200px;
+      width: 200px;
+      margin: 0 auto;
+      position: relative;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      h1 {
+        padding-top: 10%;
+
+        span {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+.logo-header {
+  display: flex;
+  width: 80%;
+  margin: 3rem auto;
+  gap: 10%;
+  justify-content: space-between;
+
+  .logo img {
+    padding: 0px;
+  }
+
+  .header-icons {
+    width: 40%;
+  }
+
+  .enter-zip {
+    width: 30%;
+    color: #000000;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+  }
+}
+
+.oil-marketplace {
+  width: 80%;
+  margin: 4rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  .logo-img {
+    width: 20%;
+  }
+
+  .soon-img {
+    width: 50%;
+  }
+
+  img {
+    width: 30%;
+  }
+
+  .coming-soon,
+  .price,
+  .marketplace {
+    display: flex;
+    width: 22%;
+    justify-content: center;
+
+    h2 {
+      color: #000000;
+      font-family: "hf-grotesk", Sans-serif;
+      font-size: 22px;
+      margin-left: 5px;
+    }
+  }
+}
+
+.reviews {
+  background-color: #f3f7fe;
+  padding: 40px;
+  border-radius: 40px;
+  width: 80%;
+  margin: 1rem auto;
+
+  .review-header {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    p {
+      color: #48adeb;
+      font-family: "HK GROTESK - 400", Sans-serif;
+      font-size: 35px;
+      font-weight: bold;
+    }
+    img {
+      width: 5%;
+      margin: 0rem 0.5rem;
+    }
+  }
+
+  .comment {
+    display: flex;
+    margin: 3rem auto;
+    text-align: center;
+
+    div {
+      width: 80%;
+
+      .feedback {
+        color: #476274;
+        font-family: "hf-grotesk", Sans-serif;
+        font-size: 22px;
+        font-weight: normal;
+        font-style: italic;
+      }
+
+      .client {
+        color: #48adeb;
+        font-family: "hf-grotesk", Sans-serif;
+        font-size: 22px;
+        font-weight: 600;
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
+.logo-section {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #99dffb;
+  margin: 5rem auto;
+  justify-content: space-evenly;
+
+  .logo-container {
+    width: 15%;
+    text-align: center;
+
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.3em;
+      margin-bottom: 1.5rem;
+    }
+
+    img {
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    .truck-img {
+      width: 100%;
+    }
+
+    .pay-img {
+      width: 100%;
+      scale: 1.5;
+    }
+  }
+}
+
+.calculator {
+  width: 80%;
+  margin: 5rem auto;
+  background-color: #f3f7fe;
+  padding: 40px;
+  border-radius: 40px;
+
+  .calculator-heading {
+    display: flex;
+    justify-content: space-between;
+    color: #476271;
+    align-items: center;
+    p {
+      font-weight: 300px;
+      font-size: 20px;
+    }
+
+    h2 {
+      font-weight: 600;
+      font-size: 30px;
+    }
+
+    span {
+      color: #48ade7;
+    }
+  }
+  .avg-price {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: #476271;
+    align-items: center;
+    margin: 2rem 0rem 5rem 0rem;
+
+    div {
+      margin-top: 1.5rem;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    h4 {
+      font-weight: 600px;
+      font-size: 20px;
+    }
+
+    .connecticut {
+      h2,
+      h4 {
+        color: #2196f3;
+
+        img {
+          display: inline;
+        }
+      }
+    }
+
+    .sale::before {
+      content: "21 ¢";
+      color: white;
+      position: absolute;
+      top: 15%;
+      font-size: 2.5rem;
+      font-weight: 900;
+      right: 30%;
+    }
+
+    .sale {
+      background-image: url("../../../../assets/blog/enter-zip/save-per-delivery.png");
+      height: 120px;
+      width: 300px;
+      position: relative;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+  .oil {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 0 auto;
+    h3 {
+      color: #476271;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      margin-top: 1rem;
+      font-size: 18px;
+      font-weight: 600;
+      fill: #476271;
+      color: #476271;
+      background-color: #ffffff;
+      border-style: solid;
+      border-width: 1px;
+      padding: 10px;
+      border-color: #c2c1c1;
+      border-radius: 40px;
+    }
+
+    .more-save::before {
+      content: "$172";
+      color: white;
+      position: absolute;
+      top: 15%;
+      font-size: 2.5rem;
+      font-weight: 900;
+      right: 30%;
+    }
+
+    .less-save::before {
+      content: "$33";
+      color: white;
+      position: absolute;
+      top: 15%;
+      font-size: 2.5rem;
+      font-weight: 900;
+      right: 30%;
+    }
+
+    .more-save,
+    .less-save {
+      background-image: url("../../../../assets/blog/enter-zip/save-per-delivery.png");
+      height: 120px;
+      width: 300px;
+      scale: 0.7;
+      position: relative;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+.blog {
+  width: 80%;
+  margin: 3rem auto;
+
+  h2 {
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+
+  .blog-container {
+    display: flex;
+    gap: 20px;
+    width: 90%;
+    margin: 0 auto;
+    div {
+      a {
+        color: #5c7182;
+      }
+
+      p {
+        margin: 1rem 0rem;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+      img {
+        border-radius: 40px 40px 0px 0px;
+      }
+
+      .text {
+        font-weight: bolder;
+        color: #5c7182;
+        height: fit-content;
+        background-color: #f4f7fe;
+        padding: 15px;
+        border-radius: 0px 0px 40px 40px;
+      }
+    }
+  }
+}
+
+.how-it-works-bg {
+  background: rgb(67 195 246 / 21%);
+  padding: 1rem 0rem;
+  .how-it-works {
+    width: 80%;
+    margin: 2rem auto;
+
+    h1 {
+      color: #000000;
+      font-size: 35px;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .how-it-works-container {
+      display: flex;
+      gap: 50px;
+
+      .works-container {
+        width: 70%;
+
+        h2 {
+          padding: 0.5rem 2rem;
+          color: #476274;
+          font-size: 26px;
+          font-weight: 600;
+          line-height: 1.3em;
+          text-align: center;
+        }
+        img {
+          height: 600px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+.homeowner-guide {
+  width: 80%;
+  margin: 5rem auto;
+  background-color: #f3f7fe;
+  padding: 40px;
+  border-radius: 40px;
+  .heading {
+    display: flex;
+    gap: 30px;
+    img {
+      width: 5%;
+    }
+
+    h3 {
+      color: #476172;
+      font-family: "HK GROTESK - 400", Sans-serif;
+      font-size: 35px;
+      font-weight: bold;
+    }
+  }
+
+  .button {
+    display: flex;
+    gap: 50px;
+    margin: 2rem 0rem 0rem 0rem;
+
+    .heating-btn {
+      width: fit-content;
+      color: white;
+      font-size: 19px;
+      font-weight: bold;
+      background-color: #476172;
+      border-radius: 30px;
+      padding: 12px 18px;
+      cursor: pointer;
+    }
+
+    .heating-btn:hover {
+      background-color: #449fd7;
+    }
+  }
+}
+
+.price-history {
+  background-color: #f4f7fe;
+  width: 80%;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 40px;
+  h2 {
+    color: #476271;
+    font-weight: 700;
+    font-size: 32px;
+    margin-bottom: 2rem;
+    span {
+      color: #4babe7;
+      text-decoration: underline;
+    }
+  }
+
+  .graph {
+    display: flex;
+
+    h3 {
+      color: #476271;
+      font-size: 22px;
+      font-weight: 600;
+      margin: 2rem 0rem;
+      text-align: center;
+    }
+
+    img {
+      height: 300px;
+    }
+  }
+}
+
+.forecaster {
+  background-color: #f4f7fe;
+  width: 80%;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 40px;
+
+  .forecaster-header {
+    display: flex;
+    margin-bottom: 2rem;
+    img {
+      width: 80px;
+      margin-right: 1rem;
+    }
+
+    h2 {
+      color: #476271;
+      font-size: 30px;
+      font-weight: 600;
+    }
+  }
+
+  // check slider
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  input:checked + .slider {
+    background-color: #2196f3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196f3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .forecast-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .settings {
+      width: 45%;
+      text-align: center;
+      h3 {
+        color: #476271;
+        font-size: 25px;
+        font-weight: 600;
+      }
+
+      div {
+        display: flex;
+        justify-content: space-between;
+        margin: 3rem 0rem;
+        align-items: center;
+
+        input {
+          border: 1px solid #666;
+          border-radius: 3px;
+          padding: 0.5rem 1rem;
+        }
+
+        label,
+        span {
+          font-weight: bolder;
+        }
+      }
+    }
+
+    .oil-use {
+      width: 45%;
+      text-align: center;
+      .row-forecast {
+        display: flex;
+        background-color: #eceff6;
+        margin-bottom: 3rem;
+        padding: 10px;
+        border-radius: 100px;
+        text-align: center;
+        justify-content: space-around;
+
+        h1,
+        h2 {
+          font-size: 30px;
+          color: #476271;
+          font-weight: 600;
+        }
+        p {
+          font-size: 20px;
+          font-weight: 600;
+          color: #000;
+        }
+      }
+    }
+  }
+}
+
+// menu
+.menu-toggle {
+  position: fixed;
+  background-color: #ffffff;
+  cursor: pointer;
+  top: 0;
+  right: 0;
+  width: 20vw;
+  height: 100vh;
+  z-index: 1;
+
+  .close-icon {
+    padding: 5px;
+    margin: 10px;
+    height: 30px;
+    width: 30px;
+    float: right;
+    cursor: pointer;
+  }
+  nav {
+    padding: 30px;
+    ul {
+      list-style: none;
+      float: right;
+      text-align: right;
+      line-height: 40px;
+
+      li a {
+        color: #7a7a7a;
+        font-weight: 700;
+        font-size: 16px;
+      }
+
+      li a:hover {
+        color: #428cff;
+      }
+    }
+  }
+}
+
+.blur-bg {
+  filter: brightness(0.4);
+}
+
+.hamburger {
+  cursor: pointer;
+}
+
+@media (max-width: 489px) {
+  .avg-price {
+    justify-content: center !important;
+
+    .sale {
+      min-height: 155px;
+      min-width: 95vw;
+      scale: 0.8;
+    }
+  }
+
+  .header {
+    .content {
+      button,
+      h2 {
+        padding: 0.1rem;
+        font-size: 12px !important;
+      }
+    }
+  }
+
+  .homeowner-guide {
+    .heading {
+      h3 {
+        font-size: 25px !important;
+      }
+    }
+  }
+
+  .oil {
+    justify-content: center !important;
+    .more-save,
+    .less-save {
+      min-height: 155px;
+      min-width: 95vw;
+      scale: 0.6;
+    }
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 768px) {
+  .header {
+    .content {
+      button,
+      h2 {
+        font-size: 15px;
+      }
+    }
+  }
+
+  .section {
+    .prices-section {
+      display: block;
+
+      .lists {
+        .list {
+          text-align: center;
+        }
+      }
+
+      .delivery {
+        padding: 40px;
+        width: 100%;
+        margin: 2rem auto;
+      }
+    }
+  }
+
+  .logo-section {
+    .logo-container {
+      width: 34%;
+      margin-bottom: 2rem;
+      scale: 0.9;
+    }
+  }
+
+  .reviews {
+    .review-header {
+      p {
+        font-size: 30px;
+      }
+
+      img {
+        width: 9%;
+        margin: -0.9rem 0.5rem 0rem 0.5rem;
+      }
+    }
+
+    .comment {
+      display: block;
+      margin: 1rem auto;
+
+      div {
+        width: 100%;
+
+        .client {
+          margin-top: 1rem;
+          margin-bottom: 2rem;
+        }
+      }
+    }
+  }
+
+  .oil-marketplace {
+    .coming-soon,
+    .price,
+    .marketplace {
+      display: flex;
+      width: 45%;
+      justify-content: center;
+    }
+  }
+
+  .how-it-works-container {
+    display: block !important;
+
+    .works-container {
+      width: 80% !important;
+      margin: 0 auto;
+
+      img {
+        margin-bottom: 2rem !important;
+      }
+    }
+  }
+
+  .logo-header {
+    display: block;
+
+    .logo {
+      width: 50%;
+    }
+
+    .header-icons {
+      width: 80%;
+    }
+
+    .enter-zip {
+      width: 100%;
+    }
+
+    .logo,
+    .header-icons,
+    .enter-zip {
+      margin: 1rem auto;
+    }
+  }
+
+  .homeowner-guide {
+    width: 80%;
+    margin: 5rem auto;
+    background-color: #f3f7fe;
+    padding: 40px;
+    border-radius: 40px;
+    .heading {
+      display: flex;
+      gap: 10px;
+      img {
+        width: 10%;
+      }
+
+      h3 {
+        font-size: 30px;
+      }
+    }
+
+    .button {
+      display: block;
+
+      .heating-btn {
+        margin: 1rem auto;
+      }
+    }
+  }
+
+  .price-history {
+    .graph {
+      display: block;
+    }
+  }
+
+  .blog {
+    width: 80%;
+    margin: 3rem auto;
+
+    h2 {
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .blog-container {
+      display: block;
+      gap: 20px;
+      width: 90%;
+      margin: 0 auto;
+      div {
+        a {
+          color: #5c7182;
+        }
+
+        p {
+          margin: 1rem 0rem;
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+        img {
+          border-radius: 40px 40px 0px 0px;
+        }
+
+        .text {
+          margin-bottom: 2rem;
+          height: fit-content;
+        }
+      }
+    }
+  }
+
+  .calculator {
+    .calculator-heading {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .oil {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  .menu-toggle {
+    width: 52vw;
+    height: 109vh;
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 992px) {
+  .header {
+    .content {
+      width: 50% !important;
+    }
+  }
+
+  .forecaster {
+    background-color: #f4f7fe;
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 40px;
+
+    .forecaster-header {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+
+      img {
+        width: 50px;
+        margin-right: 0.3rem;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+    }
+
+    .forecast-body {
+      display: block;
+
+      .settings {
+        width: 90%;
+
+        div {
+          display: flex;
+          flex-wrap: wrap;
+        }
+      }
+
+      .oil-use {
+        width: 90%;
+      }
+    }
+  }
+
+  .sale {
+    h1 {
+      top: -7% !important;
+      right: 15% !important;
+    }
+  }
+}
+
+// large devices
+@media (max-width: 1200px) {
+  .header {
+    .content {
+      width: 30%;
+    }
+  }
+}

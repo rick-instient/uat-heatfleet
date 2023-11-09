@@ -1,0 +1,404 @@
+.Heating-Oil-container {
+  padding-top: 39px;
+  padding-bottom: 2%;
+}
+span.number-span {
+  font-weight: 600;
+}
+.container-row {
+  text-align: center;
+}
+.content-row {
+  text-align: right;
+  justify-content: center;
+}
+
+.adviosr-bio1 {
+  font-weight: bold;
+}
+
+.adviosr-bio {
+  text-align: left;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 350px) {
+  .Heating-Oil-content {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  span.number-span {
+    font-size: 2.2rem !important;
+  }
+
+  // span.oil-company {
+  //   margin-top: 6px !important;
+  // }
+
+  // span.us-state {
+  //   margin-top: 6px !important;
+  // }
+
+  // span.cities-town {
+  //   margin-top: 6px !important;
+  // }
+}
+
+@media screen and (max-width: 677px) {
+  span.txt-bio {
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: 1100px) and (min-width: 1138px) {
+  span.cities-town[_ngcontent-bgd-c190] {
+    min-width: 83px !important;
+  }
+}
+
+@media screen and (max-width: 700px) and (min-width: 600px) {
+  span.cities-town {
+    min-width: 83px !important;
+  }
+}
+
+@media screen and (max-width: 600px) and (min-width: 300px) {
+  .adadvisorviosr-bio1 {
+    margin-top: 15px;
+  }
+
+  p.text-1 {
+    left: 4%;
+  }
+
+  .advisor-details {
+    margin-right: 10px !important;
+  }
+
+  span.us-state {
+    font-size: 16px !important;
+    line-height: 22px !important;
+  }
+
+  .adadvisorviosr-bio1 {
+    max-width: 230px;
+  }
+}
+
+.Heating-Oil-content {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+@media only screen and (min-width: 1300px) {
+  span.txt-bio {
+    font-size: 26px !important;
+  }
+
+  .adadvisorviosr-bio1 {
+    max-width: 300px;
+  }
+
+  span.txt-bio {
+    font-size: 40px;
+  }
+
+  span.number-span {
+    font-size: 60px !important;
+    margin-right: 8px !important;
+  }
+
+  span.oil-company {
+    font-size: 22px !important;
+    // max-width: 142px !important;
+    line-height: 30px !important;
+    margin-top: 3px;
+  }
+
+  span.us-state {
+    // max-width: 80px !important;
+    font-size: 22px !important;
+    line-height: 30px !important;
+    margin-top: 3px;
+  }
+
+  span.cities-town {
+    // max-width: 102px !important;
+    font-size: 22px !important;
+    line-height: 30px !important;
+    margin-top: 3px;
+  }
+}
+
+@media only screen and (min-width: 1406px) {
+  .advisor-details {
+    margin-right: 70px;
+  }
+
+  .cities-town {
+    font-size: 21px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .cities-town-number {
+    font-size: 2.7rem;
+    font-weight: 500;
+  }
+}
+@media only screen and (min-width: 1250px) {
+  .cities-town-number {
+    font-size: 2.1rem;
+    font-weight: 500;
+  }
+}
+@media only screen and (min-width: 1350px) {
+  .cities-town-number {
+    font-size: 2.3rem;
+    font-weight: 500;
+  }
+}
+@media only screen and (min-width: 1636px) {
+  .cities-town-number {
+    font-size: 2.9rem;
+    font-weight: 500;
+  }
+}
+
+.contain-c {
+  display: flex;
+}
+
+@media only screen and (min-width: 701px) and (max-width: 769px) {
+  span.number-span {
+    font-size: 40px !important;
+    font-weight: 500;
+  }
+  .advisor-details {
+    margin-right: 15px !important;
+  }
+
+  span.txt-bio {
+    font-size: 20px !important;
+    margin-left: 10px;
+  }
+  span.cities-town {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  span.us-state {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  span.oil-company {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .adadvisorviosr-bio1 {
+    min-width: 168px !important;
+  }
+
+  span.txt-bio {
+    font-size: 19px !important;
+  }
+}
+@media only screen and (min-width: 770px) and (max-width: 854px) {
+  span.number-span {
+    font-size: 44px !important;
+    font-weight: 500;
+  }
+  .advisor-details {
+    margin-right: 15px !important;
+  }
+
+  span.txt-bio {
+    font-size: 20px !important;
+    margin-left: 10px;
+  }
+
+  span.cities-town {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  span.us-state {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  span.oil-company {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+@media only screen and (min-width: 855px) and (max-width: 1100px) {
+  span.number-span {
+    font-size: 52px !important;
+    font-weight: 500;
+  }
+  .advisor-details {
+    margin-right: 25px !important;
+  }
+
+  span.txt-bio {
+    font-size: 25px !important;
+    margin-left: 10px;
+  }
+
+  span.cities-town {
+    font-size: 17px;
+    line-height: 22px;
+  }
+
+  span.us-state {
+    font-size: 17px;
+    line-height: 22px;
+  }
+
+  span.oil-company {
+    font-size: 17px;
+    line-height: 22px;
+  }
+}
+.container-row.contents {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.Heating-Oil-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (min-width: 966px) {
+  .Heating-Oil-content {
+    padding-left: 30px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .container-row.contents {
+    display: block;
+  }
+
+  .contain-c {
+    display: block;
+  }
+
+  .adadvisorviosr-bio1 {
+    margin-bottom: 10px;
+  }
+
+  .advisor-details {
+    height: 106px;
+  }
+}
+
+.advisor-details {
+  display: flex;
+}
+
+// span.us-state {
+//   margin-top: 17px;
+// }
+
+// span.oil-company {
+//   margin-top: 17px;
+// }
+
+// span.cities-town {
+//   margin-top: 17px;
+// }
+
+span.number-span {
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin-right: 6px;
+  font-family: "HK-Grotesk";
+  color: #476172;
+}
+
+.white-space {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.advisor-details {
+  margin-right: 44px;
+}
+
+span.oil-company {
+  // max-width: 116px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: left;
+  font-family: "HK-Grotesk";
+  line-height: 24px;
+  color: #9cb7c9;
+}
+
+span.us-state {
+  // max-width: 70px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: left;
+  font-family: "HK-Grotesk";
+  line-height: 24px;
+  color: #9cb7c9;
+}
+
+span.cities-town {
+  // max-width: 80px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: left;
+  font-family: "HK-Grotesk";
+  line-height: 24px;
+  margin-top: 2px;
+  color: #9cb7c9;
+}
+
+span.txt-bio {
+  /* height: 92px; */
+  /* left: 55px; */
+  /* top: 813px; */
+  font-family: "HK-Grotesk";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 125%;
+  text-align: center;
+  color: #000000;
+  font-family: "HK-Grotesk";
+  color: #476172;
+}
+
+// .adadvisorviosr-bio1 {
+//   max-width: 315px;
+// }
+
+@media only screen and (min-width: 410px) {
+  .adadvisorviosr-bio1 {
+    min-width: 222px;
+  }
+}
+
+.advisor-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+span.cities-town {
+  min-width: 60px;
+}

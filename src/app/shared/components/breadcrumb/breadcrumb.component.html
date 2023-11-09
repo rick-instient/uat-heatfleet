@@ -1,0 +1,17 @@
+<div class="show-on-tablet-laptop">
+    <div class="breadcrumb-main">
+        <div *ngIf="isLoading" class="skeleton-box" style="width: 350px; height: 18px;"></div>
+        <div *ngIf="!isLoading" class="breadcrumb-menu">
+            <ul class="breadcrumb-list list-style-none">
+                <li class="breadcrumb-list-item"
+                    *ngFor="let breadcrumb of breadcrumbs; let i = index; let last = last;">
+                    <span *ngIf="i != 0">&nbsp;>&nbsp;</span>
+                    <a *ngIf="!last" [routerLink]="'/' + breadcrumb.url">{{breadcrumb.label}}</a>
+                    <p *ngIf="last">{{breadcrumb.label}}</p>
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="isLoading" class="skeleton-box" style="width: 100px; height: 18px;"></div>
+        <div *ngIf="!isLoading" class="breadcrumb-tilte">{{bsAltLine}}</div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+//- #map(style='width: 100%; height: 100%')
+//- .map-container
+//-   .map-frame
+//-     #map
+.outer-container.pricemap
+  .inner-contain
+    ion-row
+      ion-col(style='text-align: left')
+        .container_innr
+          p.title-price Best Cash Heating Oil Price in {{city}}, {{state}}
+          p.txt-desc-price 150 gallon order
+    ion-row
+      ion-col
+        .map-container
+          .map-frame(data-tap-disabled='true')
+            div([id]='uid', style='width: 100%; height: 100%')
+        //- img.map-full(src='../../../assets/Map.png')

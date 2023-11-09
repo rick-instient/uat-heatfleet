@@ -1,0 +1,89 @@
+<!-- <app-header-client (headerInit)="headerInit($event)"></app-header-client> -->
+<div id="topSection"></div>
+<section>
+  <div class="bd-ct" *ngIf="breadcrumbs"></div>
+  <div class="col-12 bread">
+    <ul class="breadcrumb">
+      <ng-container *ngFor="let breadcrumb of breadcrumbs;let last = last;">
+        <li>
+          <a [href]="breadcrumb.url" *ngIf="!last"
+            (click)="navigateUrl($event, breadcrumb.url)">{{breadcrumb.label}}</a>
+          <a class="dark" *ngIf="last">{{breadcrumb.label}}</a>
+        </li>
+      </ng-container>
+    </ul>
+    <div class="breadcrumb-div-2">
+      <p class="cheapest">{{bsAltLine}}</p>
+    </div>
+  </div>
+</section>
+<div class="desktop-container">
+  <div class="container-fluid container-lg">
+    <h1 class="title-main">
+      Search
+      <span class="hf" *ngIf="config.typeParam == 'type=1'">Heating Oil
+        Providers </span><span class="hf" *ngIf="config.typeParam == 'subType=1'">Heating Oil Companies </span><span
+        class="hf" *ngIf="config.typeParam == 'subType=2'">Heating Oil Prices
+      </span><span class="hf" *ngIf="config.typeParam == 'subType=3'">Oil
+        Delivery </span><span class="hf" *ngIf="config.typeParam == 'type=2'">Heating
+        Repair </span><span class="hf" *ngIf="!config.isRegion">by State</span><span class="hf"
+        *ngIf="config.isRegion">by Region</span>
+    </h1>
+    <div class="imgContainer">
+      <div *ngFor="let state of states;let index = index">
+        <div class="card" (click)="navigateState(state, $event)">
+          <div class="card_image">
+            <img [src]="state.imageUrl + '?tr=w-300'" (error)="setDefaultImage(state)" *ngIf="!state.default" [alt]="state.alt"
+              [title]="state.title" />
+            <img class="flag" *ngIf="state.default"
+              src="/assets/icons/9m-Heat-Fleet-Heating-Oil-Logo.svg" />
+          </div>
+          <div class="card-txt">
+            <a class="state_name" [href]="config.typeURL + getUrl(state)" (click)="navigateState(state, $event)">
+              <h2 class="state_name">
+                <span class="capitalize">{{state.stateName}} </span><span class="hf"
+                  *ngIf="config.typeParam == 'type=1'">Heating Oil
+                  Providers </span><span class="hf" *ngIf="config.typeParam == 'subType=1'">Heating Oil Companies
+                </span><span class="hf" *ngIf="config.typeParam == 'subType=2'">Heating
+                  Oil Prices </span><span class="hf" *ngIf="config.typeParam == 'subType=3'">Oil Delivery </span><span
+                  class="hf" *ngIf="config.typeParam == 'type=2'">Heating Repair
+                </span>
+              </h2>
+            </a>
+            <p class="total-company-txt" *ngIf="config.typeParam == 'subType=2' && state.minPrice">
+              Prices Range from ${{state.minPrice.toFixed(2)}} -
+              ${{state.maxPrice.toFixed(2)}}
+            </p>
+            <p class="total-company-txt" *ngIf="config.typeParam != 'subType=2'">
+              <span class="company-numbers">{{state.totalCompanies}} </span><span class="hf"
+                *ngIf="config.typeParam == 'type=1'">Heating Oil
+                Providers </span><span class="hf"
+                *ngIf="config.typeParam == 'subType=1' && state.totalCompanies == 1">Heating
+                Oil Company</span><span class="hf"
+                *ngIf="config.typeParam == 'subType=1' && state.totalCompanies &gt; 1">Heating
+                Oil Companies</span><span class="hf" *ngIf="config.typeParam == 'subType=3'">Oil Delivery </span><span
+                class="hf" *ngIf="config.typeParam == 'type=2'">Heating Repair
+              </span>
+            </p>
+            <p class="cash-companies" *ngIf="config.typeParam != 'subType=2'">
+              <span class="company-numbers">{{state.discountCompanies}} </span><span class="hf"
+                *ngIf="config.typeParam == 'type=1'">Discount Heating
+                Oil Providers </span><span class="hf"
+                *ngIf="config.typeParam == 'subType=1' && state.discountCompanies == 1">Discount
+                Heating Oil Company</span><span class="hf"
+                *ngIf="config.typeParam == 'subType=1' && state.discountCompanies &gt; 1">Discount
+                Heating Oil Companies</span><span class="hf" *ngIf="config.typeParam == 'subType=3'">Discount Oil
+                Delivery
+              </span><span class="hf" *ngIf="config.typeParam == 'type=2'">Discount
+                Heating Repair
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="footersection">
+  <app-section-footer></app-section-footer>
+</div> -->

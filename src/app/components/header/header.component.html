@@ -1,0 +1,116 @@
+<ng-container>
+    <div class="nav-wrapper" [class.zipentry]="selectedId == URLS.CLIENT_ENTER_ZIP">
+        <div class="nav-logo">
+            <div class="company-logo-name" *ngIf="CompanyLogoUrl"><a class="logo-link-cp" [href]="siteUrl"
+                    (click)="logoClicked($event)"><img class="logo-desktop company" *ngIf="CompanyLogoUrl"
+                        [srcset]="CompanyLogoUrl+'&amp;tr=w-225 225w,'+CompanyLogoUrl+'&amp;tr=w-350 350w,'+CompanyLogoUrl+'&amp;tr=w-700 700w,'+CompanyLogoUrl+'&amp;tr=w-900 900w,'+CompanyLogoUrl+'&amp;tr=w-1200 1200w,'"
+                        [alt]="logoAlt" height="30px" fetchpriority="high" /></a>
+                <p class="company_name" style="color:companyColor">{{companyName}}</p>
+            </div><a class="logo-link" [href]="siteUrl" aria-label="HomePage" (click)="logoClicked($event)"><img
+                    class="logo-desktop" *ngIf="selectedId == URLS.CLIENT_ENTER_ZIP &amp;&amp; !CompanyLogoUrl"
+                    srcset="/assets/icons/9m-Heat-Fleet-Heating-Oil-Logo.svg?tr=w-225 225w,/assets/icons/9m-Heat-Fleet-Heating-Oil-Logo.svg?tr=w-350 350w,/assets/icons/9m-Heat-Fleet-Heating-Oil-Logo.svg?tr=w-700 700w,/assets/icons/9m-Heat-Fleet-Heating-Oil-Logo.svg?tr=w-900 900w,/assets/icons/9m-Heat-Fleet-Heating-Oil-Logo.svg?tr=w-1200 1200w"
+                    alt="Heat Fleet Logo" height="30px" fetchpriority="high" /></a><a class="logo-link" [href]="siteUrl"
+                aria-label="HomePage" (click)="logoClicked($event)"><img class="logo-desktop"
+                    *ngIf="selectedId != URLS.CLIENT_ENTER_ZIP &amp;&amp; !CompanyLogoUrl"
+                    srcset="/assets/icons/9m-Heat-Fleet-Heating-Oil-Logo.svg?tr=w-225 225w,/assets/icons/9m-Heat-Fleet-Heating-Oil-Logo.svg?tr=w-350 350w,/assets/icons/9m-Heat-Fleet-Heating-Oil-Logo.svg?tr=w-700 700w,/assets/icons/9m-Heat-Fleet-Heating-Oil-Logo.svg?tr=w-900 900w,/assets/icons/9m-Heat-Fleet-Heating-Oil-Logo.svg?tr=w-1200 1200w"
+                    height="30px" alt="Heat Fleet Logo" fetchpriority="high" /></a>
+        </div>
+        <div class="left-btn">
+            <button class="transparentbuttton ol" (click)="dealerMenuPopup()" [ngClass]="{typeComp}">Heating
+                Oil</button>
+        </div>
+        <div class="nav-account yo">
+            <ng-template [ngIf]="config.IsLoggedIn">
+                <div class="btns flex"></div>
+                <button class="transparentbuttton" (click)="navigateTo($event, 'about')" *ngIf="!CompanyLogoUrl">About
+                    Us</button>
+                <button class="transparentbuttton" (click)="navigateTo($event, 'heatfleet')"
+                    *ngIf="CompanyLogoUrl">About Us</button>
+                <!--.nav-account-wrapper((click)='menuClicked(URLS.CLIENT_ENTER_ZIP)')
+          .nav-account-icon
+              img(*ngIf='selectedId == URLS.CLIENT_ENTER_ZIP', src="/assets/icon/map_marker_icon.svg", width="24px")
+              img(*ngIf='selectedId != URLS.CLIENT_ENTER_ZIP', src="/assets/icon/map_marker_icon_gray.svg", width="24px")
+          .nav-account-label
+              div {{City}}
+          --><img class="sc-menu-icn" src="assets/icons/symbols_menu.svg" (click)="isloginMenuPopup()"
+                    alt="menu for more options" title="menu for more options" fetchpriority="high" />
+            </ng-template>
+            <ng-template [ngIf]="!config.IsLoggedIn">
+                <div class="btns flex"></div>
+                <button class="transparentbuttton" (click)="navigateTo($event, 'about')">About Us</button>
+                <button class="btn btn-primary common-buttton" style="--background: {{companyColor}} !important"
+                    (click)="navigateTo($event, 'login')">
+                    <p class="txt-btn">Login</p>
+                </button><img class="sc-menu-icn" src="assets/icons/symbols_menu.svg" (click)="loginMenuPopup()"
+                    alt="menu for more options" title="menu for more options" fetchpriority="high" />
+            </ng-template>
+        </div>
+    </div>
+</ng-container>
+<div class="mobile-view-menu" *ngIf="!config.login">
+    <div class="menu-list">
+        <div class="button" detail="false" (click)="onLogin()">
+            <div class="menu-label">Sign in</div>
+        </div>
+        <div class="button" detail="false" (click)="navigateTo($event, 'list')" *ngIf="config.isVendor">
+            <div class="menu-label">List A Company</div>
+        </div>
+        <div class="button" detail="false" (click)="navigateTo($event, 'about')">
+            <div class="menu-label">About Us</div>
+        </div>
+        <div class="button" detail="false" (click)="navigateTo($event, 'faqs')">
+            <div class="menu-label">FAQs</div>
+        </div>
+        <a [href]="URLS.PAGE_CONTACT" class="button" detail="false" (click)="navigateTo($event, 'contact')">
+            <div class="menu-label">Contact</div>
+        </a>
+        <div class="dealer" class="button" detail="false" *ngIf="config.isVendor">
+            <div class="fordealer">
+                <div class="fordealer" (click)="navigateTo($event, 'loginvendor')">For Dealers</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mobile-view-menu dl" *ngIf="!config.dealer">
+    <div class="menu-list dl"><a class="submenu-link-b" [href]="TypeChange(null, 1, null)"
+            (click)="TypeChange($event, 1, true)" [ngClass]="config.typeURL">Heating Oil</a><a class="submenu-link o"
+            [href]="TypeChange(null, 'subType1', null)" (click)="TypeChange($event, 'subType1', true)"
+            [ngClass]="config.typeURL">Oil Companies</a><a class="submenu-link t"
+            [href]="TypeChange(null, 'subType2', null)" (click)="TypeChange($event, 'subType2', true)"
+            [ngClass]="config.typeURL">Heating Oil Prices</a><a class="submenu-link th"
+            [href]="TypeChange(null, 'subType3', null)" (click)="TypeChange($event, 'subType3', true)"
+            [ngClass]="config.typeURL">Oil Delivery</a></div>
+</div>
+<div class="mobile-view-menu" *ngIf="!config.islogin">
+    <div class="menu-list">
+        <div class="button" detail="false" (click)="onHome()">
+            <div class="menu-label">Home</div>
+        </div>
+        <div class="button" detail="false" (click)="onOrders()">
+            <div class="menu-label">Orders</div>
+        </div>
+        <div class="button" detail="false" (click)="onAccount()">
+            <div class="menu-label">Account</div>
+        </div>
+        <div class="button" detail="false" (click)="navigateTo($event, 'list')" *ngIf="config.isVendor">
+            <div class="menu-label">List A Company</div>
+        </div>
+        <div class="button" detail="false" (click)="navigateTo($event, 'about')">
+            <div class="menu-label">About Us</div>
+        </div>
+        <div class="button" detail="false" (click)="navigateTo($event, 'contact')">
+            <div class="menu-label">Contact</div>
+        </div>
+        <div class="button" detail="false" (click)="navigateTo($event, 'faqs')">
+            <div class="menu-label">FAQs</div>
+        </div>
+        <div class="dealer" class="button" detail="false" *ngIf="config.isVendor">
+            <div class="fordealer">
+                <div class="fordealer" (click)="navigateTo($event, 'loginvendor')">For Dealers</div>
+            </div>
+        </div>
+        <div class="button" detail="false" (click)="onLogout()">
+            <div class="menu-label">Sign out</div>
+        </div>
+    </div>
+</div>

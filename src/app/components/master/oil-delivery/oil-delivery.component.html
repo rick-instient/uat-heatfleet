@@ -1,0 +1,16 @@
+<!-- <app-section-main [qtyLoaded]="qtyLoaded" [type]="true" [breadcrumbs]="breadcrumbs" [ctaText]="ctaText"
+    [infoCheckBox]="infoCheckBox" [bsAltLine]="bsAltLine" [loaded]="enableComponent"
+    [mainPage]="true"></app-section-main> -->
+<app-breadcrumb></app-breadcrumb>
+<app-hero-section></app-hero-section>
+<app-section-compareprices class="compare" [comparePricesText]="comparePricesText"></app-section-compareprices>
+<!-- <app-section-bestprices [data_]="pricesData" [lastUpdate]="lastUpdate"
+    [LandingPage]="LandingPage"></app-section-bestprices> -->
+<app-best-price></app-best-price>
+<app-section-why></app-section-why>
+<app-fuel-consumption *ngIf="enableComponent" [townData]="pageDetails" [isState]="false"
+    [weatherHistory]="WeatherHistory" [isLandingPage]="true"></app-fuel-consumption>
+<app-oil-delivery-overview *ngIf="oilDeliverydata" [isState]="false" [oilDeliverydata]="oilDeliverydata"
+    [isLandingPage]="true"></app-oil-delivery-overview>
+<app-section-faqs [faqsContentTown]="faqsContentTown"></app-section-faqs>
+<app-heating-oil-locations [topTowns]="topTowns" [topCounties]="topCounties"></app-heating-oil-locations>

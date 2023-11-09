@@ -1,0 +1,45 @@
+@import "../variables";
+@import "../mixins";
+
+@include global-css;
+
+.direct-heat {
+  padding: 8rem 0rem 0rem 0rem;
+  background-color: #43c3f6;
+  text-align: center;
+}
+
+.direct-heat h1 {
+  padding: 2rem 0rem 8rem 0rem;
+  font-family: font-bold;
+  font-style: normal;
+  font-size: 26px;
+  color: #000;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.direct-heat img {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.content {
+  width: $width-lg;
+  margin: 10rem auto;
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 768px) {
+  .content {
+    width: $width-sm;
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 992px) {
+  .content {
+    width: $width-md;
+  }
+}
+

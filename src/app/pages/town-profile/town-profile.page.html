@@ -1,0 +1,165 @@
+<div     #div class="scrollable">
+<!-- <app-header-client></app-header-client> -->
+<app-section-main
+  [townData]="enableImg"
+  [enableTown]="enableTown"
+  [city]="townDetails?.city"
+  [state]="townDetails?.state_id"
+  [zipFetched]="townZip"
+  [loaded]="loading"
+  [townImageUrl]="townImage_url"
+  [titleTagTown]="townDetails?.title"
+  [altTagTown]="townDetails?.alt"
+  [logoUrls]="logoUrls"
+  [logoUrls_loaded]="logoUrls_loaded"
+  [breadcrumbs]="breadcrumbs_"
+  [ctaText]="ctaText"
+  [infoCheckBox]="infoCheckBox"
+  [bsAltLine]="bsAltLine"
+></app-section-main>
+<app-section-compareprices
+  [townData]="enableImg"
+  [comparePricesText]="comparePricesText"
+  [city]="townDetails?.city"
+  [LowValue]="LowValue"
+  [MaxValue]="MaxValue"
+></app-section-compareprices>
+<app-town-historic-chart
+  (oncomponentdataoutpu)="DataOutputEv($event)"
+  (townAverage)="townAv($event)"
+  [townData]="townZip"
+  [city]="townDetails?.city"
+  [state]="townDetails?.state_id"
+  [loaded]="loadChart"
+  *ngIf="!config.mobile_view && !disableChart && config.typeParam == 'subType=2'"
+></app-town-historic-chart>
+
+<app-oil-companies
+  *ngIf="townCompanies_Arr && townCompanies_Arr.length > 0"
+  [townCompanies_Arr]="townCompanies_Arr"
+  [townCompanies]="townCompanies"
+  [showMore]="showMore"
+  [showLess]="showLess"
+  [city]="townDetails?.city"
+  [state]="townDetails?.state_id"
+  [areaServed]="areaServed_"
+  (selectedZip)="selectedZip($event)"
+></app-oil-companies>
+<div
+  class="container-main-in"
+  *ngIf="otherTownImages.length > 3 && otherTownImages && fullserviceCompany.length"
+>
+  <img
+    class="bg-img in"
+    [srcset]="otherTownImages_Click('4')"
+    [alt]="get_otherTownImages(3).alt"
+    [title]="get_otherTownImages(3).title"
+    height="100%"
+    width="x100%"
+    loading="lazy"
+  />
+</div>
+<app-section-why
+  [townData]="enableImg"
+  [city]="townDetails?.city"
+></app-section-why>
+<app-section-why2
+  [townData]="enableImg"
+  [city]="townDetails?.city"
+  [state]="townDetails?.state_name"
+  *ngIf="config.typeParam != 'subType=3'"
+></app-section-why2>
+<app-subscription *ngIf="config.typeParam != 'subType=2'"></app-subscription>
+<div
+  class="container-main-in"
+  *ngIf="config.mobile_view && townImage_url"
+>
+  <img
+    class="bg-img"
+    [srcset]="srcSetConfig"
+    title="{{townDetails?.title}}"
+    alt="{{townDetails?.alt}}"
+    loading="lazy"
+  />
+</div>
+<app-delivery-map
+  *ngIf="townDetails?.service_image_url"
+  [service_image_url]="townDetails?.service_image_url"
+  [service_alt]="townDetails?.service_alt"
+  [service_title]="townDetails?.service_title"
+></app-delivery-map>
+<div
+  class="container-main-in"
+  *ngIf="otherTownImages.length > 1 && otherTownImages"
+>
+  <img
+    class="bg-img in"
+    [srcset]="otherTownImages_Click('2')"
+    [alt]="get_otherTownImages(1).alt"
+    [title]="get_otherTownImages(1).title"
+    height="100%"
+    width="x100%"
+    loading="lazy"
+  />
+</div>
+<app-section-faqs
+  [townData]="enableImg"
+  [city]="townDetails?.city"
+  [faqsContentTown]="faqsContentTown"
+  *ngIf="faqsContentTown && faqsContentTown.length > 0"
+></app-section-faqs>
+<div
+  class="container-main-in"
+  *ngIf="otherTownImages.length > 2 && otherTownImages"
+>
+  <img
+    class="bg-img in"
+    [srcset]="otherTownImages_Click('3')"
+    [alt]="get_otherTownImages(2).alt"
+    [title]="get_otherTownImages(2).title"
+    height="100%"
+    width="x100%"
+    loading="lazy"
+  />
+</div>
+<div class="outer-container faqs-content" *ngIf="townDescription">
+  <div>
+    <div>
+      <div *ngFor="let desc of townDescription">
+        <div class="col-title" style="text-align: left">
+          <p class="txt-title general">{{desc.header}}</p>
+        </div>
+        <div class="content container">
+          <p class="desc">{{desc.description_Body}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-fuel-comparison
+  *ngIf="showComponent && config.typeParam == 'type=1'"
+  [townData]="townDetails"
+></app-fuel-comparison>
+<app-fuel-consumption
+  *ngIf="enableComponent && config.typeParam == 'subType=3'"
+  [townData]="townDetails"
+  [weatherHistory]="townWeatherHistory"
+></app-fuel-consumption>
+<app-oil-price-details
+  *ngIf="config.typeParam == 'subType=2' && heatingOilPricesData"
+  [isState]="false"
+  [heatingOilPricesData]="heatingOilPricesData"
+></app-oil-price-details>
+<app-oil-company-guide
+  *ngIf="config.typeParam == 'subType=1' && townDetails && pageView"
+  [oilCompaniesData]="oilCompaniesData"
+  [townPage]="townPage"
+></app-oil-company-guide>
+<app-oil-delivery-overview
+  *ngIf="config.typeParam == 'subType=3' && townDetails"
+  [isTown]="true"
+  [oilDeliverydata]="oilDeliverydata"
+></app-oil-delivery-overview>
+<app-section-near [nearestTowns]="nearestTowns"></app-section-near>
+<!-- <app-section-footer></app-section-footer> -->
+</div>

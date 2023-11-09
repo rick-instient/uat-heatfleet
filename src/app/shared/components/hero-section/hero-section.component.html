@@ -1,0 +1,111 @@
+<div class="hero-section">
+    <img *ngIf="!isBackgroundImageLoading" class="hero-img" [srcset]="backgroundImage | imageResize" width="100%" height="100%" [alt]="backgroundImageAlt" [title]="backgroundImageAlt">
+    <div class="hero-main">
+        <div class="hero-left">
+            <div class="hero-left-main">
+                <div *ngIf="isInfoLoading" class="skeleton-box" style="width: 100%; height: 60px; margin-bottom: 20px;">
+                </div>
+                <h1 *ngIf="!isInfoLoading" class="hero-left-title">{{ctaText}}</h1>
+                <div class="zip-code-search">
+                    <div class="delivery-input">
+                        <div class="input-icon">
+                            <img src="/assets/icons/dark-location.svg" alt="Location icon" title="Location icon"/>
+                        </div>
+                        <div class="input">
+                            <label for="DeliveryZip">Delivery ZIP</label>
+                            <input type="text" id="DeliveryZip" maxlength="5" (blur)="appendZip()" [(ngModel)]="townZip" 
+                            (keydown)="preventAlphabets($event)" (focus)="clearZip()">
+                        </div>
+                    </div>
+                    <div class="quantity-input">
+                        <div class="input-icon">
+                            <img src="/assets/icons/quantity.svg" alt="Quantity icon" title="Quantity icon"/>
+                        </div>
+                        <div class="input">
+                            <label for="Quantity">Quantity</label>
+                            <input type="text" id="Quantity" maxlength="5" (blur)="appendGal()" [(ngModel)]="quantity"
+                                (keydown)="preventAlphabets($event)" (focus)="clearQuantity()">
+                        </div>
+                    </div>
+                </div>
+                <div class="search-button" (click)="checkZipCode()">
+                    <button> <img class="search-icon" src="/assets/icons/Search.svg" alt="Search icon" title="Search icon"/>
+                        SEARCH</button>
+                </div>
+                <div class="company-logos">
+                    <div *ngIf="isLogoLoading" class="skeleton-box"
+                        style="width: 100%; height: 60px; margin-top: 20px;"></div>
+                    <ng-container *ngIf="!isLogoLoading">
+                        <div class="logo" *ngFor="let logo of logoUrls">
+                            <img [src]="logo" alt="Oil Provider" title="Oil Provider" width="40px" height="40px">
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="hero-right-main">
+                <div *ngIf="isInfoLoading" class="skeleton-box" style="width: 100%; height: 30px;"></div>
+                <h2 class="hero-right-title">{{infoHeader}}</h2>
+                <div *ngIf="isInfoLoading" class="skeleton-box" style="width: 100%; height: 18px; margin-top: 10px;">
+                </div>
+                <div *ngIf="isInfoLoading" class="skeleton-box" style="width: 100%; height: 18px; margin-top: 10px;">
+                </div>
+                <div *ngIf="isInfoLoading" class="skeleton-box" style="width: 100%; height: 18px; margin-top: 10px;">
+                </div>
+                <div *ngIf="isInfoLoading" class="skeleton-box" style="width: 100%; height: 18px; margin-top: 10px;">
+                </div>
+                <div class="hero-bullet-point" *ngFor="let info of infoCheckBox.checkPoints">
+                    <img src="/assets/icons/Check.svg" alt="checkmark icon" title="checkmark icon"/>
+                    <p class="hero-bullet-points">{{info}}</p>
+                </div>
+                <div *ngIf="sharedService.isHomePage" class="paypal-text">
+                    <div class="paypal-text-left">
+                        <img src="/assets/icons/5t-Paypal-Logo.svg" alt="Logo of PayPal" title="Logo of PayPal" />
+                    </div>
+                    <div class="paypal-text-right">
+                        <p>Pay Later</p>
+                        <p>4 interest free payments with</p>
+                        <img src="/assets/icons/26-Paypal-Pay-Later.svg" alt="PayLater with PayPal"
+                            title="PayLater with PayPal" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-corner">
+        <div class="hero-corner-left"></div>
+        <div class="hero-corner-right"></div>
+    </div>
+</div>
+
+<div class="top-serch-bar" *ngIf="showTopBar">
+    <div class="top-serch-bar-main">
+        <img src="/assets/icons/01-Heatfleet.svg" width="100%" height="100%" class="top-serch-bar-img" alt="Heatfleet" title="Heatfleet"/>
+        <div class="zip-code-search" style="margin: 0; width: 70%;">
+            <div class="delivery-input">
+                <div class="input-icon">
+                    <img src="/assets/icons/dark-location.svg" alt="Location icon" title="Location icon"/>
+                </div>
+                <div class="input">
+                    <p>Delivery ZIP</p>
+                    <input type="text" maxlength="5" [(ngModel)]="townZip" (keydown)="preventAlphabets($event)">
+                </div>
+            </div>
+            <div class="quantity-input">
+                <div class="input-icon">
+                    <img src="/assets/icons/quantity.svg" alt="Quantity icon" title="Quantity icon"/>
+                </div>
+                <div class="input">
+                    <p>Quantity</p>
+                    <input type="text" maxlength="5" (blur)="appendGal()" [(ngModel)]="quantity"
+                        (keydown)="preventAlphabets($event)" (focus)="clearQuantity()">
+                </div>
+            </div>
+        </div>
+        <div class="search-button" (click)="checkZipCode()" style="width: 15%;">
+            <button> <img class="search-icon" src="/assets/icons/Search.svg" alt="Search icon" title="Search icon"/></button>
+        </div>
+    </div>
+
+</div>

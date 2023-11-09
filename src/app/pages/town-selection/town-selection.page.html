@@ -1,0 +1,44 @@
+<!-- <app-header-client id="topSection"></app-header-client> -->
+
+<div class="bd-ct" *ngIf="breadcrumbs">
+    <div class="col-12 bread">
+      <ul class="breadcrumb">
+        <ng-container *ngFor="let breadcrumb of breadcrumbs; let last = last">
+          <li>
+            <ng-container *ngIf="!last">
+              <a href="{{ breadcrumb.url }}" (click)="navigateUrl($event, breadcrumb.url)">{{ breadcrumb.label }}</a>
+            </ng-container>
+            <ng-container *ngIf="last">
+              <a class="dark">{{ breadcrumb.label }}</a>
+            </ng-container>
+          </li>
+        </ng-container>
+      </ul>
+      <div class="breadcrumb-div-2">
+        <p class="cheapest">{{ bsAltLine }}</p>
+      </div>
+    </div>
+</div>
+
+<div class="outer-container faqs-content">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-heading">
+            <div class="content">
+                <h1 class="text-title">{{ tagName }}</h1>
+            </div>
+            <div class="content" *ngFor="let n of townList">
+                <p class="town-alphabet">{{ n.alphabetName }}</p>
+                <a
+                    class="state"
+                    *ngFor="let p of n.data"
+                    [href]="goToCompanyPage(p, null, null)"
+                    (click)="goToCompanyPage(p, $event, true)"
+                  >
+                    {{ p.townName }}, {{ p.stateId }}
+                </a>
+            </div>              
+        </div>          
+    </div>
+</div>
+  
+<!-- <app-section-footer></app-section-footer> -->

@@ -1,0 +1,26 @@
+.breadCrumbs {
+    div {
+        display: flex;
+        align-items: center;
+
+        a {
+            display: block;
+            padding: 10px;
+        }
+
+        div {
+            span {
+                vertical-align: middle;
+                margin: auto;
+
+                svg {
+                    width: 13px;
+                }
+            }
+
+            &:last-child a{
+                color: black;
+            }
+        }
+    }
+}

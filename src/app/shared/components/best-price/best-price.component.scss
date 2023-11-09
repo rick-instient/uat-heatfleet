@@ -1,0 +1,87 @@
+.best-price-main {
+    padding-left: 10%;
+    padding-right: 10%;
+    max-width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.best-price h3 {
+    font-weight: var(--font-bold-extra-large);
+    font-size: var(--font-size-extra-large);
+    text-align: center;
+    font-family: var(--bold-font);
+    margin: 10px 0px 10px 0px;
+}
+
+.best-price-table {
+    width: 100%;
+    margin: 15px 0px 40px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.best-price-main button {
+    padding: 10px 20px 10px 20px;
+}
+
+td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+p {
+    margin: 0;
+}
+
+button {
+    height: fit-content;
+}
+
+.table-left {
+    width: 100%;
+    margin-right: 10px;
+}
+
+.table-right {
+    width: 100%;
+    margin-left: 10px;
+}
+
+@media (max-width: 991px) {
+    .best-price-table {
+        flex-direction: column;
+        margin: 15px 10px 40px 10px;
+    }
+
+    .table-right,
+    .table-left {
+        margin: 0;
+        width: 75%;
+    }
+}
+
+@media (max-width: 425px) {
+
+    .table-right,
+    .table-left {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .best-price-main {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    td p {
+        width: 117px;
+    }
+}

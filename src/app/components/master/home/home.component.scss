@@ -1,0 +1,23 @@
+.show-more-500 {
+    display: block;
+}
+
+@media (max-width: 500px) {
+    .show-more-500 {
+        display: none;
+    }
+}
+
+
+@media (min-width: 1024px) {
+
+    app-section-why {
+        display: none;
+    }
+
+}
+
+.container-overflow {
+    max-width: 100vw;
+    overflow: hidden;
+}

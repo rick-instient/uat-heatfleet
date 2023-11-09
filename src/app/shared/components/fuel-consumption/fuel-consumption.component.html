@@ -1,0 +1,49 @@
+<div class="outer-container faqs-content" *ngIf="townData && weatherHistory">
+  <div>
+    <div class="col-title" style="text-align: center">
+      <h3 class="txt-title" *ngIf="isLandingPage || isState">{{townData?.city}} Heating Oil Trends</h3>
+      <h3 class="txt-title" *ngIf="!isLandingPage && !isState">{{townData?.city}}, {{townData?.state_id}} Heating Oil Trends</h3>
+    </div>
+  </div>
+  <div class="mainrow">
+    <div> 
+      <div class="first">
+        <div class="inner-col" style="text-align: left">
+          <p class="comparison-desc">Last year, <span *ngIf="!isLandingPage">{{townData?.city}}’s </span>homeowners purchased a total of {{lastYearConsumption}} gallons of <span *ngIf="!isLandingPage">heating oil. </span><span *ngIf="isLandingPage">heating oil in America. </span><span *ngIf="!isState && !isLandingPage">Out of the {{townData.state_total}} towns in {{townData.state_name}}, {{townData?.city}} ranks {{townData.stateConsumptionRank}}</span><sup class="supertxt" *ngIf="!isState && !isLandingPage">{{stateConsumptionRankSupertxt}} </sup><span *ngIf="!isState && !isLandingPage">for home heating oil consumption.</span></p>
+          <p class="comparison-desc" *ngIf="!isState && !isLandingPage">Country-wide, {{townData?.city}} ranks {{townData.nationalConsumptionRank}}<sup class="supertxt">{{nationalConsumptionRankSupertxt}} </sup>out of {{townData.national_total}} towns in America for heating oil consumption.</p>
+        </div>
+      </div>
+      <div class="secondary">
+        <div class="inner-col" style="text-align: left">
+          <h3 class="comparison-header">Short Term Trends</h3>
+          <p class="comparison-desc"> <span *ngIf="!isLandingPage">{{townData?.city}}’s overall </span><span *ngIf="isLandingPage">Overall </span>heating oil use varies from year to year, primarily depending on how cold each winter is. As the temperature outside gets colder, homes’ heating systems need to burn more and more oil to keep homes warm. 
+            Last winter in {{townData?.city}}, the average outside temperature was <span *ngIf="isWarm">{{winterTemperatureDifference}} degrees warmer </span><span *ngIf="!isWarm">{{winterTemperatureDifference}} degrees colder </span>than the prior winter's average outside temperature.
+          </p>
+          <p class="comparison-desc table-txt">{{townData?.city}}’s Average Winter Temperature</p>
+        </div>
+      </div>
+      <div class="secondary table">
+        <div class="inner-col" size="12" size-sm="12" size-md="12" size-lg="12" size-xs="12">   
+          <table *ngIf="weatherHistory">
+            <thead> 
+              <tr>
+                <th class="tb">Heating Season</th>
+                <th class="tb">Average Temperature</th> 
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="tb">
+                <td>{{weatherHistory[1]?.date}}</td>
+                <td>{{weatherHistory[1]?.averageTemp.toFixed(1)}}&deg; F</td>
+              </tr>
+              <tr class="tb">
+                <td>{{weatherHistory[0]?.date}}</td>
+                <td>{{weatherHistory[0]?.averageTemp.toFixed(1)}}&deg; F</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

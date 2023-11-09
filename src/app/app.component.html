@@ -1,0 +1,4 @@
+<div style="max-width: 2000px; position: relative;" class="router" (click)="closeMenu()">
+    <app-popup [ngClass]="sharedService.showPopup ? 'show-item' : 'hide-item'"></app-popup>
+    <router-outlet></router-outlet>
+</div>

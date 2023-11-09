@@ -1,0 +1,36 @@
+<div class="outer-container faqs-content">
+  <div>
+    <div class="col-title">
+      <h3 class="txt-title">{{oilCompaniesData?.location}} Homeowner’s Guide to Selecting an Oil Company</h3>
+    </div>
+  </div>
+  <div>
+    <div> 
+      <p class="comparison-desc">
+        For {{oilCompaniesData?.location}} homeowners heating with oil, selecting which of the {{oilCompaniesData?.numberOfCompanies}} heating oil companies that serve {{oilCompaniesData?.location}} is an important decision.</p>
+      <p class="comparison-desc"> <span class="numbers">Full Service Oil Companies: </span>Homeowners willing to pay a premium for a “set-it-and-forget-it” 
+        heating system choose one of the {{oilCompaniesData?.numberOfFullServiceCompanies}} “full-service” oil companies that serve {{oilCompaniesData?.location}}. <span class="cd" *ngIf="oilCompaniesData?.exampleFullServiceCompany && oilCompaniesData?.exampleFullServiceCompany[1]">
+          Full service companies such as 
+          {{oilCompaniesData?.exampleFullServiceCompany[0]}} or {{oilCompaniesData?.exampleFullServiceCompany[1]}} offer automatic fuel delivery and furnace repair under a single roof.</span>
+      </p>
+      <p class="comparison-desc"> <span class="numbers">Discount Oil Companies: </span>Also known by the names “COD Fuel Companies” or “Cash Heating Oil Companies,” these companies are for the budget-conscious
+        {{oilCompaniesData?.location}} homeowner. In return for better prices, you monitor the oil level in your tank and place an order when you run low on oil. Examples of cash
+        heating oil companies that serve {{oilCompaniesData?.location}} <span class="cd" *ngIf="oilCompaniesData?.exampleDiscountCompany && oilCompaniesData?.exampleDiscountCompany[1]">include {{oilCompaniesData?.exampleDiscountCompany[0]}} and {{oilCompaniesData?.exampleDiscountCompany[1]}}.</span>
+      </p>
+    </div>
+  </div>
+  <div>
+    <div> 
+      <h3 class="comparison-header">{{oilCompaniesData?.location}} Heating Oil Company Fast Facts</h3>
+    </div>
+  </div>
+  <div>
+    <div> 
+      <p class="comparison-desc" *ngIf="oilCompaniesData?.numberOfCompanies">Heating Oil Companies Serving {{oilCompaniesData?.location}}: <span class="numbers">{{oilCompaniesData?.numberOfCompanies}}</span></p>
+      <p class="comparison-desc" *ngIf="oilCompaniesData?.numberOfCompaniesHeadquarteredInLocation && townPage">Heating Oil Companies Headquartered In {{oilCompaniesData?.location}}: <span class="numbers">{{oilCompaniesData?.numberOfCompaniesHeadquarteredInLocation}}</span></p>
+      <p class="comparison-desc" *ngIf="oilCompaniesData?.averageDistance && townPage">Average Distance From Oil Company to {{oilCompaniesData?.location}}: <span class="numbers">{{oilCompaniesData?.averageDistance}} </span>miles</p>
+      <p class="comparison-desc" *ngIf="oilCompaniesData?.averageNumberOfHomes">Average Number Of {{oilCompaniesData?.location}} Homes Served Per Company: <span class="numbers">{{oilCompaniesData?.averageNumberOfHomes.toLocaleString('en-US')}} </span>homes</p>
+      <p class="comparison-desc" *ngIf="oilCompaniesData?.averageGallonsDelivered">Average Gallons Delivered per {{oilCompaniesData?.location}} Oil Company: <span class="numbers">{{oilCompaniesData?.averageGallonsDelivered.toLocaleString('en-US')}} </span>gallons per year</p>
+    </div>
+  </div>
+</div>

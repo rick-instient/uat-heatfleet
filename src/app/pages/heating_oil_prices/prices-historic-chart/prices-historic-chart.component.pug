@@ -1,0 +1,69 @@
+.outer-container.pricehart
+    ion-row.txt-top-row
+      ion-col.col-left(size='6', size-md='6', size-lg='6')
+          ion-row
+            ion-col.col-single
+              h3.txtno1 US Average 
+                span.mn(*ngIf="config.typeParam == 'type=1'") Heating Oil 
+                span.mn(*ngIf="config.typeParam == 'type=2'") Heating Repair 
+                span.mn(*ngIf="config.typeParam == 'subType=1'") Oil Company 
+                span.mn(*ngIf="config.typeParam == 'subType=2'") Heating Oil Price 
+                span.mn(*ngIf="config.typeParam == 'subType=3'") Oil Delivery 
+                | Chart
+              p.subtextno1
+                | Updated {{lastUpdate}} 
+                //- | {{fromDate}} - {{toDate}}
+            //- span.locationname Hingam, MA
+          //- ion-row
+          //-   ion-col.col-single
+          //-     p.subtextno1
+          //-       | 100 gallon order
+          //- span.highlight Bronxville (10709)
+      ion-col.col-right(size='6', size-md='6', size-lg='6')
+          .boxes
+            .boxflex
+                .iconcontainer
+                    img.iconaligned(src='https://media-cdn.heatfleet.com/aa-US-Heating-OIl-Delivery-Map.webp?tr=w-49,h-30',  title="US Heating OIl Delivery Map", alt="Service Area Map For US Heating Oil Delivery" fetchpriority="high")
+                .txtcontainer
+                    p.txt-gray US Average
+                    .txtalgned
+                      ion-label.line1.sup
+                      | <sup class="dollor-symbol">$</sup>{{ Avprice | number: &quot;1.3-3&quot; | priceDigit
+                      | }}
+
+                      sup.txtpricelastdigit
+                        | {{
+                        | Avprice | number: &quot;1.3-3&quot; | lastDigit
+                        | }}
+                      //- span.dollartxt $
+                      //- p.price-txt 4.96
+                      //- span.powerxtxt 9
+                //- .boxflex.dark
+                //-     .iconcontainer.dark
+                //-         img.iconaligned(src='../../../assets/images/us-icon.svg')
+                //-     .txtcontainer
+                //-         p.txt-gray Average
+                //-         .txtalgned
+                //-           span.dollartxt $
+                //-           p.price-txt 4.47
+                //-           span.powerxtxt 9
+    #histroical-price-chart-price
+    //- (*ngIf="config.typeURL == 'heating_oil/'")
+    //- #histroical-price-chart-0(*ngIf="config.typeParam == 'subType=2'")
+    //- #histroical-price-chart-1(*ngIf="config.onlyLanding")
+
+.bottom-container
+  ion-row.row-cu-end
+    ion-col.col-cls(size='12', size-md='12', size-lg='6')
+
+      .sub-box
+        p.txt-subscription
+          span.txt-mobiletxt
+            | Subscribe to deals and price alerts
+
+          //- span.txt-sub-sp
+          //-   | deals and price updates to your inbox
+    ion-col.col-cls(size='12', size-md='12', size-lg='6')
+      .sub-input([formGroup]="emailForm")
+        input.inp-bx(placeholder='me@email.com',  formControlName="email" style="border-top-right-radius: 0px;border-bottom-right-radius: 0px;")
+        button.btn-subscribe((click)="contact()" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;") Subscribe

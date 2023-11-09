@@ -1,0 +1,64 @@
+@import "../../variables";
+@import "../../mixins";
+
+@include global-css;
+
+.containerMain {
+    padding: 8rem 0rem 0rem 0rem;
+    background-color: #43c3f6;
+    text-align: center;
+}
+
+.containerMain h1 {
+    padding: 2rem 0rem 8rem 0rem;
+    font-style: normal;
+    font-size: 26px;
+    color: #000;
+    font-weight: 600;
+}
+
+.containerMain img {
+    width: 20%;
+    margin: 0 auto;
+}
+
+.content {
+    width: $width-lg;
+    margin: 20px auto;
+
+    @media (max-width: 992px) {
+        width: $width-lg;
+    }
+
+    @media (max-width: 768px) {
+        width: $width-md;
+    }
+
+    .contentInner {
+        padding: 10px;
+
+        .details {
+            img {
+                width: 100%;
+                object-fit: scale-down;
+            }
+        }
+
+        .flex-center-w50 {
+            display: flex;
+
+            div {
+                width: 50%;
+
+                @media (max-width: 992px) {
+                    width: 100%;
+                }
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                }
+            }
+        }
+
+    }
+}

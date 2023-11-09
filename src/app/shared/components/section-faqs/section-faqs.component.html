@@ -1,0 +1,51 @@
+<div class="outer-container faqs-content">
+  <div class="row">
+    <div class="col">
+      <h3 class="txt-title" *ngIf="!townData">Frequently Asked Questions</h3>
+      <h3 class="txt-title" *ngIf="townData">
+        {{city}}
+        <span class="mn" *ngIf="config.typeParam == 'type=1'">Heating Oil</span>
+        <span class="mn" *ngIf="config.typeParam == 'subType=1'">Oil Company</span>
+        <span class="mn" *ngIf="config.typeParam == 'subType=2'">Heating Oil Price</span>
+        <span class="mn" *ngIf="config.typeParam == 'subType=3'">Oil Delivery</span>
+        <span class="mn" *ngIf="config.typeParam == 'type=2'">Heating Repair</span>
+         FAQs
+      </h3>
+    </div>
+  </div>
+
+  <div class="row second-row" *ngIf="!townData">
+    <div class="col-12 col-md-6 col-lg-6" *ngFor="let n of config.faqsContent" >
+      <div class="container-innr left">
+        <div class="accordion-wrapper ld">
+          <div class="accordion ld">
+            <label class="accordion-label ld" for="check11" (click)="enable(n)">{{n.question}}</label><img class="arrow-rght" src="https://media-cdn.heatfleet.com/right-arrow.svg" alt="right arrow" title="right arrow" *ngIf="!n.checked" (click)="enable(n)"/><img class="arrow-down" src="https://media-cdn.heatfleet.com/down.svg" alt="right arrow" title="right arrow" *ngIf="n.checked" (click)="enable(n)"/>
+            <div class="accordion-content ans" [ngClass]="{'checked': n.checked}">
+              <p class="p_content" [innerHTML]="n.answer"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row second-row" *ngIf="townData">
+    <div class="col-12 col-md-6 col-lg-6" *ngFor="let n of faqsContentTown">
+      <div class="container-innr left">
+        <div class="accordion-wrapper">
+          <div class="accordion-c">
+            <div class="label-faqs">
+              <!-- <img src="https://media-cdn.heatfleet.com/information-vector-icon.webp" class="info-icon" alt="info icon" title="info icon"> -->
+              <img src="../../../../assets/icons/information-vector-icon.webp" class="info-icon" alt="info icon" title="info icon">
+              <label class="accordion-label tw">{{n.question}}</label>
+            </div>
+            <div class="accordion-content tw">
+              <p class="p_content tw" [innerHTML]="n.answer"></p>
+            </div>
+          </div>
+        </div>
+      </div>      
+    </div>
+  </div>
+  
+</div>

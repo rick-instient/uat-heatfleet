@@ -1,0 +1,29 @@
+// TODO: Set this routes perfactly without matcher
+StateSelectionPageModule
+
+StateProfilePageModule
+
+TownProfilePageModule
+
+CompanyProfilePageModule
+
+CountiesSelectionPageModule
+
+TownSelectionPageModule
+
+// My personal task
+    recheck meta tags
+    loading="lazy" image lazyload recheck
+
+// Attention: If you working any component remove all unnecessary code comments, for code backup we already have in dev branch
+
+
+// need to rewrite
+    About-us
+        TODO: remove unwanted css
+                remove extra component make it on single one (do not do unnecessary destructure, reduce boilerplates)
+                use https://purifycss.online/ for remove unuse css
+                reduce css, If possible rewrite HTML structure 
+
+
+            

@@ -1,0 +1,86 @@
+<div class="bd-ct" *ngIf="breadcrumbs">
+    <div class="col-12 bread">
+        <ul class="breadcrumb">
+            <ng-container *ngFor="let breadcrumb of breadcrumbs;let last = last;">
+                <li>
+                    <a [href]="breadcrumb.url" *ngIf="!last"
+                        (click)="navigateUrl($event, breadcrumb.url)">{{breadcrumb.label |
+                        titlecase}}</a><a class="dark" *ngIf="last">{{breadcrumb.label | titlecase}}</a>
+                </li>
+            </ng-container>
+        </ul>
+        <div class="breadcrumb-div-2">
+            <p class="cheapest">{{bsAltLine}}</p>
+        </div>
+    </div>
+</div>
+<div class="desktop-container" *ngIf="counties">
+    <div class="container-fluid container-lg">
+        <h1 class="title-main">
+            Search
+            <span class="hf" *ngIf="config.typeParam == 'type=1'">Heating Oil </span><span class="hf"
+                *ngIf="config.typeParam == 'subType=1'">Oil Companies </span><span class="hf"
+                *ngIf="config.typeParam == 'subType=2'">Heating Oil Prices </span><span class="hf"
+                *ngIf="config.typeParam == 'subType=3'">Oil Delivery </span><span class="hf"
+                *ngIf="config.typeParam == 'type=2'">Heating Repair </span>By County
+        </h1>
+        <div class="imgContainer">
+            <div class="" *ngFor="let county of counties; let index = index">
+                <div class="card" (click)="navigateState(county, $event)">
+                    <div class="card_image">
+                        <img class="im" [srcset]="county.imageURL + '?tr=w-350'" (error)="updateDefault(county)"
+                            *ngIf="!county.defaultImage && index <= 10" [alt]="county.alt" [title]="county.title" />
+                        <img class="im" appLazyLoad [attr.data-src]="county.imageURL + '?tr=w-350'"
+                            (error)="updateDefault(county)" *ngIf="!county.defaultImage && index > 10"
+                            [alt]="county.alt" [title]="county.title" />
+                        <img class="flag" *ngIf="county.defaultImage" [srcset]="defaultImgUrl + '?tr=w-300'"
+                            alt="image of gray house" title="image of gray house" loading="lazy" />
+                    </div>
+                    <div class="card-txt">
+                        <a class="state_name" [href]="getUrl(county)" (click)="navigateState(county, $event)">
+                            <h2 class="county_name">
+                                <span class="capitalize">{{county.countyName}} County, {{county.state}} </span><span
+                                    class="hf" *ngIf="config.typeParam == 'type=1'">Heating Oil</span><span class="hf"
+                                    *ngIf="config.typeParam == 'subType=1'">Heating Oil Companies</span><span class="hf"
+                                    *ngIf="config.typeParam == 'subType=2'">Heating Oil Prices</span><span class="hf"
+                                    *ngIf="config.typeParam == 'subType=3'">Oil Delivery </span><span class="hf"
+                                    *ngIf="config.typeParam == 'type=2'">Heating Repair</span>
+                            </h2>
+                        </a>
+                        <p class="total-company-txt" *ngIf="config.typeParam == 'subType=2' &amp;&amp; county.minPrice">
+                            Prices Range from ${{county.minPrice.toFixed(2)}} -
+                            ${{county.maxPrice.toFixed(2)}}
+                        </p>
+                        <p class="total-company-txt" *ngIf="config.typeParam != 'subType=2'">
+                            <span class="company-numbers">{{county.totalCompanies}} </span><span class="hf"
+                                *ngIf="config.typeParam == 'type=1'">Heating Oil </span><span class="hf"
+                                *ngIf="config.typeParam == 'subType=1' &amp;&amp; county.totalCompanies == 1">Heating
+                                Oil
+                                Company</span><span class="hf"
+                                *ngIf="config.typeParam == 'subType=1' &amp;&amp; county.totalCompanies &gt; 1">Oil
+                                Companies</span><span class="hf" *ngIf="config.typeParam == 'subType=3'">Oil Delivery
+                                Provider</span><span class="hf" *ngIf="config.typeParam == 'type=2'">Heating Repair
+                            </span>
+                        </p>
+                        <p class="cash-companies"
+                            *ngIf="county.discountCompanies &gt;= 1 &amp;&amp; config.typeParam != 'subType=2'">
+                            <span class="company-numbers">{{county.discountCompanies}} </span><span class="hf"
+                                *ngIf="config.typeParam == 'type=1'">Discount Heating Oil </span><span class="hf"
+                                *ngIf="config.typeParam == 'subType=1' &amp;&amp; county.discountCompanies == 1">Discount
+                                Heating Oil
+                                Company</span><span class="hf"
+                                *ngIf="config.typeParam == 'subType=1' &amp;&amp; county.discountCompanies &gt; 1">Discount
+                                Oil
+                                Companies</span><span class="hf" *ngIf="config.typeParam == 'subType=3'">Discount Oil
+                                Delivery
+                                Provider</span><span class="hf" *ngIf="config.typeParam == 'type=2'">Discount Heating
+                                Repair
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-heating-oil-locations [topTowns]="topTowns" [topCounties]="topCounties"></app-heating-oil-locations>

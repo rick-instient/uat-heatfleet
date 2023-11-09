@@ -1,0 +1,44 @@
+<div class="outer-container faqs-content" *ngIf="oilDeliverydata">
+  <div>
+    <div class="col-title">
+      <h3 class="txt-title"> <span class="txt-title" *ngIf="!isLandingPage">{{oilDeliverydata?.location}} </span>Heating Oil Delivery Overview</h3>
+    </div>
+  </div>
+  <div>
+    <div> 
+      <p class="comparison-desc">
+        {{oilDeliverydata?.numberHeatingHouseholds.toLocaleString('en-US')}} households in {{oilDeliverydata?.location}} heat their homes with fuel oil. This makes oil delivery essential when <span *ngIf="!isLandingPage">{{oilDeliverydata?.location}} </span>thermometers drop as low as {{oilDeliverydata?.LowAnnualTemp}} each winter.</p>
+      <p class="comparison-desc center first" style="text-align: center">{{oilDeliverydata?.heatingOilHouseholdsPercentage}}% of <span *ngIf="!isLandingPage">{{oilDeliverydata?.location}} </span>Households Rely On Heating Oil Delivery Each Winter</p>
+      <table class="center">
+        <thead> 
+          <tr> 
+            <th class="tb" *ngIf="!isLandingPage">{{oilDeliverydata?.location}} Households</th>
+            <th class="tb" *ngIf="!isLandingPage">{{oilDeliverydata?.location}} Heating Oil Households</th> 
+            <th class="tb" *ngIf="isLandingPage">Total Households</th>
+            <th class="tb" *ngIf="isLandingPage">Total Heating Oil Households</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tb">
+            <td>{{oilDeliverydata?.totalHousehold.toLocaleString('en-US')}}</td>
+            <td>{{oilDeliverydata?.numberHeatingHouseholds.toLocaleString('en-US')}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div>
+    <div class="col-title" style="text-align: left">
+      <h3 class="comparison-header">{{oilDeliverydata?.numberOfHeatingOilCompanies.toLocaleString('en-US')}} <span class="comparison-header" *ngIf="!isLandingPage">{{oilDeliverydata?.location}} </span>Oil Companies Go the Distance</h3>
+    </div>
+  </div>
+  <div>
+    <div> 
+      <p class="comparison-desc">
+        With {{oilDeliverydata?.totalConsumption}} gallons of heating oil delivered to <span *ngIf="!isLandingPage">{{oilDeliverydata?.location}} </span>homeowners during the winter of {{lastYear}}, 
+        the <span *ngIf="!isLandingPage">{{oilDeliverydata?.location}} </span>community relies on its {{oilDeliverydata?.numberOfHeatingOilCompanies.toLocaleString('en-US')}} oil companies to keep warm.
+      </p>
+      <p class="comparison-desc">Oil delivery is a two step process: First, an oil truck picks up oil at the nearest bulk fuel terminal. <span *ngIf="!isLandingPage">In the case of {{oilDeliverydata?.location}}, two of the closest terminals are {{oilDeliverydata?.closestTerminal1st}} in {{oilDeliverydata?.closestTerminalTown}} and {{oilDeliverydata?.closestTerminal2nd}} in {{oilDeliverydata?.closestTerminalTown2}}. </span>Then, the truck delivers the #2 heating oil to homes and businesses in {{oilDeliverydata?.location}}.</p>
+    </div>
+  </div>
+</div>

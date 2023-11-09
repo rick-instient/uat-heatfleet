@@ -1,0 +1,307 @@
+<div id="sectionTop"></div>
+<div class="contact_wrapper pb-5">
+    <div class="outer-container content">
+        <div class="row">
+            <div class="content-left">
+                <h1 class="page__title heatfleet">Contact</h1>
+                <h2 class="contact_desc">
+                    If you&rsquo;re a homeowner or if you&rsquo;re a fuel dealer, get in
+                    touch! We love meeting our clients and providers.
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 content-left">
+                <div class="contact_card__wrap social">
+                    <div class="row pt-4 gy-4">
+                        <div class="col-lg-6">
+                            <div class="contact_card__single h-100">
+                                <ul class="contact__list">
+                                    <li>
+                                        E-Mail:
+                                        <a href="mailto:support@heatfleet.com">support@heatfleet.com</a>
+                                    </li>
+                                    <li>
+                                        Phone:
+                                        <a href="tel:2032910777">(203) 291 – 0777</a>
+                                    </li>
+                                    <li>
+                                        Text Message:
+                                        <a href="sms:2032910777">(203) 291 – 0777</a>
+                                    </li>
+                                </ul>
+                                <div class="social-media-row">
+                                    <div class="content-social-media">
+                                        <img src="https://media-cdn.heatfleet.com/95-Instagram-Logo-Heat-Fleet-Blue.svg"
+                                            class="img-logo-social only" title="Instagram Logo Heat Fleet Blue"
+                                            alt="Instagram logo painted in Heat Fleet blue color" loading="lazy" />
+                                    </div>
+                                    <div class="content-social-media">
+                                        <img src="https://media-cdn.heatfleet.com/3w-Facebook-Logo-Heat-Fleet-Blue.svg"
+                                            class="img-logo-social only" title="Facebook Logo Heat Fleet Blue"
+                                            alt="Facebook logo painted in Heat Fleet blue color" loading="lazy" />
+                                    </div>
+                                    <div class="content-social-media">
+                                        <img src="https://media-cdn.heatfleet.com/m7-Twitter-Logo-Heat-Fleet-Blue.svg"
+                                            class="img-logo-social only" title="Twitter Logo Heat Fleet Blue"
+                                            alt="Twitter logo painted in Heat Fleet blue color" loading="lazy" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="txtmedium feature">Feature Requests</h3>
+                    <p class="feature-text">
+                        Heat Fleet's development team is passionate about providing the most
+                        efficient and effective apps for homeowners to buy heating oil, and
+                        for fuel dealers to sell heating oil. If you have a suggestion for a
+                        new feature, or how we can enhance an existing feature, we'd love to
+                        hear it. Please contact us directly at
+                        <a href="mailto:development@heatfleet.com">development@heatfleet.com</a>.
+                    </p>
+                </div>
+                <div class="contact_map__wrapper mt-4 d-block d-lg-none">
+                    <div class="px-lg-4 hours">
+                        <h3 class="txtmedium">Hours</h3>
+                        <h3 class="txt">Monday-Friday 8:00am – 6:00pm</h3>
+                    </div>
+                    <div class="contact_map__wrapper address-left">
+                        <h3 class="title-med">Address</h3>
+                        <div class="containRegion">
+                            <p class="text-side">
+                                4651 Salisbury Road<br />Jacksonville, FL 32256<br />Phone:
+                                (203) 291 – 0777<br />E-Mail: support@heatfleet.com
+                            </p>
+                            <div class="contact__map mt-4">
+                                <div class="mapouter">
+                                    <div class="gmap_canvas">
+                                        <iframe
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3446.541619644679!2d-81.59111298523436!3d30.25014551578163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e5ca0eebe30dc5%3A0x6709b36e45154e94!2s4651%20Salisbury%20Rd%2C%20Jacksonville%2C%20FL%2032256%2C%20USA!5e0!3m2!1sen!2sin!4v1662750572130!5m2!1sen!2sin"
+                                            frameborder="0" title="Jacksonville map" allowfullscreen=""
+                                            loading="lazy"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact_form__wrapper mt-4">
+                    <h3 class="form__title">Send us a message</h3>
+
+                    <form #contactUsForm="ngForm" (ngSubmit)="contactFormSubmit(contactUsForm)">
+                        <!-- name input fiels -->
+                        <div class="single_input__group mt-18 name">
+                            <label for="name" class="required">Name</label>
+                            <input id="name" name="name" type="text" class="form-control" required ngModel />
+                            <div
+                                *ngIf="contactUsForm.form.controls['name']?.touched">
+                                <span class="error" *ngIf="contactUsForm.form.controls['name'].errors?.['required']">
+                                    Name is required
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- iam a: -->
+                        <div class="single_input__group mt-18">
+                            <label for="iam" class="required">I am a:</label>
+                            <div class="d-flex gap-2 flex-wrap"></div>
+                            <div class="radio-buttons">
+                                <div class="radio-item">
+                                    <input type="radio" value="HomeOwner" id="homeOwnerRadio" name="iam" required ngModel />
+                                    <label for="homeOwnerRadio">Homeowner</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" value="OilDealer" id="oilDealerRadio" name="iam" required ngModel />
+                                    <label for="oilDealerRadio">Oil Dealer</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" value="HVACServiceProvide" id="hvacServiceRadio" name="iam"
+                                        required ngModel />
+                                    <label for="hvacServiceRadio">HVAC Service Provider</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- how u like to be contacted -->
+                        <div class="single_input__group mt-18">
+                            <label for="contact" class="required">How would you like to be contacted?</label>
+                            <div class="d-flex gap-2 flex-wrap radio-buttons">
+                                <div class="radio-item">
+                                    <input type="radio" value="Phone" id="phoneRadio" name="contact" required ngModel />
+                                    <label for="phoneRadio">Phone</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" value="Email" id="emailRadio" name="contact" required ngModel />
+                                    <label for="emailRadio">Email</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" value="TextMessage" id="textMessageRadio" name="contact"
+                                        required ngModel />
+                                    <label for="textMessageRadio">Text Message</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact details -->
+
+                        <!-- Phone or TextMessage -->
+                        <div class="single_input__group mt-18" *ngIf="contactUsForm.value.contact == 'Phone'||
+                            contactUsForm.value.contact == 'TextMessage' ">
+                            <label for="phoneNumber" class="required">Phone Number:</label>
+                            <input name="phoneNumber" id="phoneNumber" type="tel" placeholder="Enter Phone Number"
+                                inputmode="tel" autocomplete="tel" pattern="[0-9]{8,10}" required ngModel
+                            />
+
+                            <div *ngIf="contactUsForm.form.controls['phoneNumber']?.touched">
+
+                                <span *ngIf="contactUsForm.form.controls['phoneNumber'].errors?.['required']" class="error">Phone number is required</span>
+
+                                <span *ngIf="contactUsForm.form.controls['phoneNumber'].errors?.['pattern']" class="error">Invalid phone number (8-10 digits) required.</span>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="single_input__group mt-18" *ngIf="contactUsForm.value.contact =='Email'">
+                            <label for="email" class="required">Email:</label>
+                            <input name="email" id="email" type="text" placeholder="me@email.com"
+                                [pattern]="PURE_EMAIL_REGEXP" required ngModel />
+                            <div
+                                *ngIf="contactUsForm.form.controls['email']?.touched">
+
+                                <span *ngIf="contactUsForm.form.controls['email'].errors?.['required']" class="error">Email is required</span>
+
+                                <span *ngIf="contactUsForm.form.controls['email'].errors?.['pattern']" class="error">Enter valid Email Address</span>
+                            </div>
+                        </div>
+
+                        <!-- Question -->
+                        <div class="single_input__group mt-18">
+                            <label for="msg" class="required">Question:</label>
+                            <textarea id="msg" name="msg" cols="30" rows="6"
+                                aria-label="Question" required ngModel></textarea>
+                            <div *ngIf="contactUsForm.form.controls['msg']?.touched">
+                                <span class="error" *ngIf="contactUsForm.form.controls['msg'].errors?.['required']">
+                                    Question is required
+                                </span>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit" [disabled]="!contactUsForm.form.valid">SEND</button>
+                        <!-- <button type="submit" class="btn-submit mt-4">Submit</button> -->
+                        <div *ngIf="contactUsForm?.dirty">
+                            <span class="success__msg" *ngIf="contactUsForm?.invalid">Please fill out all the required fields</span>
+                        </div>
+                    </form>
+                    <!-- <form [formGroup]="contactForm">
+                        <div class="single_input__group mt-18 name">
+                            <label for="name" class="required">Name</label>
+                            <input id="name" formControlName="name" type="text" class="form-control" />
+                            <div class="error"
+                                *ngIf="contactForm.get('name').touched && contactForm.get('name').hasError('required')">
+                                {{ errorMessages.name[0].message }}
+                            </div>
+                        </div>
+
+                        <div class="single_input__group mt-18">
+                            <label for="iam" class="required">I am a:</label>
+                            <div class="d-flex gap-2 flex-wrap"></div>
+                            <div class="radio-buttons">
+                                <div class="radio-item">
+                                    <input type="radio" value="HomeOwner" id="homeOwnerRadio" name="iam" required />
+                                    <label for="homeOwnerRadio">Homeowner</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" value="OilDealer" id="oilDealerRadio" name="iam" required />
+                                    <label for="oilDealerRadio">Oil Dealer</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" value="HVACServiceProvide" id="hvacServiceRadio" name="iam"
+                                        required />
+                                    <label for="hvacServiceRadio">HVAC Service Provider</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_input__group mt-18">
+                            <label for="contact" class="required">How would you like to be contacted?</label>
+                            <div class="d-flex gap-2 flex-wrap radio-buttons">
+                                <div class="radio-item">
+                                    <input type="radio" formControlName="contact" [value]="'Phone'" id="phoneRadio"
+                                        name="contact" required />
+                                    <label for="phoneRadio">Phone</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" formControlName="contact" [value]="'Email'" id="emailRadio"
+                                        name="contact" required />
+                                    <label for="emailRadio">Email</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" formControlName="contact" [value]="'TextMessage'"
+                                        id="textMessageRadio" name="contact" required />
+                                    <label for="textMessageRadio">Text Message</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_input__group mt-18" *ngIf="isPhoneOrTextMessage()">
+                            <label for="phoneNumber" class="required">Phone Number:</label>
+                            <input name="phoneNumber" id="phoneNumber" formControlName="phoneNumber" type="tel"
+                                placeholder="Enter Phone Number" inputmode="tel" autocomplete="tel"
+                                (keypress)="keyPressNumbers($event)" />
+                            <div class="error"
+                                *ngIf="contactForm.get('phoneNumber').touched && contactForm.get('phoneNumber').hasError('invalidPhoneNumber')">
+                                Invalid phone number (8-10 digits) required.
+                            </div>
+                        </div>
+                        <div class="single_input__group mt-18" *ngIf="contactForm.get('contact').value === 'Email'">
+                            <label for="email" class="required">Email:</label>
+                            <input name="email" id="email" formControlName="email" type="text"
+                                placeholder="me@email.com" />
+                            <div class="error"
+                                *ngIf="contactForm.get('email').touched && contactForm.get('email').hasError('pattern')">
+                                {{ errorMessages.email[0].message }}
+                            </div>
+                        </div>
+                        <div class="single_input__group mt-18">
+                            <label for="msg" class="required">Question:</label>
+                            <textarea id="msg" name="msg" formControlName="question" cols="30" rows="6"
+                                aria-label="Question"></textarea>
+                            <div class="error"
+                                *ngIf="contactForm.get('question').touched && contactForm.get('question').hasError('required')">
+                                {{ errorMessages.question[0].message }}
+                            </div>
+                        </div>
+                        <button class="btn-submit mt-4" (click)="contactSubmit()">Send</button>
+                        <span class="success__msg" *ngIf="validName">Please fill out all the required fields</span>
+                        <span class="success__msg" *ngIf="messageSent">Message sent successfully!</span>
+                    </form> -->
+                </div>
+            </div>
+            <div class="col-lg-4 d-none d-lg-block content-right">
+                <div class="px-lg-4 hours-side">
+                    <h3 class="txtmedium">Hours</h3>
+                    <h3 class="txt">Monday-Friday 8:00am – 6:00pm</h3>
+                </div>
+                <div class="contact_map__wrapper right">
+                    <h3 class="title-med">Address</h3>
+                    <div class="containRegion">
+                        <p class="text-side">
+                            4651 Salisbury Road<br />
+                            Jacksonville, FL 32256<br />
+                            Phone: (203) 291 – 0777<br />
+                            E-Mail: support@heatfleet.com
+                        </p>
+                        <div class="contact__map mt-4">
+                            <div class="mapouter">
+                                <div class="gmap_canvas">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3446.541619644679!2d-81.59111298523436!3d30.25014551578163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e5ca0eebe30dc5%3A0x6709b36e45154e94!2s4651%20Salisbury%20Rd%2C%20Jacksonville%2C%20FL%2032256%2C%20USA!5e0!3m2!1sen!2sin!4v1662750572130"
+                                        title="Jacksonville map"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

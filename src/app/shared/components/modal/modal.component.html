@@ -1,0 +1,84 @@
+<div class="modal-background">
+    <div class="modal-content">
+      <!-- Modal content goes here -->
+      <h2 *ngIf="!isLoading">{{ modalTitle }}</h2>
+
+      <div class="suspicious" *ngIf="suspiciousModal && !config.zipSearchModal">
+
+        <div class="form-layout">
+            <div class="form-wrapper">
+              <div class="header-section">Dear Homeowner,</div>
+              <div class="message-line">We notice that you have searched for companies in 6 different Towns recently. In order to prevent automated website bots from extracting data from our website, we limit users to viewing companies from 6 Towns. If you would like to search for additional Town, please contact us at support@heatfleet.com.</div>
+              <div class="item-line text-last">
+                <p>Thank you for your understanding.</p>
+              </div>
+              <div class="item-line text-last">
+                <p>The Heat Fleet Team</p>
+              </div>
+              <div class="item-line text">
+                <p>UserIP: {{ip}}</p>
+              </div>
+              <div class="item-line text zip"> 
+                <p class="town-searched">Towns Searched: {{zipCode1}}</p>
+              </div>
+              <div class="item-line standalone-button">
+                <!-- <button class="save" (click)="modalRef.hide()">Okay</button> -->
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+      <div class="modal-message"  *ngIf="!suspiciousModal && !config.zipSearchModal">
+        <p>{{ modalMessage }}</p>
+      </div>
+
+      <div class="zip-search-container" *ngIf="config.zipSearchModal && !isLoading">
+        <div class="search-container">
+          <img src="https://media-cdn.heatfleet.com/01-Heatfleet.svg" title="Heatfleet" alt="Heatfleet" fetchpriority="high" class="imglogo">
+          <div class="input-container">
+            <label class="label-white-row">Delivery ZIP</label>
+            <div class="input-wrapper">
+              <img src="/assets/icons/dark-location.svg" alt="Location icon" title="Search Location" fetchpriority="high" class="sc-loc-icn">
+              <input type="text" class="zip-input" [value]="selectedZip" [(ngModel)]="selectedZip" (keypress)="checkZipLength()">
+            </div>
+          </div>
+          <button class="zip-search-btn" (click)="searchDeal()"><img src="/assets/icons/Search.svg" alt="Search icon" title="Search icon" fetchpriority="high" class="sc-search-icn" ></button>
+        </div>
+
+        <div class="radio-container">
+          <label *ngFor="let zips of areaServed.slice(0, 5)" class="radio-label">
+            <input type="radio" name="zip" [value]="zips.postalCode" [(ngModel)]="selectedZip"><span>{{zips.postalCode}}</span>
+          </label>
+        </div>
+      </div>
+      <div *ngIf="isLoading" class="loader">
+        <img src="/assets/zip-search-loading.gif" alt="zip-search-loader">
+      </div>
+      
+
+      <div class="dialog-container" *ngIf="NotifyZipDialog">
+        <div class="content">
+          <div class="header-section">
+            <h3 class="header-section" *ngIf="isValidUSZip && !maxQuantity">Coming Soon</h3>
+            <h3 class="header-section" *ngIf="!isValidUSZip && !maxQuantity">Invalid ZIP Code</h3>
+            <h3 class="header-section" *ngIf="maxQuantity">Bulk Order</h3>
+      
+          </div>
+          <div class="form-layout">
+            <div class="form-wrapper">
+              <p class="message-line" *ngIf="maxQuantity">Please call our bulk order desk at <a class="phone" href="tel:2032910777">(203) 291 &ndash; 0777</a> to arrange a custom discount.</p>
+              <p class="message-line" *ngIf="!isValidUSZip && !maxQuantity">Please enter a valid ZIP code.</p>
+              <p class="message-line" *ngIf="isValidUSZip && !maxQuantity">Heat Fleet hasn’t made it to {{city}}, yet. Please enter your e-mail address, and we’ll notify you when we launch in your area.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <button *ngIf="!isLoading"  (click)="closeModal()" style="margin-bottom: 5px;">Close</button>
+    </div>
+</div>
+
+<app-toaster *ngIf="ViewToast"></app-toaster>

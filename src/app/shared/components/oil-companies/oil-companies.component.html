@@ -1,0 +1,226 @@
+<div class="outer-container faqs-content">
+  <div>
+    <div class="col-title" style="text-align: center">
+      <h3 class="txt-title" *ngIf="config.typeParam == 'type=1'">
+        Heating Oil in {{ city }}, {{ state }}
+      </h3>
+      <h3 class="txt-title" *ngIf="config.typeParam == 'subType=1'">
+        Top 10 Heating Oil Companies in {{ city }}, {{ state }}
+      </h3>
+      <h3 class="txt-title" *ngIf="config.typeParam == 'subType=2'">
+        Oil Prices in {{ city }}, {{ state }}
+      </h3>
+      <h3 class="txt-title" *ngIf="config.typeParam == 'subType=3'">
+        Heating Oil Delivery in {{ city }}, {{ state }}
+      </h3>
+      <h3 class="txt-title" *ngIf="config.typeParam == 'type=2'">
+        Heating Repair in {{ city }}, {{ state }}
+      </h3>
+    </div>
+  </div>
+  <div class="mainrow">
+    <div size="12" size-sm="12" size-md="12" size-lg="12" size-xs="12">
+      <table>
+        <thead>
+          <tr
+            *ngIf="
+              config.typeParam == 'type=1' || config.typeParam == 'subType=1'
+            "
+          >
+            <th class="tb l">Company Name</th>
+            <th class="tb" *ngIf="config.typeParam == 'type=1'">
+              Heating Oil Delivery
+            </th>
+            <th class="tb" *ngIf="config.typeParam == 'type=1'">
+              Boiler & Furnace Repair
+            </th>
+          </tr>
+          <tr *ngIf="config.typeParam == 'subType=2'">
+            <th class="tb l">Heating Oil Company</th>
+            <th class="tb l">Oil Price Per Gallon</th>
+            <th class="tb">Cash Discount</th>
+            <th class="tb">Volume Discount</th>
+          </tr>
+          <tr *ngIf="config.typeParam == 'subType=3'">
+            <th class="tb l">Company</th>
+            <th class="tb">Based in</th>
+            <th class="tb">Heating Repair Available</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tb" *ngFor="let n of townCompanies_Arr_">
+
+            <td>
+            <a
+              class="link"
+              [href]="navigateCompany(null, n, null)"
+              (click)="navigateCompany($event, n, true)"
+              >{{ n.companyName }}</a
+            >
+          </td>
+          
+            <td class="center b" *ngIf="config.typeParam == 'type=1'">Yes</td>
+            <td class="center b" *ngIf="config.typeParam == 'type=1'">
+              <span class="txt-b" *ngIf="n.isFullService">Yes</span
+              ><span class="txt-b" *ngIf="!n.isFullService">No</span>
+            </td>
+            <td
+              class="center"
+              *ngIf="config.typeParam == 'subType=2' && n.price"
+            >
+              {{ n.price  | number : '1.2-2'}}
+            </td>
+            <td
+              class="center"
+              *ngIf="config.typeParam == 'subType=2' && !n.price"
+            >
+              Call for price
+            </td>
+            <td class="center b" *ngIf="config.typeParam == 'subType=2'">
+              <span class="txt-b" *ngIf="n.price">Yes</span
+              ><span class="txt-b" *ngIf="!n.price">No</span>
+            </td>
+            <td class="center b" *ngIf="config.typeParam == 'subType=2'">
+              <span class="txt-b" *ngIf="n.price">Yes</span
+              ><span class="txt-b" *ngIf="!n.price">No</span>
+            </td>
+            <td class="center" *ngIf="config.typeParam == 'subType=3'">
+              {{ n.townName }}
+            </td>
+            <td class="center b" *ngIf="config.typeParam == 'subType=3'">
+              <span class="txt-b" *ngIf="n.isFullService">Yes</span
+              ><span class="txt-b" *ngIf="!n.isFullService">No</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button
+        class="common-buttton load"
+        *ngIf="showMore || showLess"
+        (click)="toggleClick()"
+      >
+        <p class="txt-btn" *ngIf="showMore">
+          See all {{ townCompanies.length }} Oil Companies Serving {{ city }}
+        </p>
+        <p class="txt-btn" *ngIf="showLess">show less</p>
+      </button>
+    </div>
+  </div>
+</div>
+
+<app-modal
+  [modalTitle]="'Find deals for:'"
+  [modalMessage]="townCompanies"
+  *ngIf="modalView"
+  (closeModalEvent)="closeModel()"
+  [areaServed]="areaServed"
+></app-modal>
+
+<!-- <div #template class="modal fade" *ngIf="modalView">
+  <div class="modal-dialog">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Find deals for:</h4>
+    <button
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="closeModel()"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="whitewindow" id="container">
+      <div class="header-section"></div>
+      <div class="form-container items">
+        <div class="white-row desktop scrollme">
+          <div class="aligner-1">
+            <img
+              class="imglogo scroll"
+              src="/assets/icons/01-Heatfleet.svg"
+              title="Heatfleet"
+              alt="Heatfleet"
+              fetchpriority="high"
+            />
+            <div
+              class="inputs scrollcontainer add"
+              [ngClass]="{ EnableLoggedInUser: config.EnableLoggedInUser }"
+            >
+              <div class="inp scrolldown"></div>
+              <div class="location-icon png">
+                <img
+                  class="sc-loc-icn"
+                  src="/assets/icons/dark-location.svg"
+                  alt="Location icon"
+                  title="Search Location"
+                  fetchpriority="high"
+                />
+              </div>
+              <div class="inp scrolldown">
+                <label class="label-white-row">Delivery ZIP</label>
+                <ion-input
+                  class="cus-white-inp"
+                  [(ngModel)]="zipCodeInput"
+                  inputmode="tel"
+                  type="text"
+                  aria-label="zipCodeInput"
+                  max="5"
+                  maxlength="5"
+                  (input)="find($any($event.target).value)"
+                  (click)="clearInput()"
+                ></ion-input>
+              </div>
+            </div>
+          </div>
+          <div class="aligner-2">
+            <div class="btn scrolldown" size="2.9">
+              <button
+                class="common-button scrolldown small"
+                (click)="findDeal()"
+              >
+                <img
+                  class="sc-search-icn scroll"
+                  src="/assets/icons/Search.svg"
+                  alt="Search icon"
+                  title="Search icon"
+                  fetchpriority="high"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+        <fieldset>
+          <div class="radio-group" *ngFor="let item of townCompanies">
+            <div class="row radio" (click)="presentPopupDifferentZip(item)">
+              <div class="col-md-2 address-bar rdio" size="2">
+                <div class="radio-bx">
+                  <input
+                    type="radio"
+                    class="radiobtn"
+                    [value]="item.postalCode"
+                    [(ngModel)]="item.postalCode"
+                    [checked]="selected_form_Id"
+                  />
+                </div>
+              </div>
+              <div class="col-md-9 address-bar" size="9">
+                <div class="itemsalign">
+                  <p class="para" *ngIf="item.postalCode">
+                    {{ item.postalCode }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="closeModel()">
+      Close
+    </button>
+  </div>
+</div>
+</div> -->

@@ -1,0 +1,103 @@
+@import "../variables";
+@import "../mixins";
+
+@include global-css;
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+h2 {
+  margin-top: 1rem;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+.heading-container {
+  width: 100%;
+  background-color: #43c3f6;
+}
+.title {
+  padding: 10px;
+  @extend heading-title;
+}
+
+.title,
+.content {
+  width: $width-lg;
+  margin: 0 auto;
+  padding: 10px 0px;
+}
+
+.content h2 {
+  text-align: start;
+  margin-left: 0px;
+}
+
+.companies-container,
+.discount-container,
+.tank-container {
+  display: flex;
+}
+.tank-container {
+  gap: 30px;
+}
+.discount-container {
+  flex-direction: row-reverse;
+  margin-top: 2rem;
+}
+
+.companies-container div,
+.discount-container div {
+  width: 50%;
+}
+
+.companies-container div img,
+.discount-container div {
+  margin-left: 1.5rem;
+}
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 768px) {
+  .content,
+  .title {
+    width: $width-sm;
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 992px) {
+  .content,
+  .title {
+    width: $width-md;
+  }
+
+  .companies-container,
+  .discount-container,
+  .tank-container {
+    display: block;
+  }
+
+  .companies-container div,
+  .discount-container div {
+    width: 100%;
+  }
+
+  .companies-container div img,
+  .discount-container div img {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .discount-container div {
+    margin: 0rem;
+  }
+}

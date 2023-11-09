@@ -1,0 +1,124 @@
+<div class="outer-container footer-content">
+    <div class="row main-row">
+        <div class="col-sm-12 col-md-4 col-lg-4">
+            <div class="inner-container logo">
+                <div class="logo_">
+                    <p class="poweredBy" *ngIf="companyName">Powered by</p>
+                    <img class="logo" src="/assets/icons/9m-Heat-Fleet-Heating-Oil-Logo.svg"
+                        style="height: 35px; width: 165px" title="Heat Fleet Heating Oil Footer"
+                        alt="Heat Fleet Best Price Heating Oil Logo" fetchpriority="high" />
+                </div>
+
+
+                <div class="text_in">
+                    <p class="txt-line">&copy; Davos Energy LLC 2022</p>
+                    <p class="txt-line btm">All Rights Reserved</p>
+                    <p class="txt-line btmbtm">CT Online Marketplace Reg#0001286 14</p>
+                </div>
+                <!-- <div class="social_">
+            <img class="img-logo-social only" src="https://media-cdn.heatfleet.com/95-Instagram-Logo-Heat-Fleet-Blue.svg" title="Instagram Logo Heat Fleet Blue" alt="Instagram logo painted in Heat Fleet blue color">
+            <img class="img-logo-social only" src="https://media-cdn.heatfleet.com/3w-Facebook-Logo-Heat-Fleet-Blue.svg" title="Facebook Logo Heat Fleet Blue" alt="Facebook logo painted in Heat Fleet blue color">
+            <img class="img-logo-social only" src="https://media-cdn.heatfleet.com/m7-Twitter-Logo-Heat-Fleet-Blue.svg" title="Twitter Logo Heat Fleet Blue" alt="Twitter logo painted in Heat Fleet blue color">
+          </div> -->
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-8 col-lg-8">
+            <div class="container-inner secon">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-3 col-sc">
+                        <div class="heading-point">
+                            <a href="/heating_oil.html" class="heading"> Heating Oil </a>
+                        </div>
+                        <div class="link-point container">
+                            <div class="lp-link">
+                             
+                <a href="/oil_companies.html"  (click)="navigateTo($event, 'oil_companies')" class="txt-link"> Oil Companies </a>
+                <a href="/heating_oil_prices.html"  (click)="navigateTo($event, 'heating_oil_prices')" class="txt-link"> Oil Prices </a>
+                <a href="/oil_delivery.html"  (click)="navigateTo($event, 'oil_delivery')" class="txt-link"> Oil Delivery </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3 col-sc heatfleet">
+                        <div class="heading-point quicklinks">Heat Fleet</div>
+                        <div class="link-point container">
+                            <div class="lp-link">
+                                <a class="txt-link" [href]="URLS.PAGE_ABOUT_US"
+                                    (click)="navigateTo($event, 'aboutheatfleet')">About</a>
+                                <a class="txt-link" [href]="URLS.PAGE_CONTACT"
+                                    (click)="navigateTo($event, 'contact')">Contact</a>
+                                <a class="txt-link" [href]="URLS.PAGE_FAQS"
+                                    (click)="navigateTo($event, 'faqs')">FAQs</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3 col-sc dealers">
+                        <div class="heading-point dealers">For Dealers</div>
+                        <div class="link-point container">
+                            <div class="lp-link">
+                                <p class="txt-link" (click)="navigateTo($event, 'learnabout')">
+                                    Request listing info
+                                </p>
+                                <p class="txt-link" (click)="navigateTo($event, 'loginvendor')">
+                                    Dealer log in
+                                </p>
+                                <a class="txt-link" [href]="URLS.PAGE_CONTACT"
+                                    (click)="navigateTo($event, 'contact')">Dealer contact</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3 col-sc dealers">
+                        <div class="heading-point contacttxt">Contact</div>
+                        <div class="link-point container">
+                            <div class="lp-link">
+                                <p class="txt-link email">
+                                    <a href="mailto:support@heatfleet.com">
+                                        support@heatfleet.com
+                                    </a>
+                                </p>
+                                <a class="phone" href="tel:2032910777">(203) 291 – 0777</a>
+                                <p class="txt-lnk small add">Davos Energy LLC</p>
+                                <p class="txt-lnk btm add">4651 Salisbury Rd.</p>
+                                <p class="txt-lnk btmbtm add">Jacksonville, FL 32256</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-12 col-sc" *ngIf="companyName">
+                        <div class="heading-point contacttxt">{{ companyName }}</div>
+                        <div class="link-point container">
+                            <div class="lp-link">
+                                <!-- <a
+                    class="txt-link"
+                    [href]="URLS.TERMS_CONDITIONS"
+                    (click)="navigateTo($event, 'about')"
+                  >
+                    About {{ companyName }}
+                  </a> -->
+                                <!-- <a
+                    class="txt-link"
+                    [href]="URLS.TERMS_CONDITIONS"
+                    (click)="navigateTo($event, 'contact')"
+                  >
+                    Contact
+                  </a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-element">
+        <p class="footer-txt">
+            By using our site/apps, you confirm you've read, understood, and agreed to
+            our
+            <a class="link" [href]="URLS.TERMS_CONDITIONS" (click)="navigateTo($event, 'terms')">Terms and
+                Conditions</a>
+            &amp;
+            <a class="link" [href]="URLS.PRIVACY_POLICY" (click)="navigateTo($event, 'policy')">Privacy Policy</a>
+            . Per gallon fuel prices reflect tax-exempt delivery. Except for recording
+            details of orders that You have already placed, copying Provider
+            information from the Services, either manually or automatically, is
+            strictly prohibited.
+        </p>
+    </div>
+</div>

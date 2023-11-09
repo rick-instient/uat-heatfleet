@@ -1,0 +1,116 @@
+@import "variables";
+@import "mixins";
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap');
+// Regular 400 // Medium 500 // SemiBold 600 // Bold 700 // ExtraBold 800
+@import url('https://fonts.googleapis.com/css2?family=HK-Grotesk:wght@300;400;500;600;700;800;900&display=swap');
+//Light 300 //Regular 400 //Medium 500 //SemiBold 600 //Bold 700 //ExtraBold 800 //Black 900
+
+@include global-css;
+
+
+.mainContainer {
+  background: $secondary-bg-color;
+
+  .heading {
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+    padding: 50px 0px;
+    width: $width-lg;
+
+    @media (max-width: 992px) {
+      width: $width-lg;
+    }
+
+    @media (max-width: 768px) {
+      width: $width-md;
+    }
+
+    .titleContainer {
+      margin-bottom: 20px;
+      @extend heading-title;
+    }
+
+    .buttonContainer {
+      @include col-3-grid;
+
+      a {
+        @include homepage-subcategory-button;
+        font-size: 19px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+        cursor: pointer;
+        line-height: 2.2rem;
+        width: 100%;
+        height: 59.2px;
+        padding: 10px;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.middleContainer {
+
+  .middleInnerContainer {
+    margin: 0px auto;
+    padding: 50px 0px;
+    width: $width-lg;
+
+    @media (max-width: 992px) {
+      width: $width-lg;
+    }
+
+    @media (max-width: 768px) {
+      width: $width-md;
+    }
+
+    .cardContainer {
+      @include col-3-grid;
+    }
+
+    .cardTemplate {
+      border-radius: 6px;
+      border: 1px solid darken($secondary-bg-color, 15);
+      background: $secondary-bg-color;
+
+      img {
+        border-radius: 6px 6px 0px 0px;
+        width: 100%;
+      }
+
+      .cardDetails {
+        padding: 15px;
+
+        a:first-child {
+          display: block;
+          text-decoration: none;
+          color: black;
+          font-weight: bold;
+          font-size: 1.2rem;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        div {
+          margin: 0px 15px;
+        }
+
+        a {
+          margin: 0px 15px;
+        }
+      }
+    }
+
+    .cardTemplate:hover {
+      img {
+        filter: brightness(40%);
+      }
+    }
+  }
+
+
+}

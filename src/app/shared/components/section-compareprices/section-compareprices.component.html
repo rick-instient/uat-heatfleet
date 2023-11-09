@@ -1,0 +1,27 @@
+<div class="outer-container compareprices-content">
+  <div class="row">
+    <div class="col cp">
+      <!-- <h2 class="txt-title" *ngIf="townData && comparePricesText">
+        {{ comparePricesText }}
+      </h2> -->
+      <!-- <h2 class="txt-title" *ngIf="townData && !comparePricesText">
+        Compare 
+        <span class="highlight_">{{city}}</span> 
+        <span class="mn" *ngIf="config.typeParam == 'type=1'">heating oil</span> 
+        <span class="mn" *ngIf="config.typeComp == 'type=2'">heating repair</span> 
+        prices 
+        <span class="from" *ngIf="LowValue">from ${{LowValue}} - ${{MaxValue}}, instantly.</span>
+      </h2> -->
+
+      <h2 class="txt-title" *ngIf="comparePricesText">
+        {{ comparePricesText }}
+      </h2>
+      <h2 class="txt-title" *ngIf="!townData && !comparePricesText">
+        Price-compare
+        <!-- <span class="highlight_">500+</span>  -->
+        <span class="highlight_"> 500+ oil companies</span>
+        and save.
+      </h2>
+    </div>
+  </div>
+</div>

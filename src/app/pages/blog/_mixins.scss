@@ -1,0 +1,61 @@
+@mixin global-css {
+    * {
+        box-sizing: border-box;
+        line-height: 1.5;
+    }
+
+    h2 {
+        font-size: 30px;
+        font-weight: 900;
+    }
+
+    h3 {
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 39px;
+    }
+
+    hr {
+        border: 1px solid #43c3f6;
+    }
+
+    a {
+        color: #0404bc;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    a:hover {
+        color: #158fdf;
+    }
+
+    p {
+        text-align: justify;
+    }
+}
+
+@mixin homepage-subcategory-button {
+    font-family: $font-family;
+    background: $btn-bg-color;
+    color: $btn-color;
+    border-radius: $btn-radius;
+    padding: $btn-padding;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin col-3-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    gap: 20px;
+
+    @media only screen and (max-width: 1200px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media only screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}

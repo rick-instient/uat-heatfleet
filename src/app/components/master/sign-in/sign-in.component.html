@@ -1,0 +1,119 @@
+<div class="container-centered" id="container-outer">
+    <div class="whitewindow" id="container">
+        <div class="header-section">
+            <div class="header-section-wrapper">
+                <div class="header-section-icon">
+
+                </div>
+                <h1 class="header-section-title">Sign In</h1>
+            </div>
+        </div>
+        <div class="form-layout">
+            <div class="form-wrapper">
+                <form #loginForm="ngForm" novalidate="">
+                    <div class="loginStepEmail" *ngIf="loginStepEmail">
+                        <div class="emailValidError">
+                            <p class="error-text" *ngIf="email_not_exists">We do not have {{email_entered}} on file.
+                                Please enter an
+                                alternate e-mail address.</p>
+                        </div>
+                        <div class="item-label">
+                            <div position="stacked" color="primary">E-mail Address</div>
+                        </div>
+                        <div class="item-line" [class.error-input]="!username.valid && submitted">
+                            <input [(ngModel)]="login.username" aria-label="Email Address"
+                                (keyup.enter)="CheckAutoPassword()" name="username" type="email"
+                                pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" #username="ngModel"
+                                spellcheck="false" autocapitalize="off" required="">
+                        </div>
+                        <div class="item-line error-label" [hidden]="username.valid || submitted == false">
+                            <div>E-mail Address required</div>
+                        </div>
+                        <div class="error" *ngIf="invalidEmail">
+                            <p class="error-msg">Please enter a valid email.</p>
+                        </div>
+                        <div class="item-line standalone-button">
+                            <button class="save" (click)="CheckAutoPassword()" expand="block">
+                                <p class="txt-btn">Continue with email</p>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="loginStepPassword" *ngIf="loginStepPassword && !onlyVerificaionLink">
+                        <p class="enterpassword">Enter your password for {{login.username}}</p>
+                        <div class="item-label">
+                            <div class="row double-item">
+                                <div class="col-md-6 item-col">
+                                    <div position="stacked" color="primary">Password</div>
+                                </div>
+                                <div class="col-md-6 item-col item-col-right">
+                                    <p class="label-link" (click)="onForgotPw()">Reset password</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-line">
+                            <input [(ngModel)]="login.password" name="password"
+                                type="{{showPassword ? 'text':'password'}}" id="hideShow" #password="ngModel"
+                                required="" (keyup.enter)="onLogin()">
+                        </div>
+                        <div class="password-check">
+                            <input type="checkbox" name="showPassword" [(ngModel)]="showPassword" />
+                            <label for="showPassword">Show Password</label>
+                        </div>
+                        <div class="item-line error-label" [hidden]="password.valid || submitted == false">
+                            <div>Incorrect password</div>
+                        </div>
+                        <!-- <div class="item-label">
+                <div class="double-items">
+                  <div class="item-col">
+                    <input class="show-password-checkbox" (click)="showPassword(hideShow)" [checked]="showPassChecked_signin">
+                    <div class="show-password" position="stacked" color="primary" (click)="showPassword(hideShow)">Show Password </div>
+                  </div>
+                </div>
+              </div> -->
+                        <div class="item-line standalone-button">
+                            <button class="save" (click)="onLogin()" type="submit" expand="block">
+                                <p class="txt-btn">Login</p>
+                            </button>
+                        </div>
+                        <p class="ortext">or</p>
+                        <div class="item-line standalone-button transparent">
+                            <button class="save transparent" (click)="signInVerificationLink()" expand="block">E-Mail Me
+                                A
+                                Code</button>
+                        </div>
+                    </div>
+                    <div class="loginStepPassword" *ngIf="onlyVerificaionLink">
+                        <p class="enterpassword lnk" (click)="backNav()">Back</p>
+                        <div class="item-line standalone-button transparent">
+                            <button class="save transparent" (click)="signInVerificationLink()" expand="block">E-Mail Me
+                                A
+                                Code</button>
+                        </div>
+                    </div>
+                    <div class="emailSent" *ngIf="emailSent">
+                        <p class="enterpassword">We just emailed a OTP code to {{login.username}}. It will be valid for
+                            10 minutes.
+                        </p>
+                        <div class="codeinput">
+                            <input class="cus OTP" (input)="OtpEntered($any($event.target).value)" maxlength="5"
+                                placeholder="CODE" (keyup.enter)="confirmOTP()">
+                            <button class="common-button" (click)="confirmOTP()"
+                                [disabled]="!OTP_entered">Verify</button>
+                        </div>
+                        <div>
+                            <div size="12">
+                                <p class="text-link" (click)="signInVerificationLink()">Resend Code</p>
+                            </div>
+                        </div>
+                        <div class="item-line standalone-button transparent">
+                            <button class="save transparent" (click)="backSignIn()" expand="block">Back to
+                                sign-in</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <app-toaster *ngIf="ViewToast"></app-toaster>
+    <app-modal [modalTitle]="'Error'" [modalMessage]="Error" *ngIf="modalView"
+        (closeModalEvent)="closeModel()"></app-modal>

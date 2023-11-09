@@ -1,0 +1,70 @@
+.advisor-heading {
+  font-size: 30px;
+  font-weight: 500;
+}
+.white-space {
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 30px;
+}
+.adviosr-bio {
+  margin-top: 34px;
+}
+.adviosr-img {
+  float: left;
+  padding: 0px 51px 0px 0px;
+}
+.advisor-details {
+  padding-top: 30px;
+}
+
+h3.advisor-name {
+  font-weight: 600;
+  font-size: 30px;
+  margin: 15px 0px 0px 0px;
+}
+h4.advisor-group {
+  margin: 5px 0px 0px 0px;
+  font-size: 19px;
+}
+
+p.advisor-description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 134%;
+  color: #939393;
+}
+
+@media only screen and (max-width: 863px) {
+  .adviosr-bio {
+    margin-top: 0px;
+  }
+}
+@media only screen and (max-width: 760px) {
+  .adviosr-img {
+    display: contents;
+  }
+}
+
+.advisor-container {
+  padding-top: var(--maximum-vertical-space);
+  padding-bottom: var(--maximum-vertical-space);
+}
+
+@media only screen and (min-width: 489px) {
+  .advisor-container {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
+@media only screen and (max-width: 488px) {
+  .white-space {
+    padding: 15px;
+  }
+
+  .advisor-container {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+}

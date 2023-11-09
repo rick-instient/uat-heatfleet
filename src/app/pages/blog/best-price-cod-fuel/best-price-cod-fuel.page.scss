@@ -1,0 +1,98 @@
+@import "../variables";
+@import "../mixins";
+
+@include global-css;
+
+.best-place-container {
+  background-color: white;
+}
+
+.main-header {
+  width: $width-lg;
+  margin: 4rem auto;
+}
+
+.sub-header {
+  margin: 5px auto;
+  color: gray;
+}
+
+.cruise-header {
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.cruise-number {
+  color: #ff0969;
+  border-right: 1px solid #dfe3e9;
+  padding-right: 1rem;
+  margin: 0 1rem 1rem 0;
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.cruise-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  line-height: 1.25;
+  width: 100%;
+}
+
+.cruise-container h4 {
+  font-size: 20px;
+  font-weight: 600;
+  max-width: 60%;
+  margin-bottom: 0.5rem;
+}
+
+.cruise-sub-title {
+  grid-column: 1/2;
+  color: gray;
+}
+
+.content {
+  width: $width-lg;
+}
+
+.empty-space {
+  min-height: 250px;
+}
+
+.cruise-content img {
+  max-width: 400px;
+  margin-bottom: 1rem;
+}
+
+.main-header p,
+p {
+  color: gray;
+}
+
+.intro {
+  border: none;
+  background-color: #f8f8f8;
+  border-radius: 0.8rem;
+  padding: 1.8rem;
+  margin: 1.8rem 0 1.8rem;
+  display: block;
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 768px) {
+  .cruise-container {
+    display: block;
+  }
+  .cruise-content img {
+    max-width: 250px;
+  }
+  .content {
+    width: $width-sm;
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 992px) {
+  .content {
+    width: 80vw;
+  }
+}

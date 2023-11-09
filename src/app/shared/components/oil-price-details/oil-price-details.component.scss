@@ -1,0 +1,137 @@
+.col-title {
+  padding-left: 0px;
+  margin-top: 30px;
+}
+
+.inner-col.table {
+  height: 400px;
+  overflow: auto;
+}
+
+.col-title.main {
+  margin-top: 0px;
+}
+
+.secondary {
+  margin-top: 20px;
+}
+
+@media only screen and (min-width: 489px) {
+  .outer-container.faqs-content {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
+h3.comparison-header {
+  margin: 0px;
+  font-size: 18px;
+  font-weight: 600;
+  // font-size: var(--h2-font-mobile) !important;
+}
+
+h3.txt-title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 39px;
+  text-align: center;
+  color: #060d19;
+  font-family: "font-bold";
+  // margin-top: 5rem;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+@media only screen and (max-width: 573px) {
+  h3.txt-title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+  }
+}
+
+tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+// tr.tb.first {
+//   background: #ffffff;
+//   padding: 8px;
+//   font-size: 16px;
+//   font-weight: 600;
+// }
+
+table {
+  background: #ffffff;
+  // border: 1px solid #f8f8f8;
+  border-radius: 4px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+th.tb {
+  padding: 8px;
+  font-size: 16px;
+  text-align: center;
+}
+
+th.tb.third {
+  width: 50%;
+}
+
+td {
+  padding: 8px;
+  font-size: 16px;
+  width: 50%;
+  text-align: center;
+}
+
+tr.tb:hover {
+  background-color: #eaebee;
+}
+
+td.three:first-child {
+  width: 20% !important;
+}
+td.three:nth-child(2) {
+  width: 30% !important;
+}
+td.three:last-child {
+  width: 50% !important;
+}
+
+p.update {
+  font-size: 16px;
+  color: #aaa;
+  margin-top: -2px;
+  height: 20px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 573px) {
+  h3.txt-title {
+    font-size: 1.25rem !important;
+    line-height: 1.75rem;
+    font-weight: 600;
+  }
+}
+
+th,
+td {
+  border: none !important;
+}
+
+::-webkit-scrollbar {
+  height: 0px;
+  width: 4px;
+  border: none;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}

@@ -1,0 +1,147 @@
+<div class="outer-container faqs-content" *ngIf="townData && isTownHouseholdDataAvailable && currentYearHousehold">
+  <div>
+    <div class="col-title" style="text-align: left">
+      <h3 class="txt-title">Propane vs. Natural Gas vs. Heating Oil: {{townData?.city}}<span *ngIf="!isState && !isLandingPage">, {{townData?.state_id}}</span> Home Heating Fuel Comparison </h3>
+    </div>
+  </div>
+  <div class="mainrow">
+    <div> 
+      <div class="first">
+        <div class="inner-col" style="text-align: left">  
+          <p class="comparison-desc">Homeowners have a variety of home heating fuels to choose from. <span class="capital">{{fuelUserData[0]?.name}} </span>is the most popular choice in {{townData?.city}}, used by {{fuelUserData[0]?.users.toLocaleString('en-US')}}, or {{fuelUserData[0]?.percentage}} percent of 
+            homes. The 2<sup class="supertxt">nd </sup>most popular choice for {{townData?.city}} homeowners is {{fuelUserData[1]?.name}}, used by {{fuelUserData[1]?.users.toLocaleString('en-US')}} homes
+            ({{fuelUserData[1]?.percentage}}%). The remaining homes are heated with {{fuelUserData[2]?.name}} ({{fuelUserData[2]?.users.toLocaleString('en-US')}}), {{fuelUserData[3]?.name}}
+            ({{fuelUserData[3]?.users.toLocaleString('en-US')}}), {{fuelUserData[4]?.name}} ({{fuelUserData[4]?.users.toLocaleString('en-US')}}), and other fuels ({{sumOfRemainingFuels.toLocaleString('en-US')}}).
+          </p>
+          <div class="flex-table-chart"> 
+            <div class="table-div">
+              <h3 class="chart-header" *ngIf="isLandingPage">U.S. Primary Home Heating Fuel Popularity by Number of Households</h3>
+              <h3 class="chart-header" *ngIf="!isLandingPage">{{townData?.city}} Primary Home Heating Fuel Popularity by Number of Households</h3>
+              <table *ngIf="fuelUserData">
+                <thead> 
+                  <tr> 
+                    <th class="tb first">Fuel</th>
+                    <th class="tb" *ngIf="isLandingPage">U.S. Households</th> 
+                    <th class="tb" *ngIf="!isLandingPage">{{townData?.city}} Households</th> 
+                    <th class="tb">% of Households</th> 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="tb" *ngFor="let data of fuelUserData">
+                    <td class="first">{{data.name}}</td>
+                    <td>{{data.users.toLocaleString('en-US')}}</td>
+                    <td>{{data.percentage}}%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+       
+            <!-- <div class="chart-div">
+              <h3 class="chart-header" *ngIf="isLandingPage">U.S. Primary Home Heating Fuel Popularity by Number of Households</h3>
+              <h3 class="chart-header" *ngIf="!isLandingPage">{{ townData?.city }} Primary Home Heating Fuel Popularity by Number of Households</h3>
+              <div class="chart">
+                <canvas id="pieChart" #pieChart></canvas>
+              </div>
+            </div>             -->
+
+            <!-- <div class="pie-chart-container">
+              <div class="pie-chart" id="chart"></div>
+            </div> -->
+
+          </div>
+
+          <!-- <div class="row">
+            <div class="col-md-12">
+              <div class="table-c">
+  
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th *ngFor="let header of tableData.headers">{{ header.label }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of tableData.data ">
+                      <td *ngFor="let header of tableData.headers">{{ item.content }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+  
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <!-- <canvas id="pieChart" #pieChart></canvas> -->
+      
+      <div class="secondary" *ngIf="isHeatingOilHistory">
+        <div class="inner-col" style="text-align: left">
+          <h4 class="comparison-header">#2 Heating Oil (Fuel Oil) Use in {{townData?.city}}</h4>
+          <p class="comparison-desc">Heating oil has become <span *ngIf="fuels_list[3].householdIncrease">more </span><span *ngIf="!fuels_list[3].householdIncrease">less </span>popular in {{townData?.city}}. In the {{randomNumber}} years 
+            since {{randomYear}}, the number heating oil homes <span *ngIf="fuels_list[3].householdIncrease">rose </span><span *ngIf="!fuels_list[3].householdIncrease">fell </span>from {{fuels_list[3]?.historicalHousehold.toLocaleString('en-US')}} to {{fuels_list[3]?.currentHousehold.toLocaleString('en-US')}}, a {{heatingOilChangePertage}}% <span *ngIf="fuels_list[3].householdIncrease">rise.</span><span *ngIf="!fuels_list[3].householdIncrease">drop.</span>
+          </p>
+          <div class="flex-table-chart">
+            <div class="table-div">
+              <h3 class="chart-header" *ngIf="isLandingPage">U.S. Heating Oil Households ({{startYear}} - {{endYear}})</h3>
+              <h3 class="chart-header" *ngIf="!isLandingPage">{{townData?.city}} Heating Oil Households ({{startYear}} - {{endYear}})</h3>
+              <table *ngIf="heatingOilHistory">
+                <thead> 
+                  <tr> 
+                    <th class="tb first mobile-center"> Year</th>
+                    <th class="tb">Heating Oil Households</th> 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="tb" *ngFor="let data of heatingOilHistory | keyvalue">
+                    <td class="first mobile-center">{{data.key}}</td>
+                    <td>{{data.value.toLocaleString('en-US')}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- <div class="chart-div">
+              <h3 class="chart-header" *ngIf="isLandingPage">U.S. Heating Oil Households ({{ startYear }} - {{ endYear }})</h3>
+              <h3 class="chart-header" *ngIf="!isLandingPage">{{ townData?.city }} Heating Oil Households ({{ startYear }} - {{ endYear }})</h3>
+              <div class="chart">
+                <canvas id="lineGraph"></canvas>
+              </div>
+            </div>             -->
+          </div>
+        </div>
+      </div>
+      <div class="secondary">
+        <div class="inner-col" style="text-align: left">
+          <h4 class="comparison-header">Propane vs. Natural Gas use for home heating in {{townData?.city}}</h4>
+          <p class="comparison-desc" *ngIf="!fuels_list[1]?.currentHousehold">Homeowners in {{townData?.city}} do not use propane as a heating fuel.</p>
+          <p class="comparison-desc" *ngIf="fuels_list[1]?.currentHousehold"> Between {{randomYear}} and today, the number of homes using propane as the primary space heating fuel <span *ngIf="fuels_list[1].householdIncrease">rose </span><span *ngIf="!fuels_list[1].householdIncrease">fell </span>from {{fuels_list[1]?.historicalHousehold.toLocaleString('en-US')}} to {{fuels_list[1]?.currentHousehold.toLocaleString('en-US')}}.</p>
+          <p class="comparison-desc" *ngIf="!fuels_list[0]?.currentHousehold">Natural gas pipes have not been installed into homes in {{townData?.city}}.</p>
+          <p class="comparison-desc" *ngIf="fuels_list[0]?.currentHousehold">Between {{randomYear}} and today, the number of homes using natural gas as the primary space heating fuel <span *ngIf="fuels_list[0].householdIncrease">rose </span><span *ngIf="!fuels_list[0].householdIncrease">fell </span>from {{fuels_list[0]?.historicalHousehold.toLocaleString('en-US')}} to {{fuels_list[0]?.currentHousehold.toLocaleString('en-US')}}.</p>
+        </div>
+      </div>
+      <div class="secondary">
+        <div class="inner-col" style="text-align: left">
+          <h4 class="comparison-header">Electricity use for home heating in {{townData?.city}}</h4>
+          <p class="comparison-desc" *ngIf="!fuels_list[2]?.currentHousehold">{{townData?.city}} homeowners have yet to adopt electricity as a primary heating source.</p>
+          <p class="comparison-desc" *ngIf="fuels_list[2]?.currentHousehold">Electric space heating systems are becoming <span *ngIf="fuels_list[2].householdIncrease">more </span><span *ngIf="!fuels_list[2].householdIncrease">less </span>popular in {{townData?.city}}. Since {{randomYear}},
+            the number of homes heating with electricity <span *ngIf="fuels_list[2].householdIncrease">rose </span><span *ngIf="!fuels_list[2].householdIncrease">fell </span>from {{fuels_list[2]?.historicalHousehold.toLocaleString('en-US')}} to {{fuels_list[2]?.currentHousehold.toLocaleString('en-US')}}, a {{electicityChangePercentage}}% <span *ngIf="fuels_list[2].householdIncrease">increase.</span><span *ngIf="!fuels_list[2].householdIncrease">decrease.</span>
+          </p>
+        </div>
+      </div>
+      <div class="secondary">
+        <div class="inner-col" style="text-align: left">
+          <h4 class="comparison-header">Solar use for home heating in {{townData?.city}}</h4>
+          <p class="comparison-desc">
+            Solar is the most environmentally friendly of all space heating fuels. With an “active” solar heating system, liquid is circulated between solar panels on a home’s roof and a heat energy storage
+            tank in the basement.
+          </p>
+          <p class="comparison-desc" *ngIf="!fuels_list[6]?.currentHousehold">Homeowners in {{townData?.city}} have not yet adopted solar heating.</p>
+          <p class="comparison-desc" *ngIf="fuels_list[6]?.currentHousehold">
+            Currently, {{fuels_list[6]?.currentHousehold.toLocaleString('en-US')}} homes in {{townData?.city}} are heated with active solar arrays. This is a {{solarChangePercentage}}% <span *ngIf="fuels_list[6].householdIncrease">increase </span><span *ngIf="!fuels_list[6].householdIncrease">decrease </span>from {{randomYear}}, when only {{fuels_list[6]?.historicalHousehold.toLocaleString('en-US')}} homes had installed active solar heating.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,184 @@
+.list-style {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+}
+.item-style {
+  padding: 0px 160px 15px 0px;
+}
+
+.homeowner-text {
+  // font-size: 30px;
+  float: right;
+  padding: 0px 23px 0px 149px;
+  // font-weight: bold;
+  line-height: 46px;
+  margin-top: 14px;
+  font-size: 26px;
+  font-family: font-bold;
+  font-style: normal;
+  color: #000;
+}
+
+@media only screen and (max-width: 700px) {
+  .adadvisorviosr-bio1 {
+    max-width: 300px !important;
+  }
+  .Heating-Oil-container {
+    padding-bottom: 0px !important;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .homeowner-text {
+    padding: 0px;
+  }
+
+  .item-style {
+    padding: 0px;
+  }
+}
+
+@media only screen and (min-width: 1260px) and (max-width: 1350px) {
+  .item-style {
+    padding: 0px 30px 11px 0px;
+  }
+  .homeowner-text {
+    padding: 0px 30px 11px 0px;
+  }
+}
+@media only screen and (min-width: 1110px) {
+  .item-style {
+    padding: 0px 10px 10px 0px;
+  }
+  .homeowner-text {
+    padding: 0px 23px 0px 27px;
+  }
+}
+@media only screen and (min-width: 800px) and (max-width: 960px) {
+  .item-style {
+    padding: 0px 0px 2px 0px;
+    font-size: 18px;
+  }
+  .homeowner-text {
+    padding: 0px 0px 0px 0px;
+  }
+}
+@media only screen and (min-width: 961px) {
+  .item-style {
+    padding: 0px 0px 0px 0px;
+    line-height: 27px;
+    font-size: 17px;
+  }
+  .homeowner-text {
+    padding: 0px 0px 0px 0px;
+  }
+}
+
+ion-col.md.hydrated {
+  padding: 0px;
+}
+
+ion-col.ios.hydrated {
+  padding: 0px;
+}
+
+li.item-style {
+  font-family: "HK-Grotesk";
+}
+
+// h1.homeowner-text {
+//   font-family: "HK-Grotesk";
+// }
+
+@media only screen and (min-width: 600px) {
+  .comapny-logos {
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+    padding-top: 7%;
+    padding-bottom: 7%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .list-style {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (min-width: 1385px) {
+  h1.homeowner-text {
+    margin-left: 10%;
+    margin-right: 18%;
+  }
+}
+.comapny-logos {
+  padding-top: var(--maximum-vertical-space);
+  padding-bottom: var(--maximum-vertical-space);
+}
+
+@media only screen and (min-width: 489px) {
+  .comapny-logos {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
+@media only screen and (max-width: 488px) {
+  .comapny-logos {
+    padding-left: 5%;
+    padding-right: 3%;
+  }
+}
+
+span.bestprice {
+  // font-weight: 800;
+  border-bottom: 1px solid;
+  padding-bottom: 0px;
+  font-family: font-bold;
+  font-style: normal;
+  color: #000;
+}
+
+li.item-style {
+  margin-bottom: 15px;
+}
+
+h1.homeowner-text {
+  font-size: var(--h2-font-desktop);
+}
+li.item-style {
+  font-size: var(--p-font-desktop);
+}
+@media only screen and (max-width: 500px) {
+  h1.homeowner-text {
+    font-size: var(--h2-font-mobile);
+    line-height: 1.5rem;
+  }
+  li.item-style {
+    font-size: var(--p-font-mobile);
+  }
+  h2.li {
+    font-size: var(--p-font-mobile);
+  }
+  .comapny-logos {
+    margin: 0px 20px 0px 35px;
+  }
+}
+
+li.item-style {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: #494c50;
+  font-family: "HK-Grotesk";
+}
+
+h2.li {
+  margin: 0px;
+  font-size: var(--p-font-desktop);
+  font-weight: 400;
+  line-height: 21px;
+  font-family: "HK-Grotesk";
+  color: #494c50;
+}

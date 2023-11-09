@@ -1,0 +1,12 @@
+<div class="outer-container faqs-content">
+  <div class="row">
+    <div class="col-md-12" style="text-align: center">
+      <h3 class="txt-title">Heating oil <span class="mn" *ngIf="config.typeParam == 'subType=2'">prices </span><span class="mn" *ngIf="config.typeParam != 'subType=2'">companies </span>near you in these adjacent towns</h3>
+    </div>
+  </div>
+  <div class="row mainrow">
+    <div class="col-sm-12 col-md-6" size="12" size-sm="6" size-md="6" size-lg="6" size-xs="12" *ngFor="let n of nearestTowns">
+      <div class="companyListing" (click)="navigate($event, n, true)"><a class="txt-location-txt" [href]="navigate(null, n, null)">{{n.townName}}, {{n.stateId}}</a></div>
+    </div>
+  </div>
+</div>

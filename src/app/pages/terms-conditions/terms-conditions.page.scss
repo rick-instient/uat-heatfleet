@@ -1,0 +1,95 @@
+* {
+  color: #060d19;
+  margin: 3px;
+}
+.term-container {
+  text-align: center;
+}
+.white-space {
+  max-width: 950px;
+  margin-right: auto;
+  margin-left: auto;
+  //   position: relative;
+}
+
+h1.heading-text {
+  font-size: var(--h1-font-desktop);
+}
+
+@media (max-width: 600px) {
+  h1.heading-text {
+    font-size: var(--h1-font-mobile) !important;
+  }
+}
+
+.heading-text {
+  font-weight: 600;
+  font-family: "HK-Grotesk";
+  color: #060d19;
+  text-decoration: underline;
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+.para-bold {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+h2.para-bold {
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 16px;
+}
+.para-normal {
+  margin-top: 15px;
+}
+p.date {
+  float: left;
+  font-size: 12pt;
+  font-family: "HK-Grotesk";
+  margin-top: 5px;
+}
+.div-text-1 {
+  float: left;
+  text-align: left;
+  font-size: 10pt;
+  font-family: "HK-Grotesk";
+  margin-top: 1.5rem;
+  line-height: 25px;
+}
+.div-text-2 {
+  float: left;
+  text-align: justify;
+  font-size: 10pt;
+  font-family: "HK-Grotesk";
+  margin-top: 1.5rem;
+  font-size: 10pt;
+}
+.div-text-spacing {
+  float: left;
+  text-align: justify;
+  font-family: "HK-Grotesk";
+  line-height: 46px;
+  margin-top: 1.5rem;
+  line-height: 27px;
+  font-size: 10pt;
+}
+.para-normal-1 {
+  font-family: "poppins";
+}
+
+.term-container {
+  display: grid;
+}
+
+.footersection {
+  margin-top: 5%;
+}
+
+app-header-client {
+  margin: 0px !important;
+}
+
+.para-text-2 {
+  line-height: 1.32;
+}

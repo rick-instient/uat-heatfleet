@@ -1,0 +1,72 @@
+@import "../../variables";
+@import "../../mixins";
+
+@include global-css;
+
+.heading-container {
+  width: 100%;
+  background-color: #43c3f6;
+
+  .title {
+    padding: 10px;
+    width: $width-lg;
+    margin: 0px auto;
+    padding: 10px 0px;
+    @extend heading-title;
+  }
+}
+
+.content {
+  width: $width-lg;
+  margin: 2rem auto;
+
+  .benefits {
+    display: flex;
+    gap: 12px;
+
+    img {
+      width: 450px;
+    }
+  }
+
+  .example {
+    display: flex;
+
+    .biodiesal {
+      width: 60%;
+      padding-right: 1rem;
+      padding-bottom: 5rem;
+    }
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 768px) {
+  .content,
+  .title {
+    width: $width-sm !important;
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 992px) {
+  .content,
+  .title {
+    width: $width-md !important;
+  }
+
+  .benefits,
+  .example {
+    display: block !important;
+  }
+
+  .biodiesal {
+    padding-bottom: 0rem !important;
+    width: 100% !important;
+  }
+
+  .image-center {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}

@@ -1,0 +1,1048 @@
+<div id="header">
+  <!-- <app-header-client
+    id="topSection"
+    [CompanyLogoUrl]="companyData?.priceStatus === 0 ? companyData?.logoUrl : null"
+    [companyColor]="companyData?.colorTheme"
+    [aboutUsUrl]="companyData?.aboutUsURL"
+    [contactUrl]="companyData?.contactUsURL"
+    [companyName]="companyData?.companyName"
+    [logoAlt]="logoAltTag"
+  ></app-header-client> -->
+</div>
+
+<div class="container-fluid">
+  <!-- <div class="section-loading" *ngIf="loadData"></div> -->
+  <div class="row breadcrumb-row">
+      <div class="col-12 bread">
+        <ul class="breadcrumb">
+          <ng-container *ngFor="let breadcrumb of breadcrumbsService.breadcrumbs$ | async; let index = index">
+          <li [ngClass]="getClasses(index)">
+                    <ng-container *ngIf="index == 0">
+                      <a [href]="'/'" (click)="navigateUrl($event, breadcrumb.url)">{{ breadcrumb.label | titlecase }}</a>
+                    </ng-container>
+                    <ng-container *ngIf="index >= 1 && index < (breadcrumbsService.breadcrumbs$ | async)?.length - 1">
+                      <a [href]="breadcrumb.url" (click)="navigateUrl($event, breadcrumb.url)">{{ breadcrumb.label | titlecase }}</a>
+                    </ng-container>
+                    <ng-container *ngIf="index == (breadcrumbsService.breadcrumbs$ | async)?.length - 1">
+                      <h1 class="active">{{ breadcrumb.label | titlecase }}</h1>
+                    </ng-container>
+                  </li>
+                </ng-container>
+        </ul>
+        <div class="breadcrumb-div-2">
+          <!-- <p class="cheapest" *ngIf="VisibleCompanyType(companyData?.isOilDel, companyData?.isService) && companyData?.isLongIslandCompany">
+                  Heating Oil Delivery in Long Island
+                </p>
+                <p class="cheapest" *ngIf="VisibleCompanyType(companyData?.isOilDel, companyData?.isService) && !companyData?.isLongIslandCompany">
+                  Heating Oil Delivery 
+                  <span *ngIf="state_">in {{ state_ }}</span>
+                </p> -->
+                <p class="cheapest" *ngIf="!VisibleCompanyType(companyData?.isOilDel, companyData?.isService) && companyData?.isLongIslandCompany">
+                  {{ companyData?.companyName }} Heating Oil
+                </p>
+                <p class="cheapest" *ngIf="!VisibleCompanyType(companyData?.isOilDel, companyData?.isService) && !companyData?.isLongIslandCompany">
+                  Cash Heating Oil Delivery 
+                  <span *ngIf="state_">in {{ state_ }}</span>
+                </p>
+          <p class="cheapest" *ngIf="!companyData?.isService">
+            {{ companyData?.companyName }} Heating Oil
+          </p>
+          <p class="cheapest" *ngIf="companyData?.isService">
+            {{ companyData?.companyName }} Heating Oil & Furnace Repair
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="imgbg">
+    <figure  *ngIf="companyData?.profileTruckUrl">
+      <img
+        class="bg-img tk"
+        [srcset]="companyData?.profileTruckUrl"
+        [ngClass]="{ 'transparentImage': companyData?.isTransparentTruck }"
+        sizes="(max-width: 1279px) 100vw, (min-width: 1280px) 1280px"
+        [title]="companyData?.profileTitleTag"
+        [alt]="companyData?.profileAltTag"
+      />
+    </figure>
+
+    <img
+      class="bg-img"
+      srcset="
+        https://media-cdn.heatfleet.com/company-profile-img.png?tr=w-225 225w,
+        https://media-cdn.heatfleet.com/company-profile-img.png?tr=w-350 350w,
+        https://media-cdn.heatfleet.com/company-profile-img.png?tr=w-700 700w,
+        https://media-cdn.heatfleet.com/company-profile-img.png?tr=w-900 900w,
+        https://media-cdn.heatfleet.com/company-profile-img.png?tr=w-1200 1200w
+      "
+      *ngIf="!companyImage && innerWidth > 716"
+    />
+
+  </div>
+
+
+
+
+  <div class="searchCardContainer" >
+    <div class="search-card-small moblie">
+      <div class="company-logo-seaction">
+        <div
+          class="ion-col company_name"
+          *ngIf="companyData?.priceStatus === 0"
+        >
+          <div class="box">
+            <div class="aligncompanydetail">
+              <img
+                class="img-company-logo"
+                [srcset]="companyData?.logoUrl"
+                [alt]="companyData?.logoAltTag"
+                [title]="companyData?.logoTitleTag"
+                *ngIf="companyData?.logoUrl"
+              />
+              <div class="container-no-image" *ngIf="!companyData?.logoUrl">
+                <p class="txt-first-letter">
+                  {{ companyData?.companyName | slice: 0: 1 }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="common" *ngIf="companyData?.priceStatus === 0">
+          <p class="company-name hf" [style.color]="companyData?.colorTheme">
+            {{ companyData?.companyName }}
+          </p>
+          <p class="company-caption" style="color: #aaa">Heating Oil</p>
+        </div>
+        <img
+          class="company-logo"
+          srcset="https://media-cdn.heatfleet.com/HeatFleetSearch.svg"
+          alt="Heat Fleet Best Oil Price Search"
+          *ngIf="companyData?.priceStatus !== 0"
+        />
+        <div class="inputs plain mobile-fields" size="2.9">
+          <div class="inp">
+            <div class="location-icon png">
+              <img
+                class="sc-loc-icn pr"
+                *ngIf="!companyData?.colorTheme"
+                src="/assets/icons/dark-location.svg"
+                alt="Location icon"
+              />
+              <div
+                class="pin"
+                *ngIf="companyData?.colorTheme"
+                [style.background-color]="companyData?.colorTheme"
+              ></div>
+            </div>
+          </div>
+          <div class="inp">
+            <p class="label-white-row mb">Delivery ZIP</p>
+            <input
+              type="text"
+              class="cus-white-inp mb"
+              id="zipCodeInput"
+              [(ngModel)]="zipCodeInput"
+              aria-label="zipCodeInput"
+              inputmode="tel"
+              maxlength="5"
+              (keyup.enter)="orderNow(true)"
+              (input)="find($event)"
+              (focusout)="ZipFocusOut()"
+            />
+            <!-- (click)="clearInput()" -->
+            <!-- <span class="invalidZip" *ngIf="zipCodeInput.length != 5">Invalid Input</span> -->
+          </div>
+        </div>
+      </div>
+      <div class="white-row desktop inline">
+        <div class="inputs plain block size-2.9">
+          <div class="inp">
+            <div class="location-icon png">
+              <img
+                class="sc-loc-icn-1 pr"
+                *ngIf="!companyData?.colorTheme"
+                src="/assets/icons/quantity.svg"
+                alt="Quantity icon"
+              />
+              <i
+                class="camera-icon"
+                *ngIf="companyData?.colorTheme"
+                [ngStyle]="{ color: companyData?.colorTheme }"
+              >
+                camera
+              </i>
+            </div>
+          </div>
+          <div class="inp">
+            <p class="label-white-row mb">Quantity</p>
+            <input
+              class="cus-white-inp mb"
+              [(ngModel)]="quantityInput_withGal"
+              aria-label="quantityInput_withGal"
+              inputmode="tel"
+              (keyup.enter)="orderNow(true)"
+              maxlength="5"
+              (input)="inp($event)"
+            />
+          </div>
+        </div>
+        <div class="btn" *ngIf="!CompanyProfile">
+          <button class="common-button-icon nr" (click)="findDeal()">
+            <img
+              src="/assets/icons/Search.svg"
+              alt="Search icon"
+              class="sc-search-icn"
+            />
+            <p class="txt-btn desktop">FIND DEALS</p>
+          </button>
+        </div>
+        <div class="btn xs" *ngIf="CompanyProfile">
+          <button
+            class="common-button-icon"
+            (click)="orderNow(true)"
+            [style.--background]="companyData?.colorTheme"
+          >
+            <p class="txt-btn desktop">QUOTE & ORDER</p>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact_wrapper pb-5">
+    <div class="container">
+      <div class="img-container">
+        <div class="content-container pb-5">
+          <div class="contain diplayflex">
+            <div
+              class="contain col-heading size-12 size-sm-12 size-md-8 size-lg-8 size-xl-8"
+            >
+              <div class="content content-companyname">
+                <img
+                  class="flag"
+                  [srcset]="companyData?.coFlagUrl + '?tr=w-120'"
+                  [alt]="companyData?.coFlagUrlAltTag"
+                  [title]="companyData?.coFlagUrlTitleTag"
+                  *ngIf="companyData?.coFlagUrl && innerWidth > 500"
+                />
+                <div class="innrcontent">
+                  <h2 class="text-company-name">
+                    {{ companyData?.companyName }}
+                  </h2>
+                  <p
+                    class="text"
+                    *ngIf="!VisibleCompanyType(companyData?.isOilDel, companyData?.isService)"
+                  >
+                    Discount Heating Oil Company
+                  </p>
+                  <p
+                    class="text"
+                    *ngIf="VisibleCompanyType(companyData?.isOilDel, companyData?.isService)"
+                  >
+                    Full Service Heating Oil Company
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="contain small-img size-12 size-sm-6 size-md-4 size-lg-4 size-xl-4"
+            >
+              <div class="contain-box">
+                <div class="content-2 small-truck-1"  *ngIf="!loadData">
+                  <img
+                    class="small-truck isOilDel"
+                    [srcset]="companyData?.truckUrl"
+                    [alt]="companyData?.truckAltTag"
+                    [title]="companyData?.truckTitleTag"
+                    (error)="truckImageDefault()"
+                    *ngIf="companyData?.isOilDel && truckImage"
+                  />
+                  <img
+                    class="small-truck isOilDel"
+                    [srcset]="
+                          'https://media-cdn.heatfleet.com/OilThumbnail.svg?tr=w-300 300w, https://media-cdn.heatfleet.com/OilThumbnail.svg?tr=w-600 600w, https://media-cdn.heatfleet.com/OilThumbnail.svg?tr=w-1200 1200w'
+                        "
+                    alt=""
+                    *ngIf="companyData?.isOilDel && !truckImage"
+                  />
+                  <img
+                    class="small-truck isOilDel fade"
+                    [srcset]="companyData?.truckUrl"
+                    [alt]="companyData?.truckAltTag"
+                    [title]="companyData?.truckTitleTag"
+                    (error)="truckImageDefault()"
+                    *ngIf="!companyData?.isOilDel && truckImage"
+                  />
+                  <img
+                    class="small-truck"
+                    [srcset]="
+                          'https://media-cdn.heatfleet.com/OilThumbnail.svg?tr=w-300 300w, https://media-cdn.heatfleet.com/OilThumbnail.svg?tr=w-600 600w, https://media-cdn.heatfleet.com/OilThumbnail.svg?tr=w-1200 1200w'
+                        "
+                    alt=""
+                    *ngIf="!companyData?.isOilDel && !truckImage"
+                  />
+                  <p class="small-truck-text" *ngIf="companyData?.isOilDel">
+                    Heating Oil
+                  </p>
+                  <p class="fade-text" *ngIf="!companyData?.isOilDel">
+                    Heating Oil
+                  </p>
+                </div>
+                <div class="content-2 small-truck-2"  *ngIf="!loadData">
+                  <img
+                    class="small-truck isOilDel"
+                    src="https://media-cdn.heatfleet.com/ServiceThumbnail.svg?tr=w-225 225w"
+                    alt=""
+                    *ngIf="companyData?.isService && !vanImage"
+                  />
+                  <img
+                    class="small-truck isOilDel"
+                    [srcset]="companyData?.serviceTruckUrl"
+                    [alt]="companyData?.serviceAltTag"
+                    [title]="companyData?.serviceTitleTag"
+                    (error)="vanImageDefault()"
+                    *ngIf="companyData?.isService && vanImage"
+                  />
+                  <img
+                    class="fade-img"
+                    [srcset]="
+                          'https://media-cdn.heatfleet.com/VanTransparent.svg?tr=w-225 225w, https://media-cdn.heatfleet.com/VanTransparent.svg?tr=w-600 600w, https://media-cdn.heatfleet.com/VanTransparent.svg?tr=w-1200 1200w'
+                        "
+                    alt=""
+                    *ngIf="!companyData?.isService && !vanImage"
+                  />
+                  <img
+                    class="small-truck isOilDel fade"
+                    [srcset]="companyData?.serviceTruckUrl"
+                    [alt]="companyData?.serviceAltTag"
+                    [title]="companyData?.serviceTitleTag"
+                    (error)="vanImageDefault()"
+                    *ngIf="!companyData?.isService && vanImage"
+                  />
+                  <p class="fade-text" *ngIf="!companyData?.isService">
+                    Service
+                  </p>
+                  <p class="small-truck-text" *ngIf="companyData?.isService">
+                    Service
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-container contacts" >
+          <div class="row sc">
+            <div class="col-12 col-md-12 col-sm-12 col-lg-6 pd-cl pd-cl-left">
+              <div class="white-bg l">
+                <h3 class="contact">Contact</h3>
+                <table>
+                  <tbody>
+                    <tr class="tb">
+                      <td class="l">Phone:</td>
+                      <td class="l">{{ companyData?.phone }}</td>
+                    </tr>
+                    <tr class="tb">
+                      <td class="l">Address:</td>
+                      <td class="l address" >
+                        {{ companyData?.address_1 }}
+                        <span *ngIf="companyData?.address_2">
+                          {{ companyData?.address_2 }}</span
+                        >
+                        | {{ companyData?.city }}, {{ companyData?.state }} {{
+                        companyData?.zip }}
+                      </td>
+                    </tr>
+                    <tr class="tb">
+                      <td class="l">Office hours:</td>
+                      <td class="l">Monday to Friday {{ randomTime }}</td>
+                    </tr>
+                    <tr class="tb">
+                      <td class="l">Payment:</td>
+                      <td class="l" *ngIf="companyData?.paymentMethod == 0">
+                        Credit Card
+                      </td>
+                      <td class="l" *ngIf="companyData?.paymentMethod == 1">
+                        Credit Card
+                      </td>
+                      <td class="l" *ngIf="companyData?.paymentMethod == 2">
+                        Credit / Cash
+                      </td>
+                      <td class="l" *ngIf="companyData?.paymentMethod == 3">
+                        Cash
+                      </td>
+                    </tr>
+                    <tr class="tb">
+                      <td class="l">Registered Name:</td>
+                      <td class="l">{{ companyData?.companyName }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div
+              class="col-12 col-md-12 col-sm-12 col-lg-6 pd-cl pd-cl-right"
+              *ngIf="companyData?.isOilDel"
+            >
+              <div class="white-bg r">
+                <div
+                  class="delivery-container header-oil d-flex companyProfile__details__headingWithSpecification pb-3"
+                >
+                  <div class="Heating py-2">
+                    <img
+                      src="assets/icons/bus.svg"
+                      alt="bus icon"
+                      class="profile-page-icon"
+                    />
+                    <h4>Heating Oil</h4>
+                  </div>
+                  <div class="header-oilright">
+                    <div class="oildemand" *ngIf="companyData?.isWillCall != 0">
+                      <img
+                      class="icon-c"
+                        src="assets/icons/phone.svg"
+                        alt="phone icon"
+                      />
+                      <p>On Demand</p>
+                    </div>
+                    <div class="oildemand" *ngIf="companyData?.isAutoDel != 0">
+                      <img
+                      class="icon-c"
+                        src="assets/icons/automatic.svg"
+                        alt="automatic icon"
+                      />
+                      <p>Automatic</p>
+                    </div>
+                    <div
+                      class="oildemand emergency-img"
+                      *ngIf="companyData?.isEmerg != 0"
+                    >
+                      <img
+                        src="https://media-cdn.heatfleet.com/emergency.svg"
+                        alt="emergency icon"
+                      />
+                      <p>Emergency</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="gray-lg">
+                  <h5 class="heading">Automatic Delivery</h5>
+                  <div class="row">
+                    <div
+                      class="col-12 col-md-6 col-sm-12"
+                      *ngIf="companyData?.isFloat || companyData?.isCapped || companyData?.isFixed"
+                    >
+                      <div class="gray-pannel">
+                        <h6 class="pp">Pricing Plans</h6>
+                        <div class="pannel-card" *ngIf="companyData?.isFloat">
+                          <div class="pannel-img">
+                            <img
+                              src="assets/icons/market.svg"
+                              alt="market icon"
+                            />
+                          </div>
+                          <div class="cards">
+                            <span class="pannel-hdtxt">Market Price</span>
+                            <span class="pannel-txt">Floating</span>
+                          </div>
+                        </div>
+                        <div class="pannel-card" *ngIf="companyData?.isCapped">
+                          <div class="pannel-img">
+                            <img
+                              src="https://media-cdn.heatfleet.com/price-protection.svg"
+                              alt="price protection icon"
+                            />
+                          </div>
+                          <div class="cards">
+                            <span class="pannel-hdtxt">Price Protection</span>
+                            <span class="pannel-txt"
+                              >Capped <br />
+                              Fee: $200/year</span
+                            >
+                          </div>
+                        </div>
+                        <div class="pannel-card" *ngIf="companyData?.isFixed">
+                          <div class="pannel-img">
+                            <img
+                              src="https://media-cdn.heatfleet.com/price-arrow.svg"
+                              alt="price arrow icon"
+                            />
+                          </div>
+                          <div class="cards">
+                            <span class="pannel-hdtxt">Fixed Price</span>
+                            <span class="pannel-txt">Locked</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-sm-12">
+                      <div class="gray-pannel rght">
+                        <h6 class="pp">Payment Plans</h6>
+                        <div
+                          class="pannel-card"
+                          *ngIf="companyData?.isBudget != 0"
+                        >
+                          <div class="pannel-img">
+                            <img
+                              src="assets/icons/budget.svg"
+                              alt="budget icon"
+                            />
+                          </div>
+                          <div class="cards">
+                            <span class="pannel-hdtxt">Budget Plan</span>
+                            <span class="pannel-txt"
+                              >12 equal monthly payments</span
+                            >
+                          </div>
+                        </div>
+                        <div class="pannel-card">
+                          <div class="pannel-img">
+                            <img
+                              src="assets/icons/postpay.svg"
+                              alt="postbuy icon"
+                            />
+                          </div>
+                          <div class="cards">
+                            <span class="pannel-hdtxt">Postpay</span>
+                            <span class="pannel-txt"
+                              >Invoice after each delivery</span
+                            >
+                          </div>
+                        </div>
+                        <div class="pannel-card" *ngIf="companyData?.isPrebuy">
+                          <div class="pannel-img">
+                            <img
+                              src="https://media-cdn.heatfleet.com/prebuy.svg"
+                              alt="prebuy icon"
+                            />
+                          </div>
+                          <div class="cards">
+                            <span class="pannel-hdtxt">Prebuy</span>
+                            <span class="pannel-txt"
+                              >Single upfront payment for 1 year of oil</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row sc">
+            <div class="col pd-cl service-call">
+              <div
+                class="white-bg"
+                *ngIf="companyData?.isService && companyData?.oilserv_avail"
+              >
+                <div
+                  class="header-oil d-flex service companyProfile__details__iconHeadingLableFlex pb-3"
+                >
+                  <div class="Heating py-2">
+                    <img
+                      src="assets/icons/settings.svg"
+                      alt="settings icon"
+                      class="profile-page-icon"
+                    />
+                    <h4>Service</h4>
+                  </div>
+                </div>
+                <div class="gray-lg mt-0">
+                  <h5 class="sub-hd heading">Service Calls</h5>
+                  <div class="row-service">
+                    <div
+                      class="col-xs"
+                      *ngIf="companyData?.oilserv_calls_init != 0"
+                    >
+                      <div class="Service-call">
+                        <h6 class="title-service">
+                          Repair Call
+                          <span class="last"
+                            >$ {{ companyData?.oilserv_calls_init |
+                            number:'1.0-0' }}</span
+                          >
+                        </h6>
+                        <p>
+                          - Labor after 1st hour billed at
+                          <ng-container
+                            *ngIf="companyData?.oilserv_calls_addl == 0; else pricegreaterzero"
+                            >-call for price</ng-container
+                          >
+                          <ng-template #pricegreaterzero>
+                            $ {{ companyData?.oilserv_calls_addl |
+                            number:'1.0-0' }}/hr
+                          </ng-template>
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="col-xs"
+                      *ngIf="companyData?.oilserv_emerg_init != 0"
+                    >
+                      <div class="Service-call">
+                        <h6 class="title-service">
+                          Emergency Repair
+                          <span class="last"
+                            >$ {{ companyData?.oilserv_emerg_init |
+                            number:'1.0-0' }}</span
+                          >
+                        </h6>
+                        <p>
+                          - Labor 1st hour billed at $ {{
+                          companyData?.oilserv_emerg_init | number:'1.0-0' }}/hr
+                        </p>
+                        <p>
+                          - Labor after 1st hour billed at
+                          <ng-container
+                            *ngIf="companyData?.oilserv_emerg_addl == 0; else priceemerggreaterzero"
+                            >-call for price</ng-container
+                          >
+                          <ng-template #priceemerggreaterzero>
+                            $ {{ companyData?.oilserv_emerg_addl |
+                            number:'1.0-0' }}/hr
+                          </ng-template>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-xs" *ngIf="companyData?.oilserv_tuneup">
+                      <div class="Service-call">
+                        <h6 class="title-service">
+                          Tune-Up & Clean
+                          <span class="last"
+                            >{{ companyData?.oilserv_tuneup_price == 0 ? '' :
+                            '$' + companyData?.oilserv_tuneup_price }}</span
+                          >
+                        </h6>
+                        <p
+                          class="b"
+                          *ngIf="companyData?.oilserv_tuneup_price == 0"
+                        >
+                          - Call for price
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="gray-lg"
+                  *ngIf="companyData?.companyServiceContract.length > 0"
+                >
+                  <h5 class="sub-hd heading">Annual Service Contracts</h5>
+                  <div class="row-service">
+                    <div class="col-xs">
+                      <div
+                        class="Service-call"
+                        *ngFor="let con of companyData?.companyServiceContract; let i = index"
+                      >
+                        <h6 class="title-service">
+                          {{ con.c_Name }}
+                          <span class="last">$ {{ con.c_Price }}</span>
+                        </h6>
+                        <div class="row cusrw" *ngIf="companyData?.id == 1">
+                          <div class="col cusrw">
+                            <p class="spc">
+                              <span class="annual-span">Parts coverage:</span>
+                              <span class="annual-span">
+                                65 of the most commonly replaced parts are
+                                repaired or replaced free of charge
+                              </span>
+                            </p>
+                          </div>
+                        </div>
+                        <div class="row cusrw" *ngIf="companyData?.id != 1">
+                          <div class="col cusrw">
+                            <p class="spc">
+                              <span class="annual-span">Parts coverage:</span>
+                              All parts that do not touch water
+                            </p>
+                          </div>
+                        </div>
+                        <div class="row cusrw" *ngIf="con.c_Emerg">
+                          <div class="col cusrw">
+                            <p class="spc">
+                              <span class="annual-span">Time coverage:</span>
+                              24/7
+                            </p>
+                          </div>
+                        </div>
+                        <div class="row cusrw" *ngIf="con.c_Hot">
+                          <div class="col cusrw">
+                            <p class="spc">
+                              <span class="annual-span"
+                                >Water heater coverage (optional):</span
+                              >
+                              ${{ con.c_Hot_Fee }}
+                            </p>
+                          </div>
+                        </div>
+                        <div class="row cusrw" *ngIf="con.c_Tune">
+                          <div class="col cusrw">
+                            <p class="spc">
+                              <span class="annual-span">Annual tune-up:</span>
+                              Included
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row sc">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 pd-cl pd-cl-left">
+              <div class="white-bg l">
+                <h3 class="contact">Office hours</h3>
+                <table>
+                  <thead>
+                    <tr>
+                      <th class="tb l">Day</th>
+                      <th class="tb l">Office Hours</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="tb" *ngFor="let n of hours">
+                      <td>{{ n.day }}</td>
+                      <td *ngIf="n.day === 'Sat' || n.day === 'Sun'">Closed</td>
+                      <td *ngIf="n.day !== 'Sat' && n.day !== 'Sun'">
+                        {{ randomTime }}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div
+              class="col-lg-6 col-md-12 col-sm-12 col-12 pd-cl pd-cl-right"
+              *ngIf="companypricetiers && companypricetiers.length"
+            >
+              <div class="white-bg r">
+                <h3 class="contact">
+                  {{ companyData?.companyName }} Oil Prices per Gallon
+                </h3>
+                <div class="ctn">
+                  <table>
+                    <thead>
+                      <tr
+                        *ngFor="let n of companypricetiers; let first = first;"
+                      >
+                        <th class="tb l" *ngIf="first">Order Size</th>
+                        <th class="tb" *ngIf="n.type.credit && n.type && first">
+                          Credit
+                        </th>
+                        <th
+                          class="tb"
+                          *ngIf="!n.type.credit && n.type && first"
+                        ></th>
+                        <th class="tb" *ngIf="n.type.cash && n.type && first">
+                          Cash
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr
+                        *ngFor="let n of companypricetiers; let first = first;"
+                      >
+                        <td>{{ n.gallons }} gallons</td>
+                        <td *ngIf="n.type.credit && n.type">
+                          ${{ n.type.credit.toFixed(2) }} per gallon
+                        </td>
+                        <td *ngIf="!n.type.credit && n.type"></td>
+                        <td *ngIf="n.type.cash && n.type">
+                          ${{ n.type.cash.toFixed(2) }} per gallon
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="container-main-in"
+          *ngIf="otherCompanyImages.length > 0 && otherCompanyImages"
+          [ngClass]="get_otherCompanyImages(0).zoom"
+        >
+          <img
+            class="bg-img od"
+            [src]="otherCompanyImages_Click('1')"
+            [alt]="get_otherCompanyImages(0).alt"
+            [title]="get_otherCompanyImages(0).title"
+            [ngClass]="get_otherCompanyImages(0).zoom"
+            height="100%"
+            width="100%"
+            style="max-width: 100%"
+            loading="lazy"
+          />
+        </div>
+
+        <div
+          class="content-container-1"
+          *ngIf="companyData?.terminalData && companyData?.terminalData.length"
+        >
+          <div class="row">
+            <div
+              class="col col-heading col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"
+            >
+              <div class="content">
+                <h3 class="company-des tp">
+                  {{companyData?.companyName}}'s Fuel Terminal Accessibility
+                </h3>
+                <p class="text-para tp">
+                  The closest wholesale heating oil terminal (“rack”) to
+                  {{companyData?.companyName}} is
+                  <span class="camel">{{closestTerminal?.terminalOwner}}</span>
+                  in {{closestTerminal?.terminalCity}},
+                  {{closestTerminal?.terminalState}}. The distance from the
+                  company to the terminal is
+                  <span class="minus"
+                    >{{config.replaceAll((this.companyData.averageDistance -
+                    this.closestTerminal.offsetDistance).toFixed(2), '-',
+                    '')}}</span
+                  >
+                  miles
+                  <span class="more-less">{{moreLesValue}}</span>
+                  than average for
+                  <span class="state">{{companyData?.stateName}}</span> oil
+                  companies.
+                </p>
+                <p class="text-para tp">
+                  Terminal accessibility affects the prices that oil companies
+                  near you charge. Unless {{companyData?.companyName}} has
+                  on-site storage tanks, {{companyData?.companyName}}’s trucks
+                  need to make multiple daily trips to the rack to purchase oil.
+                  At today's average
+                  <span class="state">{{companyData?.stateName}}</span>
+                  diesel price of ${{companyData?.stateAveragePrice.toFixed(2)}}
+                  per gallon, and an average tanker truck fuel economy of 6.2
+                  mi/gal, {{companyData?.companyName}}'s round-trip fuel cost to
+                  pick up oil is an estimated
+                  <span>${{calculatedPrice}}</span>
+                  per trip.
+                </p>
+                <h3 class="company-des tb">
+                  Oil Terminals Near {{companyData?.companyName}}
+                </h3>
+                <div class="table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="tb l">Terminal Name</th>
+                        <th class="tb">Location</th>
+                        <th class="tb">Distance (miles)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr
+                        *ngFor="let n of companyData?.terminalData"
+                        class="tb"
+                      >
+                        <td>
+                          <img
+                            class="flag-tr"
+                            [srcset]="n.flagURL + '?tr=w-120'"
+                            [alt]="n.flagAltText"
+                            [title]="n.flagTitle"
+                            loading="lazy"
+                          />
+                          <p class="terminalName">{{n.terminalName}}</p>
+                        </td>
+                        <td>{{n.terminalCity}}, {{n.terminalState}}</td>
+                        <td>{{n.offsetDistance.toFixed(2)}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="content-container-1"
+          *ngIf="companyDescriptions && companyDescriptions.length"
+        >
+          <div *ngFor="let n of companyDescriptions" class="ion-row">
+            <div
+              class="ion-col col-heading"
+              size="12"
+              size-sm="12"
+              size-md="12"
+              size-lg="12"
+              size-xl="12"
+            >
+              <div class="content">
+                <h3 class="company-des">
+                  {{ replaceText(n.co_desc_headline) }}
+                </h3>
+                <p class="text-para">{{ replaceText(n.co_desc_body) }}</p>
+                <meta name="keyword" content="{{ n.co_desc_keyword }}" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <app-town-historic-chart
+            [townData]="companyData?.zip"
+            [city]="companyData?.companyName"
+            [companyId]="companyData?.id"
+            [loadCompanyChart]="loadChart"
+            *ngIf="!config.mobile_view && !disableChart && (config.typeParam == 'subType=2' || config.typeParam == 'type=1')"
+          ></app-town-historic-chart> -->
+
+        <div class="c-flag" *ngIf="companyData?.coFlagUrl">
+          <img
+            *ngIf="innerWidth < 500"
+            class="flag-mobile"
+            [srcset]="companyData?.coFlagUrl + '?tr=w-300'"
+            [alt]="companyData?.coFlagUrlAltTag"
+            [title]="companyData?.coFlagUrlTitleTag"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="outer-container faqs-content">
+          <div class="row">
+            <div
+              class="col-heading col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"
+            >
+              <div class="big-map-contain" *ngIf="!companyData?.serviceAreaMapUrl"></div>
+              <div class="content map" *ngIf="companyData?.serviceAreaMapUrl">
+                <h3 class="map-label">
+                  {{ companyData?.serviceAreaMapTitleTag }}
+                </h3>
+                <p class="text-para l">
+                  {{ companyData?.companyName }} offers heating oil delivery in
+                  {{ companyData?.city }} and
+                  <span class="additional">{{ otherTownCount }}</span>
+                  more
+                  <span class="town" *ngIf="otherTownCount > 1">towns</span>
+                  <span class="town" *ngIf="otherTownCount <= 1">town</span>
+                  <span
+                    class="ct"
+                    *ngIf="companyData?.deliveryServiceAreas.length > 0"
+                    >in {{ companyData?.deliveryServiceAreas[0].county }}
+                    County</span
+                  >
+                  and the surroundings.
+                </p>
+                <p
+                  class="text-para l"
+                  *ngFor="let n of companyData?.deliveryServiceAreas"
+                >
+                  <span
+                    class="county"
+                    *ngIf="companyData?.deliveryServiceAreas.length > 0"
+                    >{{ n.county }} County:</span
+                  >
+                  {{ n.towns }}
+                </p>
+                
+                  <img
+                  class="big-map"
+                  [srcset]="companyData?.serviceAreaMapUrl"
+                  sizes="(max-width: 1279px) 100vw, (min-width: 1280) 1280px"
+                  [alt]="companyData?.serviceAreaMapAltTag"
+                  [title]="companyData?.serviceAreaMapTitleTag"
+                  (error)="onImgError($event)"
+                  *ngIf="companyData?.serviceAreaMapUrl"
+                  loading="lazy"
+                />
+      
+           
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="outer-container faqs-content">
+          <div class="row">
+            <div class="col-12">
+              <h3 class="map-label bottom">
+                People also viewed these full service heating oil companies
+                serving {{ companyData?.city }}, {{ companyData?.state }}
+              </h3>
+              <div
+                id="carouselExample"
+                class="carousel slide"
+                data-ride="carousel"
+              >
+                <div class="carousel-inner">
+                  <ng-container
+                    id=".slider-containe"
+                    *ngFor="let comp of nearByCompanies; let i = index"
+                  >
+                    <div class="carousel-item" [class.active]="i === 0">
+                      <div class="silder-data row">
+                        <div
+                          class="col-2 align-items-center justify-content-center"
+                        >
+                          <img
+                            class="logo-img slider"
+                            [src]="comp.logoURL"
+                            (error)="fetchImageURL(comp)"
+                            [alt]="comp.logoAlt"
+                            *ngIf="!comp.isDefaultLogo"
+                            loading="lazy"
+                          />
+                          <div
+                            class="container-no-image tn"
+                            *ngIf="comp.isDefaultLogo"
+                          >
+                            <p class="txt-first-letter">
+                              {{ comp.companyName | slice: 0:1 }}
+                            </p>
+                          </div>
+                        </div>
+                        <div class="col justify">
+                          <div class="center-justify slider-content">
+                            <div class="text-justify text-1">
+                              <a
+                                class="txt-location-txt"
+                                [href]="navigateCompany(null, comp, null)"
+                                (click)="navigateCompany($event, comp, true)"
+                                >{{ comp.companyName }}</a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+<app-modal
+[modalTitle]="'Error'"
+[modalMessage]="Error"
+*ngIf="modalView"
+(closeModalEvent)="closeModel()"
+></app-modal>
+
+
+
+  <div class="footersection">
+    <!-- <app-section-footer
+      [companyName]="companyName"
+      [aboutUsUrl]="companyData?.aboutUsURL"
+      [contactUrl]="companyData?.contactUsURL"
+    >
+    </app-section-footer> -->
+  </div>
+</div>
+

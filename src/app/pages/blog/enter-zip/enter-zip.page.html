@@ -1,0 +1,514 @@
+<div [ngClass]="{'blur-bg':isMenuOpen}" class="container-main">
+  <div class="header">
+    <div class="logo">
+      <img
+        src="https://heatfleet.com/assets/heatfleet-logo-black.svg"
+        alt="Heatfleet"
+        loading="lazy"
+      />
+    </div>
+    <div class="content">
+      <h2>Log In</h2>
+      <button>Get Oil Deals</button
+      ><img
+        class="hamburger"
+        src="../../../../assets/blog/enter-zip/menu-outline.svg"
+        alt="menu"
+        loading="lazy"
+        (click)="toggleButton()"
+      />
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="prices-section">
+      <div class="lists">
+        <h2 class="list"><b>Save money.</b></h2>
+        <h2 class="list"><b>Save time.</b></h2>
+        <h2 class="list"><b>Stay Warm.</b></h2>
+      </div>
+      <div class="delivery">
+        <h1>
+          Get the
+          <u>best local</u><br />heating oil prices
+        </h1>
+        <img
+          src="../../../../assets/blog/enter-zip/down-arrow-cust.svg"
+          alt="menu"
+          loading="lazy"
+        />
+        <h3>Enter delivery ZIP</h3>
+        <div class="input-icons">
+          <input
+            class="zip-code zipLocation"
+            name="s"
+            type="text"
+            value="06840"
+            placeholder="Enter ZIP"
+          />
+          <input class="prices findOil" type="submit" value="Get Prices" />
+        </div>
+      </div>
+      <div class="sale">
+        <h2>
+          <u>Connecticut</u>
+        </h2>
+        <div class="text">
+          <h1>
+            <b>Save</b><br /><b>$31</b><br /><span> <b>per delivery</b></span>
+          </h1>
+        </div>
+        <h2>
+          <u>Savings</u><br />
+          <u>Calculator</u>
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="logo-section">
+    <div class="logo-container">
+      <h1>Top quality oil</h1>
+      <img
+        src="../../../../assets/blog/enter-zip/top-quality.svg"
+        alt="Heatfleet"
+        loading="lazy"
+      />
+    </div>
+    <div class="logo-container">
+      <h1>From top local providers</h1>
+      <img
+        class="truck-img"
+        src="../../../../assets/blog/enter-zip/heating-oil-truck.svg"
+        alt="Heatfleet"
+        loading="lazy"
+      />
+    </div>
+    <div class="logo-container">
+      <h1>When YOU need it</h1>
+      <img
+        src="../../../../assets/blog/enter-zip/when-you-need.svg"
+        alt="Heatfleet"
+        loading="lazy"
+      />
+    </div>
+    <div class="logo-container">
+      <h1>No contracts</h1>
+      <img
+        src="../../../../assets/blog/enter-zip/contracts.svg"
+        alt="Heatfleet"
+        loading="lazy"
+      />
+    </div>
+    <div class="logo-container">
+      <h1>Pay by card, cash, or check</h1>
+      <img
+        class="pay-img"
+        src="../../../../assets/blog/enter-zip/threecards.png"
+        alt="Heatfleet"
+        loading="lazy"
+      />
+    </div>
+  </div>
+
+  <div class="calculator">
+    <div class="calculator-heading">
+      <h2>
+        $ Saving Calculator
+        <span><u>Connecticut</u></span>
+      </h2>
+      <p>updated: 1/12/22</p>
+    </div>
+    <div class="avg-price">
+      <div class="ct-state">
+        <h2>CT State Average Price</h2>
+        <h4>
+          <sup class="supsub">$</sup>
+          <span class="largeprice">2.96</span>
+          <sup class="supsub">0</sup>
+          <sub class="supsub">/gal</sub>
+        </h4>
+      </div>
+      <div>
+        <h3><b>VS.</b></h3>
+      </div>
+      <div class="connecticut">
+        <h2>
+          <img
+            src="../../../../assets/blog/enter-zip/blue-logo.svg"
+            width="20"
+          />&nbsp;<b>Heat Fleet</b> Connecticut
+        </h2>
+        <h4>
+          <sup class="supsub">$</sup>
+          <span class="largeprice">2.74</span>
+          <sup class="supsub">9</sup>
+          <sub class="supsub">/gal</sub>
+        </h4>
+      </div>
+      <div class="sale"></div>
+    </div>
+    <div class="oil">
+      <div class="oil-use">
+        <h3>Annual Oil Use</h3>
+        <a href="#" role="button">
+          <span>750 gal</span>
+        </a>
+      </div>
+      <div class="more-save"></div>
+      <div class="quantity">
+        <h3>Order Quantity</h3>
+        <a href="#" role="button">
+          <span>150 gal</span>
+        </a>
+      </div>
+      <div class="less-save"></div>
+    </div>
+  </div>
+
+  <div class="how-it-works-bg">
+    <div class="how-it-works">
+      <h1>How it works</h1>
+      <div class="how-it-works-container">
+        <div class="works-container">
+          <h2>Specify delivery ZIP, date & quantity</h2>
+          <img
+            src="../../../../assets/blog/enter-zip/Rey-NY.png"
+            alt="Heatfleet"
+            loading="lazy"
+          />
+        </div>
+        <div class="works-container">
+          <h2>Compare priced from local oil companies</h2>
+          <img
+            src="../../../../assets/blog/enter-zip/compare-prices.png"
+            alt="Heatfleet"
+            loading="lazy"
+          />
+        </div>
+        <div class="works-container">
+          <h2>Select a company and confirm the order</h2>
+          <img
+            src="../../../../assets/blog/enter-zip/select-a-price.png"
+            alt="Heatfleet"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="logo-header">
+    <div class="logo">
+      <img
+        src="https://heatfleet.com/assets/heatfleet-logo-black.svg"
+        alt="Heatfleet"
+        loading="lazy"
+      />
+    </div>
+    <div class="enter-zip">
+      Enter Your ZIP for the best local heating oil prices
+    </div>
+    <div class="input-icons header-icons">
+      <input
+        class="zip-code zipLocation"
+        name="s"
+        type="text"
+        value="06840"
+        placeholder="Enter ZIP"
+      />
+      <input class="prices findOil" type="submit" value="Get Prices" />
+    </div>
+  </div>
+
+  <div class="reviews">
+    <div class="review-header">
+      <p>Homeowners</p>
+      <img
+        src="../../../../assets/blog/enter-zip/heart.svg"
+        alt="heart"
+        loading="lazy"
+      />
+      <br />
+      <br />
+
+      <img src="../../../../assets/blog/enter-zip/blue-logo.svg" alt="logo" />
+      <p>Heat Fleet!</p>
+    </div>
+    <div class="comment">
+      <div>
+        <div class="feedback">"You make saving money ridiculously easy!"</div>
+        <div class="client">Stuart K.</div>
+      </div>
+      <div>
+        <div class="feedback">
+          "Ordering oil on an app is a slam-dunk. 5 stars!"
+        </div>
+        <div class="client">Adam C.</div>
+      </div>
+      <div>
+        <div class="feedback">
+          "Finally! Heating oil has entered the 21st centuary?!"
+        </div>
+        <div class="client">Jim B.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="oil-marketplace">
+    <div class="marketplace">
+      <img
+        class="logo-img"
+        src="../../../../assets/blog/enter-zip/black-logo.svg"
+        alt="logo"
+        loading="lazy"
+      />
+      <h2>
+        <strong>Heat Fleet</strong>
+        <br />Oil Marketplace
+      </h2>
+    </div>
+
+    <div class="coming-soon">
+      <img
+        src="../../../../assets/blog/enter-zip/coming-soon.svg"
+        alt="coming soon"
+        loading="lazy"
+      />
+      <h2>
+        COMING <br />
+        SOON
+      </h2>
+    </div>
+
+    <div class="price">
+      <img
+        src="../../../../assets/blog/enter-zip/from.svg"
+        alt="price"
+        loading="lazy"
+      />
+      <h2>
+        From
+        <span style="font-size: 30px">2.74 <sup>9</sup> </span>/gal
+      </h2>
+    </div>
+
+    <div class="coming-soon">
+      <img
+        class="soon-img"
+        src="../../../../assets/blog/enter-zip/coming-soon-2.svg"
+        alt="coming soon"
+        loading="lazy"
+      />
+      <h2>
+        COMING <br />
+        SOON
+      </h2>
+    </div>
+  </div>
+
+  <div class="forecaster">
+    <div class="forecaster-header">
+      <img src="../../../../assets/blog/enter-zip/watch-icon.svg" alt="watch" />
+      <h2>
+        <strong> My Oil Use Forecaster</strong>
+      </h2>
+    </div>
+
+    <div class="forecast-body">
+      <div class="settings">
+        <h3>Forecaster Settings</h3>
+
+        <div>
+          <label for="zip-code">Zip Code</label>
+          <input type="text" value="5674" />
+        </div>
+
+        <div>
+          <label for="home-size">Home Size</label>
+          <input
+            type="range"
+            id="home-size"
+            min="1000"
+            max="10000"
+            step="1000"
+            value="50"
+            [(ngModel)]="homeSizeValue"
+            (input)="updateHomeSize()"
+          />
+          <input type="text" id="text-input" [value]="homeSizeValue" />
+        </div>
+
+        <div>
+          <span>Oil-fired hot water</span>
+          <label class="switch">
+            <input type="checkbox" unchecked />
+            <span class="slider round"></span>
+          </label>
+        </div>
+
+        <div>
+          <label for="occupants">Occupants</label>
+          <input
+            type="range"
+            id="occupants"
+            min="1"
+            max="10"
+            step="1"
+            value="4"
+            [(ngModel)]="occupantsValue"
+            (input)="updateOccupants()"
+          />
+          <input type="text" id="text-input" [value]="occupantsValue" />
+        </div>
+      </div>
+      <div class="oil-use">
+        <div class="row-forecast">
+          <div>
+            <h1>My oil use forecast</h1>
+            <p>this upcoming week</p>
+          </div>
+          <h2>34 <sub>gal.</sub></h2>
+        </div>
+        <img
+          src="../../../../assets/blog/enter-zip/graph-new.jpeg"
+          alt="graph"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="homeowner-guide">
+    <div class="heading">
+      <img src="../../../../assets/blog/enter-zip/hat-icon.svg" alt="" />
+      <h3>Homeowners' Guides</h3>
+    </div>
+    <div class="button">
+      <div class="heating-btn">Heating Oil Delivery</div>
+      <div class="heating-btn">Oil Central Heating</div>
+      <div class="heating-btn">Heating System Repair</div>
+    </div>
+  </div>
+
+  <div class="logo-header">
+    <div class="logo">
+      <img
+        src="https://heatfleet.com/assets/heatfleet-logo-black.svg"
+        alt="Heatfleet"
+        loading="lazy"
+      />
+    </div>
+    <div class="enter-zip">
+      Enter Your ZIP for the best local heating oil prices
+    </div>
+    <div class="input-icons header-icons">
+      <input
+        class="zip-code zipLocation"
+        name="s"
+        type="text"
+        value="06840"
+        placeholder="Enter ZIP"
+      />
+      <input class="prices findOil" type="submit" value="Get Prices" />
+    </div>
+  </div>
+
+  <div class="price-history">
+    <h2>Heating Oil Price History for <span>Connecticut</span></h2>
+    <div class="graph">
+      <div>
+        <div>
+          <h3>1-Month Connecticut Average Price</h3>
+          <img
+            src="../../../../assets/blog/enter-zip/1-graph.jpeg"
+            alt="graph"
+          />
+        </div>
+        <!-- <div>
+            <h3>1-Month Connecticut Average Price</h3>
+          </div> -->
+      </div>
+      <div>
+        <div>
+          <h3>10-Years Connecticut Average Price</h3>
+          <img
+            src="../../../../assets/blog/enter-zip/2-graph.jpeg"
+            alt="graph"
+          />
+        </div>
+        <!-- <div>
+            <h3>10-Years Connecticut Average Price</h3>
+          </div> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="blog">
+    <h2>Home Energy Savings Blog</h2>
+
+    <div class="blog-container">
+      <div>
+        <img src="../../../../assets/blog/enter-zip/installing_1.jpeg" />
+        <div class="text">
+          <h2>
+            <a href="">Desenrolle su camino hacia el ahorro de energía</a>
+          </h2>
+          <div>
+            <p>
+              Si bien probablemente aprendiste en la escuela que el calor
+              aumenta, ¿sabías
+            </p>
+            <a href="">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <img src="../../../../assets/blog/enter-zip/buying.jpeg" />
+        <div class="text">
+          <h2>
+            <a href="">Un poco de investigación ahorra mucho dinero</a>
+          </h2>
+          <div>
+            <p>Estoy seguro de que ha visto que los precios en la gasolinera</p>
+            <a href="">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- menu to be shown on click of hamburger -->
+<div class="menu-toggle" *ngIf="isMenuOpen">
+  <img
+    class="close-icon"
+    src="../../../../assets/blog/enter-zip/close.svg"
+    alt="close"
+    loading="lazy"
+    (click)="toggleButton()"
+  />
+  <nav>
+    <ul>
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li>
+        <a href="#">FAQ</a>
+      </li>
+      <li>
+        <a href="#">Heating Oil Price Charts</a>
+      </li>
+      <li>
+        <a href="#">Heating Oil Homeowner’s Guide</a>
+      </li>
+      <li>
+        <a href="#">Energy Savings Blog</a>
+      </li>
+      <li>
+        <a href="">Contact</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<app-section-footer></app-section-footer>

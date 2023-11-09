@@ -1,0 +1,58 @@
+h2.txt-title,
+span.from {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 39px;
+  text-align: center;
+  color: #060d19;
+  font-family: "font-bold";
+  margin-bottom: 1px;
+  margin-top: 0px;
+}
+
+span.highlight_ {
+  color: var(--ion-color-primary);
+  color: #0e8bde;
+  font-weight: 900;
+  font-family: "font-bold";
+}
+
+ion-col.col-cus.md.hydrated {
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+}
+
+ion-col.col-cus.md.hydrated {
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+}
+
+@media only screen and (min-width: 1300px) {
+  h2.txt-title {
+    margin-top: -17px;
+  }
+}
+
+@media only screen and (max-width: 573px) {
+  h2.txt-title,
+  span.from {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+  }
+}
+ion-col.cp {
+  margin-bottom: -4%;
+}
+
+span.mn {
+  font-family: font-bold;
+}
+
+.outer-container.compareprices-content {
+  padding-bottom: 5%;
+  padding-top: 2%;
+}

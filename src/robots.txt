@@ -1,0 +1,30 @@
+# Welcome, Robots, to Heat Fleet!
+#
+# If you are reading this page, and you are not a robot, we are always looking for SEO talent!
+# Hit us up @ seo@heatfleet.com!
+#
+# If you are thinking about scraping our site, this is forbidden.
+# We work tremendously hard to develop this database, and we hope you respect this.
+#
+
+Sitemap: https://heatfleet.com/sitemaps/en_US/sitemap_en_US_index.xml
+Sitemap: https://heatfleet.com/sitemaps/en_US/sitemap_en_US_states.xml
+Sitemap: https://heatfleet.com/sitemaps/en_US/sitemap_en_US_towns.xml
+Sitemap: https://heatfleet.com/sitemaps/en_US/sitemap_en_US_providers.xml
+Sitemap: https://heatfleet.com/sitemaps/en_US/sitemap_en_US_town_selectors.xml
+
+
+User-Agent: PetalBot
+Disallow: /
+
+User-Agent: SentiBot
+Disallow: /
+
+User-Agent: magpie-crawler
+Disallow: /
+
+User-Agent: Bytespider
+Disallow: /
+
+User-Agent: *
+Disallow: /blog

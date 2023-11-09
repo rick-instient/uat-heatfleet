@@ -1,0 +1,143 @@
+<div class="outer-container faqs-content">
+  <div class="row">
+    <div class="col col-title">
+      <h3 class="txt-title" *ngIf="!topCounties">Heating Oil By Location</h3>
+      <h3 class="txt-title" *ngIf="topCounties">
+        <span class="mn heading" *ngIf="config.typeParam == 'type=1'">
+          Home Heating Oil
+        </span>
+        <span class="mn heading" *ngIf="config.typeParam == 'subType=1'">
+          Home Heating Oil Companies
+        </span>
+        <span class="mn heading" *ngIf="config.typeParam == 'subType=2'">
+          Oil Prices
+        </span>
+        <span class="mn heading" *ngIf="config.typeParam == 'subType=3'">
+          Home Heating Oil Delivery
+        </span>
+        <span class="mn heading" *ngIf="config.typeParam == 'type=2'">
+          Home Heating Repair
+        </span>
+        By Location
+      </h3>
+    </div>
+  </div>
+  <div class="row mainrow-l">
+    <div class="col-12 col-md-6 col-lg-3 d-flex align-items-center flex-column">
+      <p class="label first">
+        <span class="mn" *ngIf="config.typeParam == 'type=1'">Heating Oil</span>
+        <span class="mn" *ngIf="config.typeParam == 'subType=1'">
+          Oil companies
+        </span>
+        <span class="mn" *ngIf="config.typeParam == 'subType=2'">
+          Oil Prices
+        </span>
+        <span class="mn" *ngIf="config.typeParam == 'subType=3'">
+          Oil Delivery
+        </span>
+        <span class="mn" *ngIf="config.typeParam == 'type=2'">
+          Heating Repair
+        </span>
+        by State
+      </p>
+      <div class="links-box-c" *ngFor="let n of stateList">
+        <a class="links" [href]="config.typeURL + n.url" (click)="navigateToURL($event, config.typeURL + n.url)">{{n.state_name}}</a>
+      </div>
+      <div class="viewAll">
+        <a
+          class="links"
+          [href]="stateUrl"
+          (click)="navigateTo($event, 'state')"
+        >
+          View all States
+        </a>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3 d-flex align-items-center flex-column">
+      <p class="label">
+        <span class="mn" *ngIf="config.typeParam == 'type=1'">Heating Oil</span>
+        <span class="mn" *ngIf="config.typeParam == 'subType=1'">
+          Oil Companies
+        </span>
+        <span class="mn" *ngIf="config.typeParam == 'subType=2'">
+          Oil Prices
+        </span>
+        <span class="mn" *ngIf="config.typeParam == 'subType=3'">
+          Oil Delivery
+        </span>
+        <span class="mn" *ngIf="config.typeParam == 'type=2'">
+          Heating Repair
+        </span>
+        by Region
+      </p>
+      <div class="links-box-c" *ngFor="let n of regionList">
+        <a class="links" [href]="config.typeURL + n.url" (click)="navigateToURL($event, config.typeURL + n.url)">{{n.state_name}}</a>
+      </div>
+      <div class="viewAll">
+        <a
+          class="links"
+          [href]="regionUrl"
+          (click)="navigateTo($event, 'region')"
+        >
+          View all Regions
+        </a>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3 d-flex align-items-center flex-column">
+      <p class="label">
+        <span class="mn" *ngIf="config.typeParam == 'type=1'">Heating Oil</span>
+        <span class="mn" *ngIf="config.typeParam == 'subType=1'">
+          Oil Companies
+        </span>
+        <span class="mn" *ngIf="config.typeParam == 'subType=2'">
+          Oil Prices
+        </span>
+        <span class="mn" *ngIf="config.typeParam == 'subType=3'">
+          Oil Delivery
+        </span>
+        <span class="mn" *ngIf="config.typeParam == 'type=2'">
+          Heating Repair
+        </span>
+        by County
+      </p>
+      <div class="links-box-c" *ngFor="let n of topCounties">
+        <a class="links" [href]="config.typeURL + n.state_Id + '-' + fetchStateName(n.state_Id) + '-' + getTownName(n.county_Name) + '_County-Cities.html'" (click)="navigateToURL($event, config.typeURL + n.state_Id + '-' + fetchStateName(n.state_Id) + '-' + getTownName(n.county_Name) + '_County-Cities.html')">{{n.county_Name}} County</a>
+      </div>
+      <div class="viewAll">
+        <a
+          class="links"
+          [href]="countiesUrl"
+          (click)="navigateTo($event, 'counties')"
+        >
+          View all Counties
+        </a>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3 d-flex align-items-center flex-column">
+      <p class="label">
+        <span class="mn" *ngIf="config.typeParam == 'type=1'">Heating Oil</span>
+        <span class="mn" *ngIf="config.typeParam == 'subType=1'">
+          Oil Companies
+        </span>
+        <span class="mn" *ngIf="config.typeParam == 'subType=2'">
+          Oil Prices
+        </span>
+        <span class="mn" *ngIf="config.typeParam == 'subType=3'">
+          Oil Delivery
+        </span>
+        <span class="mn" *ngIf="config.typeParam == 'type=2'">
+          Heating Repair
+        </span>
+        by City
+      </p>
+      <div class="links-box-c" *ngFor="let n of topTowns">
+        <a class="links" [href]="config.typeURL + n.hash + '-' + getTownName(n.townName) + '-' + n.stateId + '.html'" (click)="navigateToURL($event, config.typeURL + n.hash + '-' + getTownName(n.townName) + '-' + n.stateId + '.html')">{{n.townName}}</a>
+      </div>
+      <div class="viewAll">
+        <a class="links" [href]="cityUrl" (click)="navigateTo($event, 'city')">
+          View all Cities
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

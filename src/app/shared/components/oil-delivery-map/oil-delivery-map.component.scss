@@ -1,0 +1,19 @@
+.oil-delivery-map {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.oil-delivery-map h2 {
+    font-weight: var(--font-bold-extra-large);
+    font-size: var(--font-size-extra-large);
+    font-family: var(--bold-font);
+    text-align: center;
+    margin: 10px 0px 40px 0px;
+}
+
+.oil-delivery-map img {
+    max-width: 800px;
+}

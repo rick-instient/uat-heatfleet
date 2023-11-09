@@ -1,0 +1,59 @@
+@import "../../variables";
+@import "../../mixins";
+
+@include global-css;
+
+.mainContainer {
+    .headingBg {
+        background: #43C3F6;
+
+        .heading {
+            width: $width-lg;
+            margin: 0px auto;
+            padding: 10px 0px;
+
+            @media (max-width: 992px) {
+                width: $width-lg;
+            }
+
+            @media (max-width: 768px) {
+                width: $width-md;
+            }
+
+            .title {
+                padding: 0px 10px;
+                @extend heading-title;
+            }
+        }
+    }
+
+
+    .content {
+        width: $width-lg;
+        margin: 20px auto;
+
+        @media (max-width: 992px) {
+            width: $width-lg;
+        }
+
+        @media (max-width: 768px) {
+            width: $width-md;
+        }
+
+        .contentInner {
+            padding: 10px;
+
+            .title {
+                margin-bottom: 20px;
+            }
+
+            .details {
+                img {
+                    width: 100%;
+                }
+            }
+
+        }
+    }
+
+}

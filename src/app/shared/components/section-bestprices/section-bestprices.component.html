@@ -1,0 +1,379 @@
+<div class="outer-container bestprices-content" id="header">
+  <div>
+    <div class="col-title" style="text-align: center">
+      <!-- <h3 class="txt-title" *ngIf="LandingPage">Today's Best Heating Oil Prices by State</h3> -->
+      <h3 class="txt-title" *ngIf="LandingPage">
+        <span class="mn" *ngIf="config.typeParam == 'type=1'"
+          >Best Oil Prices </span
+        ><span class="mn" *ngIf="config.typeParam == 'subType=1'"
+          >Search Oil Companies </span
+        ><span class="mn" *ngIf="config.typeParam == 'subType=2'"
+          >Today's Best Heating Oil Prices </span
+        ><span class="mn" *ngIf="config.typeParam == 'subType=3'"
+          >Browse Oil Delivery </span
+        ><span class="mn" *ngIf="config.typeParam == 'type=2'"
+          >Search Heating Repair </span
+        >by State
+      </h3>
+      <h3 class="txt-title" *ngIf="townSelector && data_Arr">
+        <span class="mn" *ngIf="config.typeParam == 'type=1'"
+          >Find Heating Oil by {{ stateName }} </span
+        ><span class="mn" *ngIf="config.typeParam == 'subType=1'"
+          >Search {{ stateName }} Oil Companies By City</span
+        ><span class="mn" *ngIf="config.typeParam == 'subType=2'"
+          >Today's {{ stateName }} Oil Prices by City</span
+        ><span class="mn" *ngIf="config.typeParam == 'subType=3'"
+          >Browse {{ stateName }} Oil Delivery by City</span
+        ><span class="mn" *ngIf="config.typeParam == 'type=2'"
+          >Browse Heating Repair by {{ stateName }} </span
+        ><span class="mn" *ngIf="isHeatingOilPage">Town</span>
+      </h3>
+      <h3
+        class="txt-title"
+        *ngIf="
+          townPage &&
+          data_Arr &&
+          isCompanyAvailable &&
+          config.typeParam != 'subType=1'
+        "
+      >
+        Best
+        <span class="mn" *ngIf="config.typeParam == 'type=1'">Heating Oil </span
+        ><span class="mn" *ngIf="config.typeParam == 'subType=1'"
+          >Oil Companies </span
+        ><span class="mn" *ngIf="config.typeParam == 'subType=2'"
+          >Heating Oil Prices </span
+        ><span class="mn" *ngIf="config.typeParam == 'subType=3'"
+          >Oil Delivery </span
+        ><span class="mn" *ngIf="config.typeParam == 'type=2'"
+          >Heating Repair </span
+        >in {{ city }}, {{ state }}
+      </h3>
+      <h3
+        class="txt-title"
+        *ngIf="
+          townPage &&
+          data_Arr &&
+          isCompanyAvailable &&
+          config.typeParam == 'subType=1'
+        "
+      >
+        Oil Companies Near Me In {{ city }}, {{ state }}
+      </h3>
+      <p class="lastupdate" *ngIf="lastUpdate && innerWidth > 573" >Updated {{ lastUpdate }}</p>
+    </div>
+  </div>
+  <div class="row mainrow" *ngIf="townSelector">
+    <div class="col-sm-12 col-md-6 colleft">
+      <table>
+        <tbody>
+          <tr class="tb" *ngFor="let n of data_Arr">
+            <td class="l" *ngIf="n.price">
+              <a
+                class="inner"
+                [href]="navigate(null, n, null)"
+                (click)="navigate($event, n, true)"
+                >{{ n.townName | titlecase
+                }}<span class="lk" *ngIf="config.typeParam == 'type=1'"
+                  >&nbsp; Heating Oil</span
+                ><span class="lk" *ngIf="config.typeParam == 'subType=1'"
+                  >&nbsp; Oil Companies</span
+                ><span class="lk" *ngIf="config.typeParam == 'subType=2'"
+                  >&nbsp; Heating Oil Prices</span
+                ><span class="lk" *ngIf="config.typeParam == 'subType=3'"
+                  >&nbsp; Oil Delivery</span
+                ><span class="lk" *ngIf="config.typeParam == 'type=2'"
+                  >&nbsp; Heating Repair</span
+                ></a
+              >
+            </td>
+            <td
+              class="pr"
+              *ngIf="n.price && config.typeParam == 'subType=2'"
+            >
+              from ${{ n.price | number : "1.2-2"
+              }}<span class="gl"> per gallon</span
+              ><span class="gl-m"> /gal</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-12 col-md-6 colleft top">
+      <table class="sc" *ngIf="data_Arr2 && data_Arr2.length">
+        <tbody>
+          <tr class="tb" *ngFor="let n of data_Arr2">
+            <td class="l" *ngIf="n.price">
+              <a
+                class="inner"
+                [href]="navigate(null, n, null)"
+                (click)="navigate($event, n, true)"
+                >{{ n.townName | titlecase
+                }}<span class="lk" *ngIf="config.typeParam == 'type=1'"
+                  >&nbsp; Heating Oil</span
+                ><span class="lk" *ngIf="config.typeParam == 'subType=1'"
+                  >&nbsp; Oil Companies</span
+                ><span class="lk" *ngIf="config.typeParam == 'subType=2'"
+                  >&nbsp; Heating Oil Prices</span
+                ><span class="lk" *ngIf="config.typeParam == 'subType=3'"
+                  >&nbsp; Oil Delivery</span
+                ><span class="lk" *ngIf="config.typeParam == 'type=2'"
+                  >&nbsp; Heating Repair</span
+                ></a
+              >
+            </td>
+            <td
+              class="pr"
+              *ngIf="n.price && (config.typeParam == 'subType=2')"
+            >
+              from ${{ n.price | number : "1.2-2"
+              }}<span class="gl"> per gallon</span
+              ><span class="gl-m"> /gal</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="containarray">
+    <div class="row mainrow ld" *ngIf="townSelector && !hideArray">
+      <div
+        class="colleft"
+        size="12"
+        size-md="6"
+        size-lg="6"
+        *ngFor="let n of data_Arr_hidden"
+      >
+        <div class="container_innr left">
+          <div class="dta-rw">
+            <div class="colcus_left_aligned" size="9" style="text-align: left">
+              <a
+                class="txt-location-txt lft"
+                [href]="navigate(null, n, null)"
+                (click)="navigate($event, n, true)"
+                >{{ n.townName
+                }}<span class="lk" *ngIf="config.typeParam == 'type=1'"
+                  >&nbsp; Heating Oil</span
+                ><span class="lk" *ngIf="config.typeParam == 'subType=1'"
+                  >&nbsp; Oil Companies</span
+                ><span class="lk" *ngIf="config.typeParam == 'subType=2'"
+                  >&nbsp; Heating Oil Prices</span
+                ><span class="lk" *ngIf="config.typeParam == 'subType=3'"
+                  >&nbsp; Oil Delivery</span
+                ><span class="lk" *ngIf="config.typeParam == 'type=2'"
+                  >&nbsp; Heating Repair</span
+                ></a
+              >
+            </div>
+            <div
+              class="colcus_right_aligned"
+              size="3"
+              style="text-align: right"
+              *ngIf="
+                config.typeParam == 'subType=2' ||
+                config.typeURL == 'heating_oil/'
+              "
+            >
+              <p
+                class="txt-location-txt"
+                *ngIf="n.price"
+                (click)="navigate($event, n, true)"
+              >
+                from ${{ n.price | number : "1.2-2"
+                }}<span class="gl"> per gallon</span
+                ><span class="gl-m"> /gal</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="row mainrow btn-row"
+    *ngIf="townSelector && data_ && data_.length > 29"
+  >
+    <a *ngIf="showMore" [href]="loadMore_Cities(null, null)">
+      <button
+        class="common-buttton load more"
+        (click)="loadMore_Cities($event, true)"
+      >
+        {{ getButtonText(config.typeParam) }}
+      </button></a
+    >
+  </div>
+  <div class="row mainrow" *ngIf="townPage && isCompanyAvailable">
+    <div class="colleft" size="12" size-md="12" size-lg="12">
+      <table>
+        <tbody>
+          <tr class="tb" *ngFor="let n of data_Arr">
+            <td class="l">
+              <a
+                class="inner"
+                [href]="sitemapURL(n.sitemapURL)"
+                (click)="navigateCompany($event, n, true)"
+                >{{ fetchName(n.companyName) }}</a
+              >
+            </td>
+            <td
+              class="pr"
+              *ngIf="
+                n.price &&
+                (config.typeParam == 'subType=2' ||
+                  config.typeURL == 'heating_oil/')
+              "
+              (click)="navigateCompany($event, n, true)"
+            >
+              from ${{ n.price | number : "1.2-2"
+              }}<span class="gl"> per gallon</span
+              ><span class="gl-m"> /gal</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="containarray">
+    <div class="row mainrow" *ngIf="townPage && !hideArray">
+      <div class="colleft" size="12" size-md="12" size-lg="12">
+        <div class="container_innr left">
+          <div class="dta-rw">
+            <div class="colcus_left_aligned" size="12" style="text-align: left">
+              <table>
+                <tbody *ngFor="let n of data_Arr_hidden">
+                  <tr class="tb">
+                    <td class="l">
+                      <a
+                        class="txt-location-txt lft"
+                        [href]="navigateCompany(null, n, null)"
+                        (click)="navigateCompany($event, n, true)"
+                        ><span class="citystate"
+                          >{{ fetchName(n.companyName | titlecase) }} ?</span
+                        ></a
+                      >
+                    </td>
+                    <td class="l r">
+                      <p
+                        class="txt-location-txt"
+                        *ngIf="n.price"
+                        (click)="navigateCompany($event, n, true)"
+                      >
+                        from ${{ n.price | number : "1.2-2"
+                        }}<span class="gl"> per gallon</span
+                        ><span class="gl-m"> /gal</span>
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="row mainrow btn-row"
+    *ngIf="townPage && data_ && data_.length > 29 && showButtonEnable"
+  >
+    <button class="common-buttton load" *ngIf="showMore" (click)="loadMore()">
+      <p class="txt-btn">show more</p>
+    </button>
+    <button class="common-buttton load" *ngIf="showLess" (click)="loadLess()">
+      <p class="txt-btn">show less</p>
+    </button>
+  </div>
+  <div class="row mainrow ld" *ngIf="LandingPage">
+    <div class="col-sm-12 col-md-6 colleft" size="12" size-md="6" size-lg="6">
+      <table>
+        <tbody>
+          <tr class="tb" *ngFor="let n of stateData | slice : 0 : 5">
+            <td class="l">
+              <a
+                class="inner"
+                [href]="navigateState(n)"
+                (click)="navigateState2(n, $event)"
+                >{{ n.state_name
+                }}<span
+                  class="lk"
+                  *ngIf="config.typeParam == 'type=1' && isLandingPage"
+                  >&nbsp; Oil Prices</span
+                ><span
+                  class="lk"
+                  *ngIf="config.typeParam == 'type=1' && isHeatingOilPage && !isLandingPage"
+                  >&nbsp; Heating Oil</span
+                ><span class="lk" *ngIf="config.typeParam == 'subType=1'"
+                  >&nbsp; Oil Companies</span
+                ><span class="lk" *ngIf="config.typeParam == 'subType=2'"
+                  >&nbsp; Heating Oil Prices</span
+                ><span class="lk" *ngIf="config.typeParam == 'subType=3'"
+                  >&nbsp; Oil Delivery</span
+                ><span class="lk" *ngIf="config.typeParam == 'type=2'"
+                  >&nbsp; Heating Repair</span
+                ></a
+              >
+            </td>
+            <td
+              class="pr"
+              *ngIf="
+                (n.price && config.typeParam == 'subType=2') || isLandingPage
+              "
+            >
+              from ${{ n.price | number : "1.2-2"
+              }}<span class="gl"> per gallon</span
+              ><span class="gl-m"> /gal</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div
+      class="col-sm-12 col-md-6 colleft top"
+      size="12"
+      size-md="6"
+      size-lg="6"
+    >
+      <table class="sc">
+        <tbody>
+          <tr class="tb" *ngFor="let n of stateData | slice : 5 : 10">
+            <td class="l">
+              <a
+                class="inner"
+                [href]="navigateState(n)"
+                (click)="navigateState2(n, $event)"
+                >{{ n.state_name
+                }}<span
+                  class="lk"
+                  *ngIf="config.typeParam == 'type=1' && isLandingPage"
+                  >&nbsp; Oil Prices</span
+                ><span
+                  class="lk"
+                  *ngIf="config.typeParam == 'type=1' && isHeatingOilPage && !isLandingPage"
+                  >&nbsp; Heating Oil</span
+                ><span class="lk" *ngIf="config.typeParam == 'subType=1'"
+                  >&nbsp; Oil Companies</span
+                ><span class="lk" *ngIf="config.typeParam == 'subType=2'"
+                  >&nbsp; Heating Oil Prices</span
+                ><span class="lk" *ngIf="config.typeParam == 'subType=3'"
+                  >&nbsp; Oil Delivery</span
+                ><span class="lk" *ngIf="config.typeParam == 'type=2'"
+                  >&nbsp; Heating Repair</span
+                ></a
+              >
+            </td>
+            <td
+              class="pr"
+              *ngIf="
+                (n.price && config.typeParam == 'subType=2') || isLandingPage
+              "
+            >
+              from ${{ n.price | number : "1.2-2"
+              }}<span class="gl"> per gallon</span
+              ><span class="gl-m"> /gal</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

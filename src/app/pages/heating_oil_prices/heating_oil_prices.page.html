@@ -1,0 +1,14 @@
+<app-header-client></app-header-client>
+<app-section-main [qtyLoaded]="qtyLoaded"  [type]="true" [breadcrumbs]="breadcrumbs" [ctaText]="ctaText" [infoCheckBox]="infoCheckBox" [bsAltLine]="bsAltLine" [loaded]="loading"></app-section-main>
+<app-section-compareprices class="compare" [comparePricesText]="comparePricesText"></app-section-compareprices>
+<app-section-bestprices [data_]="pricesData" [lastUpdate]="lastUpdate" [LandingPage]="LandingPage"></app-section-bestprices>
+<app-section-why></app-section-why>
+<app-section-why2></app-section-why2>
+<div class="subscription"> 
+  <app-subscription></app-subscription>
+</div>
+<app-section-howitworks></app-section-howitworks>
+<app-section-faqs [faqsContentTown]="faqsContentTown"></app-section-faqs>
+<app-heating-oil-locations [topTowns]="topTowns" [topCounties]="topCounties"></app-heating-oil-locations>
+<app-section-about></app-section-about>
+<app-section-footer></app-section-footer>

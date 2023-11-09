@@ -1,0 +1,333 @@
+.outer-container.howitworks-content {
+  // background: var(--or-light-background);
+  background: var(--ion-color-light-background);
+  padding-top: var(--maximum-vertical-space);
+  padding-bottom: var(--maximum-vertical-space);
+  // padding-top: 7%;
+  // padding-bottom: 7%;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+p.txt-article-txt {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 39px;
+  color: #060d19;
+  font-family: "font-bold";
+}
+
+.container_innr {
+  padding: 24px;
+  border: 1px solid #e6e7e8;
+  border-radius: 16px;
+}
+
+.container_innr.right {
+  margin-left: 9px;
+  margin-right: 30px;
+}
+
+.container_innr.left {
+  margin-right: 9px;
+  margin-left: 9px;
+  padding-left: 31px;
+  padding-top: 24px;
+  padding-right: 28px;
+}
+
+
+
+p.desc-card_download_the_app {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #76797d;
+  font-family: "HK-Grotesk";
+}
+
+img.sc-right-top {
+  position: absolute;
+  right: 66px;
+  top: -115px;
+  max-width: 179px;
+}
+
+p.main-txt-card_show_oil_details {
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 36px;
+  text-align: center;
+  color: #ffffff;
+  font-family: "font-bold";
+  margin-top: 3px;
+}
+
+
+.container_innr.right.card_show_oil_details {
+  height: 207px;
+  left: 0px;
+  top: 0px;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 119, 182, 0.2) 0%,
+      rgba(14, 139, 222, 0.2) 100%
+    ),
+    #0e8bde;
+  border: 1px solid #e6e7e8;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 21px;
+}
+
+p.title-card_download_the_app {
+  font-weight: bold;
+  font-size: 29px;
+  font-family: "font-bold";
+  margin-top: 1px;
+  max-width: 170px;
+  margin-bottom: 15px;
+}
+
+.container_innr.right.card_download_the_app {
+  background: white;
+}
+
+h3.howitworks-title {
+  font-weight: bold;
+  font-size: 30px;
+  font-family: "font-bold";
+  margin-top: 11px;
+  margin-bottom: 15px;
+}
+
+p.col-item {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "HK-Grotesk";
+}
+
+h3.txt-subtitle {
+  font-size: 19px;
+  padding-bottom: 10px;
+}
+
+h4.col-item {
+  margin-top: 14px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "HK-Grotesk";
+}
+
+.row.row-cus {
+  margin-bottom: -26px;
+}
+
+span._link {
+  font-weight: bold;
+}
+
+img.sc-oil-company {
+  margin-top: 22px;
+}
+
+.container_innr.left.howitworks {
+  background: white;
+}
+
+.container_innr {
+  padding: 31px;
+  border: 1px solid #e6e7e8;
+  border-radius: 16px;
+}
+
+.container_innr.right {
+  margin-left: 9px;
+  margin-right: 30px;
+}
+
+/* 768px */
+.row.rw-100 {
+  margin-top: -25px;
+}
+
+@media only screen and (min-width: 768px) {
+  img.sc-oil-company {
+    float: right;
+  }
+}
+
+@media only screen and (max-width: 574px) {
+ .row.rw-100 {
+    margin-top: -10px !important;
+  }
+}
+
+img.sc-oil-company {
+  max-width: 100% !important;
+}
+
+/* @media only screen and (max-width: 356px){
+    img.sc-oil-company{
+      height: 300px !important;
+  }
+  
+  }
+  
+  @media only screen and (min-width: 357px) and (max-width: 419px){
+    img.sc-oil-company{
+      height: 364px!important;
+  }
+  
+  }
+  
+  @media only screen and (min-width: 420px) and (max-width: 469px){
+    img.sc-oil-company{
+      height: 400px!important;
+  }
+  
+  }
+  
+  @media only screen and (min-width: 470px) and (max-width: 514px){
+    img.sc-oil-company{
+      height: 500px!important;
+  }
+  
+  }
+
+  
+  @media only screen and (min-width: 570px) and (max-width: 639px){
+    img.sc-oil-company{
+      height: 618px!important;
+  }
+  
+  }
+  
+  @media only screen and (min-width: 640px) and (max-width: 767px) {
+  
+    img.sc-oil-company {
+      height: 700px !important;
+      width: 371px !important;
+    }
+  } */
+
+@media only screen and (max-width: 767px) {
+  img.sc-oil-company {
+    margin-top: 20px;
+    max-width: 65%;
+    margin-bottom: 0%;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .container_innr.right {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .container_innr.left {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .container_innr.right.card_download_the_app {
+    margin-top: 58px;
+  }
+
+  img.sc-right-top {
+    top: -4px;
+  }
+}
+
+input.cus-input {
+  margin-top: 8px;
+  margin-bottom: auto;
+  height: 100%;
+}
+
+.left {
+  min-height: 505px;
+  max-width: 616px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.container_innr.right {
+  min-height: 515px;
+  overflow: hidden;
+  background: white;
+}
+
+
+@media only screen and (max-width: 573px) {
+  h3.howitworks-title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+  }
+
+  p.col-item.mr {
+    margin-left: 17px;
+  }
+
+  h3.txt-subtitle {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    margin-bottom: -11px;
+  }
+
+  .container_innr.left.howitworks {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 17px;
+    padding-bottom: 28px;
+  }
+
+  p.col-item {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  h4.col-item {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+p.txt-subtitle.scnd {
+  margin-top: 13px;
+  margin-bottom: 20px;
+  margin-left: 2px;
+  font-size: 18px;
+}
+
+p.col-item.mr {
+  margin-left: 18px;
+  margin-top: -15px;
+}
+
+span.til {
+  font-style: italic;
+}
+
+.col-cus-item {
+  padding-bottom: 26px;
+}
+
+img.sc-oil-company {
+  height: 500px;
+  width: 253px;
+}
+
+  
+@media only screen and (max-width: 600px){
+  img.sc-oil-company {
+  
+      width: 243px;
+  }
+    
+    }

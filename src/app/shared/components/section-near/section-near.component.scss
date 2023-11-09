@@ -1,0 +1,66 @@
+@media only screen and (min-width: 489px) {
+  .outer-container.faqs-content {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
+h3.txt-title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 39px;
+  text-align: center;
+  color: #060d19;
+  font-family: "font-bold";
+  margin-bottom: 35px;
+  margin-top: 10px;
+}
+
+span.mn {
+  font-weight: 700;
+  font-family: "font-bold";
+}
+
+@media only screen and (max-width: 573px) {
+  h3.txt-title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+  }
+}
+
+.companyListing {
+  margin: 10px;
+  min-height: 49px;
+  left: 116px;
+  top: 5886px;
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  box-shadow: 0 0 20px #0000000a;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  padding: 10px;
+}
+
+a.txt-location-txt {
+  font-family: "HK-Grotesk";
+  color: #0404bc;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-right: 15px;
+  display: -webkit-inline-box;
+  margin-top: 3px;
+}
+
+@media only screen and (min-width: 768px) {
+  a.txt-location-txt {
+    font-size: 16px;
+  }
+}
+
+a.txt-location-txt:hover {
+  text-decoration: underline;
+  color: var(--or-primary);
+}

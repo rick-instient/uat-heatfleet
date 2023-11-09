@@ -1,0 +1,58 @@
+<!-- <ion-header [translucent]="true"> -->
+  <app-header-client [selectedId]="'forgot-pw'" [showHamburger]="false"></app-header-client>
+<!-- </ion-header> -->
+
+  <div class="container-centered" id="container-outer" *ngIf="!isInformation else success">
+    <div class="whitewindow" id="container">
+      <div class="header-section"> 
+        <div class="header-section-wrapper">
+          <div class="header-section-icon">
+            <!-- <ion-icon name="at-outline"></ion-icon> -->
+          </div>
+          <h2 class="header-section-title">Forgotten Password</h2>
+        </div>
+      </div>
+      <div class="form-layout">
+        <div class="form-wrapper">
+          <form [formGroup]="form">
+            <div class="item-label">
+              <p>Your email address</p>
+            </div>
+            <div class="item-line">
+              <input formControlName="email"/>
+            </div>
+            <!-- <div class="item-line error-label" *ngIf="FieldIsInvalid('Email')"> -->
+              <!-- <p>{{FieldFirstError("Email")}}</p> -->
+            <!-- </div> -->
+            <div class="item-line standalone-button">
+              <button class="save" (click)="onNext()"> 
+                <p class="txt-btn">Reset password</p>
+              </button>
+            </div>
+            <div class="item-line standalone-line">
+              <button class="save" (click)="onHome()" color="light" expand="block">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #success="">
+
+    <div id="container-outer">
+      <div class="whitewindow" id="container">
+        <div class="message-section">
+          <div class="message-section-title">Forgotten password</div>
+          <div class="message-section-content">Forgotten password email sent!</div>
+        </div>
+        <div class="form-layout">
+          <div class="form-wrapper">
+            <div class="item-line standalone-button">
+              <button class="save" (click)="onHome()">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </ng-template>

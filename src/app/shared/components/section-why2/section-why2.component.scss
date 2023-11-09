@@ -1,0 +1,492 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.card-content {
+  background: #ffffff;
+  border: 1px solid #e6e7e8;
+  border-radius: 16px;
+  margin-left: 30px;
+  margin-right: 30px;
+  padding-left: 37px;
+  padding-top: 7px;
+}
+
+h3.why-title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
+  color: #060d19;
+  font-family: "font-bold";
+  margin-top: 8px;
+  margin-bottom: 15px;
+}
+
+p.why-desc {
+  line-height: 20px;
+  color: #494c50;
+  font-family: "HK-Grotesk";
+  margin-top: -6px;
+  padding-left: 1px;
+}
+
+/* ion-col.img-cus-col.md.hydrated {
+  height: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+} */
+
+ion-col.img-cus-col.ios.hydrated,
+.img-cus-col {
+  height: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+ion-col.content-container-images.md.hydrated,
+.content-container-images {
+  height: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+ion-col.content-container-images.ios.hydrated,
+.content-container-images {
+  height: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+@media only screen and (min-width: 489px) {
+  .outer-container.why2-content {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
+@media only screen and (max-width: 974px) {
+  img.image-logo {
+    max-width: auto;
+  }
+
+  .card-content {
+    background: #ffffff;
+    border: 1px solid #e6e7e8;
+    border-radius: 16px;
+    margin-left: 15px;
+    margin-right: 16px;
+  }
+}
+
+img.image-logo {
+  max-width: 105px;
+}
+
+img.img-logo-company {
+  width: inherit;
+}
+
+.logo-contain {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  float: right;
+}
+
+.contain-align-right {
+  display: flex;
+}
+
+.company-logo-single.oesp {
+  display: none;
+}
+
+.company-logo-single {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-col.content-cus-col.md.hydrated,
+.content-cus-col {
+  display: flex;
+  padding-top: 13px;
+  padding-bottom: 10px;
+  align-items: center;
+}
+
+ion-col.content-cus-col.ios.hydrated,
+.content-cus-col {
+  display: flex;
+  padding-top: 13px;
+  padding-bottom: 10px;
+  align-items: center;
+}
+
+// @media only screen and (max-width: 1300px) {
+//   img.img-logo-company.oesp.only {
+//     display: none;
+//   }
+// }
+@media only screen and (min-width: 1300.01px) {
+  .logo-contain {
+    margin-top: 19px;
+    margin-bottom: 19px;
+    margin-right: 9px;
+  }
+
+  .contain-align-left {
+    display: none;
+  }
+
+  /* .company-logo-single.emaonly {
+     display: block;
+   } */
+
+  // img.img-logo-company.ema.only {
+  //   display: block;
+  // }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 999.99px) {
+  .logo-contain {
+    display: block !important;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  /* .company-logo-single.emaonly {
+     display: none;
+   } */
+
+  img.img-logo-company.ema.only {
+    display: none;
+  }
+
+  .contain-align-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+  }
+
+  .card-content {
+    padding-left: 25px;
+  }
+
+  .company-logo-single.oesp {
+    display: block;
+  }
+
+  .logo-contain {
+    display: flex;
+    margin-right: 5px;
+    margin-top: 19px;
+    margin-bottom: 10px;
+  }
+
+  img.img-logo-company {
+    width: inherit;
+  }
+
+  img.img-logo-company.oesp {
+    margin-left: 0.313rem;
+  }
+
+  .contain-align-right {
+    margin-top: 22px;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contain-align-left {
+    margin-top: 3px;
+  }
+}
+
+@media only screen and (max-width: 905px) {
+  h3.why-title {
+    line-height: 29px;
+    margin-bottom: 17px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .card-content {
+    padding-left: 0px;
+    padding-top: 0px;
+  }
+
+  h3.why-title {
+    margin-top: 0px;
+  }
+
+  ion-col.content-cus-col.md.hydrated,
+  .content-cus-col {
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right: 21px;
+  }
+
+  ion-col.content-cus-col.ios.hydrated,
+  .content-cus-col {
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right: 21px;
+  }
+}
+
+@media only screen and (min-width: 412px) and (max-width: 767px) {
+  .logo-contain {
+    margin-bottom: 10px !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .card-content {
+    padding-left: 27px !important;
+  }
+
+  ion-col.content-cus-col.md.hydrated,
+  .content-cus-col {
+    justify-content: left;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-right: 22px;
+  }
+
+  ion-col.content-cus-col.ios.hydrated,
+  .content-cus-col {
+    justify-content: left;
+    margin-left: 5px;
+    margin-top: 13x;
+    margin-right: 22px;
+  }
+
+  /* img.img-logo-company.oesp {
+    margin-left: 18%;
+   } */
+
+  img.img-logo-company {
+    width: 66%;
+  }
+
+  p.why-desc {
+    margin-right: 15px;
+  }
+
+  h3.why-title {
+    margin-right: 15px;
+  }
+
+  .logo-contain {
+    margin-top: -3px;
+    width: 100%;
+  }
+}
+
+img.img-logo-company {
+  width: 10rem;
+  margin-right: 20px;
+  height: 98px;
+}
+
+/* 
+.logo-contain {
+  float: right;
+} */
+
+@media only screen and (min-width: 1281px) and (max-width: 1398px) {
+  img.img-logo-company {
+    width: 9rem;
+  }
+}
+
+@media only screen and (min-width: 864px) and (max-width: 1024px) {
+  img.img-logo-company {
+    width: 9rem;
+  }
+}
+
+@media only screen and (min-width: 817px) and (max-width: 863px) {
+  img.img-logo-company {
+    width: 9rem;
+  }
+}
+
+@media only screen and (min-width: 790px) and (max-width: 816px) {
+  img.img-logo-company {
+    width: 8rem;
+  }
+}
+
+@media only screen and (min-width: 766px) and (max-width: 789px) {
+  img.img-logo-company {
+    width: 7.813rem;
+  }
+}
+
+@media only screen and (min-width: 580px) and (max-width: 628px) {
+  img.img-logo-company {
+    width: 9rem;
+  }
+}
+
+@media only screen and (min-width: 559px) and (max-width: 579px) {
+  img.img-logo-company {
+    width: 8.813rem;
+  }
+}
+
+@media only screen and (min-width: 331px) and (max-width: 388px) {
+  img.img-logo-company {
+    width: 6.813rem !important;
+  }
+}
+
+@media only screen and (max-width: 411px) {
+
+  ion-col.content-cus-col.md.hydrated,
+  .content-cus-col {
+    margin-left: -6px;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+
+  ion-col.content-cus-col.ios.hydrated,
+  .content-cus-col {
+    margin-left: -6px;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+
+  .logo-contain {
+    margin-bottom: 6px !important;
+  }
+}
+
+@media only screen and (min-width: 503px) and (max-width: 560px) {
+  img.img-logo-company {
+    width: 8rem;
+  }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 502px) {
+  img.img-logo-company {
+    width: 7.813rem;
+  }
+}
+
+@media only screen and (min-width: 490px) and (max-width: 499px) {
+  img.img-logo-company {
+    width: 7.313rem;
+  }
+}
+
+@media only screen and (min-width: 331px) and (max-width: 490px) {
+  img.img-logo-company {
+    width: 7.813rem;
+  }
+
+  .logo-contain {
+    margin-top: -10px;
+    width: 100%;
+    margin-bottom: 0px;
+  }
+
+  .contain-align-right {
+    margin-top: 15px;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media only screen and (min-width: 331px) and (max-width: 378px) {
+  img.img-logo-company[_ngcontent-xdt-c194] {
+    margin-right: 16px !important;
+    width: 7rem !important;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  img.img-logo-company {
+    margin-right: 16px;
+    width: 6rem;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  img.img-logo-company {
+    width: 11rem;
+    margin-right: 45px;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  img.img-logo-company {
+    width: 13rem;
+    margin-right: 50px;
+  }
+}
+
+@media only screen and (min-width: 2100px) {
+  img.img-logo-company {
+    width: 14rem;
+    margin-right: 58px;
+  }
+}
+
+@media only screen and (min-width: 2300px) {
+  img.img-logo-company {
+    width: 15rem;
+    margin-right: 80px;
+  }
+}
+
+@media only screen and (max-width: 573px) {
+  h3.why-title {
+    font-size: 1.25rem;
+    line-height: 1.4rem;
+    font-weight: 600;
+  }
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1300px) {
+  .card-content {
+    padding-left: 30px !important;
+  }
+
+  img.img-logo-company.oesp {
+    width: 9.2rem;
+  }
+}
+
+span.city {
+  font-family: font-bold;
+}
+
+.show-more-1300 {
+  display: block;
+}
+
+.show-less-1300 {
+  display: none;
+}
+
+@media (max-width: 1300px) {
+  .show-less-1300 {
+    display: block;
+  }
+
+  .show-more-1300 {
+    display: none;
+  }
+}

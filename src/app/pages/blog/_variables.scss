@@ -1,0 +1,32 @@
+// Hompage page Subcategory button
+$btn-bg-color: #428CFF;
+$btn-color: #FFFFFF;
+$btn-radius: 6px;
+$btn-padding: 12px 18px 12px 18px;
+// $font-family: "HKGrotesk Regular", Sans-serif;
+// $heading-font-family: "HKGrotesk Regular", Sans-serif;
+
+$font-family: 'HK-Grotesk', sans-serif; // for testing delete this later
+$heading-font-family: 'HK-Grotesk', sans-serif; // for testing delete this later
+$secondary-bg-color: #F4F7FE;
+
+
+$width-lg: 80vw;
+$width-md: 90vw;
+$width-sm: 100vw;
+
+heading-title {
+    h1 {
+        margin-top: 1rem;
+        font-size: 38px;
+        font-weight: 600;
+        line-height: 40px;
+    }
+
+    h4 {
+        margin-top: 1rem;
+        font-size: 22px;
+        font-weight: 500;
+        font-weight: normal;
+    }
+}

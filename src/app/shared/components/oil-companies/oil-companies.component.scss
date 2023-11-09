@@ -1,0 +1,245 @@
+@media only screen and (min-width: 489px) {
+  .outer-container.faqs-content {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
+h3.txt-title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 39px;
+  text-align: center;
+  color: #060d19;
+  font-family: "font-bold";
+  margin-bottom: 35px;
+  margin-top: 10px;
+}
+@media only screen and (max-width: 573px) {
+  h3.txt-title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+  }
+  th.tb.l {
+    text-align: center;
+  }
+}
+
+p.txt-btn {
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0px;
+  font-family: HK-Grotesk;
+  font-size: var(--button-font-desktop);
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+table {
+  background: #ffffff;
+  border: 1px solid #f8f8f8;
+  border-radius: 4px;
+}
+td {
+  padding: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+th.tb {
+  padding: 8px;
+  font-size: 16px;
+  text-align: center;
+
+}
+th.tb.l {
+  text-align: left;
+  padding-left: 16px;
+}
+
+tr.tb:hover {
+  background-color: #eaebee;
+}
+
+button.common-buttton.load {
+  --background: var(--brand-primary2-color);
+  --border-radius: var(--corner-radius);
+  margin-top: 16px;
+  font-family: HK-Grotesk;
+  margin-left: 0;
+  color: #fff;
+  --box-shadow: none;
+  height: var(--button-height-desktop);
+  font-size: var(--button-font-desktop);
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 497px) {
+  button.common-buttton.load {
+    font-size: var(--button-font-mobile) !important;
+  }
+}
+.colleft {
+  overflow-x: auto;
+}
+
+a.link {
+  font-family: HK-Grotesk;
+  font-style: normal;
+  color: #0404bc;
+  text-decoration: underline;
+  cursor: pointer;
+  line-height: 150%;
+  margin-top: 26.5px;
+  display: inline-block;
+  margin-left: 8px;
+  margin-top: 3px;
+  font-size: 16px;
+}
+
+a.link:hover {
+  text-decoration: underline;
+  color: var(--ion-color-primary);
+}
+
+td {
+  font-family: "HK-Grotesk";
+  font-style: normal;
+  line-height: 150%;
+  min-width: 102px;
+  margin-top: 26.5px;
+}
+
+td.center {
+  text-align: center;
+}
+.colleft {
+  overflow-x: auto;
+}
+
+button.common-buttton.load {
+  height: 48px;
+  // padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 20px;
+  margin-left: 0px;
+}
+.aligner-1,
+.aligner-2 {
+  display: contents;
+}
+h2.header-section-title {
+  margin-top: 3px;
+  margin-bottom: -10px;
+  margin-left: 8px;
+}
+.itemsalign {
+  cursor: pointer;
+}
+.addnewform,
+.item-line.standalone-button {
+  width: 100%;
+}
+.white-row.desktop.scrollme {
+  display: inline-flex;
+}
+.inputs.scrollcontainer.add {
+  margin-top: 20px;
+}
+inputs {
+  text-align: center;
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  height: 51px;
+  background: #ffffff;
+  border: 1.5px solid #e6e7e8;
+  border-radius: 5px;
+}
+.inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 21px 9px 20px 15px;
+
+  isolation: isolate;
+  max-width: 162.05px;
+
+  flex: none;
+  order: 0;
+  align-self: stretch;
+
+  gap: 7px;
+  isolation: isolate;
+  width: 162.05px;
+  height: 50px;
+  background: #ffffff;
+
+  border: 2px solid #e6e7e8;
+  border-radius: 5px;
+}
+.inputs.plain {
+  padding-left: 3px;
+  width: 100%;
+}
+img.sc-search-icn {
+  height: 19px;
+}
+img.sc-search-icn {
+  width: 25px !important;
+  height: 24px;
+}
+img.sc-loc-icn {
+  width: 19px !important;
+  margin-top: -2px !important;
+  max-width: 20px;
+  height: 23px;
+}
+p.label-white-row {
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  color: #76797d;
+  font-family: "HK-Grotesk";
+  margin-top: 12px;
+  margin-bottom: -13px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 14px;
+  display: block;
+}
+button.common-button.scrolldown {
+  height: 50px;
+  margin-top: 0px;
+}
+img.imglogo.scroll {
+  margin-right: 10px;
+  margin-top: 15px;
+}
+
+.btn.scrolldown {
+  margin-top: 13px;
+  margin-left: -20px;
+}
+
+fieldset {
+  margin-top: 15px;
+  margin-left: 3%;
+}

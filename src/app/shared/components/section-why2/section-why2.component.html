@@ -1,0 +1,74 @@
+<div class="outer-container why2-content">
+  <div class="card-content">
+    <!-- <div class="row">
+            <div class="col-12 content-cus-col tp">
+                <div class="content-container tp">
+                    <h3 class="why-title tp" alt="Heat Fleet Industry Leader" *ngIf="state">
+                        Heat Fleet Is A Proud Member Of Local And National Oil Industry Trade Associations
+                    </h3>                    
+                </div>
+            </div>
+        </div> -->
+    <div class="row">
+      <div class="col-sm-12 col-md-5 col-lg-6.5 col-xl-7 content-cus-col">
+        <div class="content-container">
+          <h3 class="why-title tp" alt="Heat Fleet Industry Leader" *ngIf="state">
+            Heat Fleet Is A Proud Member Of Trade Associations
+          </h3>
+          <h3 class="why-title" alt="Heat Fleet Industry Leader" *ngIf="!state">
+            Heat Fleet Champions
+            <span class="city" *ngIf="townData">{{ city }}</span>
+            Homeowners
+          </h3>
+          <p class="why-desc" *ngIf="townData">
+            <!-- As an active member of
+                        <span *ngIf="state && state == 'New York'">Empire State Energy Association.</span>
+                        <span *ngIf="state && state == 'Connecticut'">Connecticut Energy Marketers Association.</span>
+                        <span *ngIf="state && state != 'Connecticut' && state != 'New York'">Energy Marketers of America.</span> -->
+            <span class="text">
+              We promote residential
+              <span class="hf" *ngIf="config.typeParam == 'type=1'">heating oil</span>
+              <span class="hf" *ngIf="config.typeParam == 'type=2'">heating repair</span>
+              <span>
+                savings in {{ city }} by providing real-time {{ city }}</span>
+              <span class="hf" *ngIf="config.typeParam == 'type=1'">heating oil</span>
+              <span class="hf" *ngIf="config.typeParam == 'type=2'">heating repair</span>
+              <span>prices and state-of-the-art secure online ordering.</span>
+            </span>
+          </p>
+          <p class="why-desc" *ngIf="!townData">
+            As an active member of national and regional trade associations, we
+            promote oil price reduction by introducing online commerce to the
+            industry.
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-7 col-lg-5.5 col-xl-5 img-cus-col">
+        <div class="logo-contain">
+          <div class="contain-align-left show-less-1300">
+            <img class="img-logo-company ema" src="assets/icons/kx-EMA-Heating-OIl-Logo.svg"
+              title="EMA Heating OIl Logo" alt="Energy Marketers Of America Logo" fetchpriority="high" />
+            <img *ngIf="city != 'Connecticut' && city != 'New York'" class="img-logo-company oesp"
+              src="assets/icons/nn-OESP-Heating-Oil-Logo.svg" title="OESP Heating Oil Logo"
+              alt="Oil Energy Service Professionals Association Logo" fetchpriority="high" />
+          </div>
+          <div class="contain-align-right">
+            <img class="img-logo-company ema only show-more-1300" src="assets/icons/kx-EMA-Heating-OIl-Logo.svg"
+              title="EMA Heating OIl Logo" alt="Energy Marketers Of America Logo" fetchpriority="high" />
+            <img *ngIf="city != 'Connecticut' && city != 'New York'" class="img-logo-company oesp only show-more-1300"
+              src="assets/icons/nn-OESP-Heating-Oil-Logo.svg" title="OESP Heating Oil Logo"
+              alt="Oil Energy Service Professionals Association Logo" fetchpriority="high" />
+
+            <img *ngIf="city == 'New York'" class="img-logo-company esea"
+              src="assets/icons/gc-ESEA-Heating-Oil-Logo.svg" title="ESEA Heating Oil Logo"
+              alt="Empire State Energy Association Logo" fetchpriority="high" />
+
+            <img *ngIf="city == 'Connecticut'" class="img-logo-company" src="assets/icons/ih-CEMA-Heating-Oil-Logo.svg"
+              title="CEMA Heating Oil Logo" alt="Connecticut Energy Marketers Association Logo" fetchpriority="high" />
+          </div>
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

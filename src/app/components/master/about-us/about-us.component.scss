@@ -1,0 +1,157 @@
+.about_intro__wrapper {
+    margin-top: -55px;
+}
+
+h3.txt-title.unlock-value-txt {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+.img-aligner {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+ 
+
+    .img-aligner {
+        display: grid;
+        margin-top: 10px;
+    }
+
+    img.nmi-logo {
+        max-width: 200px;
+        // height: auto;
+        margin-right: 35px;
+        float: right;
+    }
+}
+
+@media only screen and (max-width: 470px) {
+    img.nmi-logo {
+        max-width: 170px !important;
+    }
+}
+
+.payment-proccess-container {
+    padding-top: var(--maximum-vertical-space);
+    padding-bottom: var(--maximum-vertical-space);
+}
+
+@media only screen and (min-width: 489px) {
+    .payment-proccess-container {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
+@media only screen and (max-width: 488px) {
+    .payment-proccess-container {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+}
+
+ul {
+    padding-bottom: 20px;
+}
+
+p.pt_nmbr.txtadv {
+    padding-top: 0px;
+}
+
+span.sptxtadv {
+    font-weight: bold;
+}
+
+// new responsive----
+
+h3.homeowner-text {
+    font-size: var(--h2-font-desktop);
+    text-align: center;
+}
+
+li.payment-pro-li,
+p.para-text,
+li,
+p.pt_nmbr.title,
+p.btm-desc {
+    font-size: var(--p-font-desktop);
+}
+
+h2.txt-title-content {
+    font-size: var(--h1-font-desktop);
+}
+
+.about_intro__wrapper .about__intro p {
+    font-size: var(--p-font-desktop);
+}
+
+@media only screen and (max-width: 500px) {
+    h3.homeowner-text {
+        font-size: var(--h2-font-mobile);
+        // line-height: 1.3rem;
+    }
+
+    li.payment-pro-li,
+    p.para-text,
+    li,
+    p.pt_nmbr.title,
+    p.btm-desc {
+        font-size: var(--p-font-mobile);
+    }
+
+    h2.txt-title-content {
+        font-size: var(--h1-font-mobile);
+    }
+
+    h3.txt-title {
+        font-size: var(--h2-font-mobile);
+    }
+
+    .about_intro__wrapper .about__intro p {
+        font-size: var(--p-font-mobile);
+    }
+
+    .about__wrapper {
+        margin: 0px 20px;
+    }
+}
+
+h3.txt-title.xd {
+    margin-top: 82px !important;
+    margin-bottom: 0px !important;
+}
+
+.img-aligner {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+
+ul.payment-pro-ul {
+    margin-top: 40px !important;
+    margin-left: 20px;
+}
+@media only screen and (max-width: 575.98px) {
+    img.nmi-logo {
+        margin-right: 0px !important;
+    }
+
+}
+
+@media only screen and (max-width: 770px) {
+    .img-aligner {
+
+        justify-content: center;
+ 
+    }
+    
+}
+
+

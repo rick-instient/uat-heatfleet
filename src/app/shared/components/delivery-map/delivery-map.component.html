@@ -1,0 +1,19 @@
+<div>
+  <div *ngIf="!service_image_url">
+  </div>
+
+  <div *ngIf="service_image_url">
+    <div style="width: 100%;">
+      <div class="delivery-image-map">
+        <h3 class="txt-title gd">{{service_title}}</h3>
+        <img class="big-map" src="/assets/icon/placeholder-rectangle.png" alt="Town Map Image" title="Town Map Image" loading="lazy"
+          *ngIf="!townmapImage" width="100%" />
+        <img
+          class="big-map"
+          [srcset]="service_image_url+'?tr=w-225 225w,'+service_image_url+'?tr=w-350 350w,'+service_image_url+'?tr=w-700 700w,'+service_image_url+'?tr=w-900 900w,'+service_image_url+'?tr=w-1200 1200w,'"
+          [alt]="service_alt" [title]="service_title" (error)="onImgError($event)" loading="lazy"
+          *ngIf="townmapImage && service_image_url" width="100%" />
+      </div>
+    </div>
+  </div>
+</div>

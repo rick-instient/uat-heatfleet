@@ -1,0 +1,29 @@
+<div     #div class="scrollable">
+  <app-header-client></app-header-client>
+  <app-section-main [payLater]="payLater" [LandingPage]="LandingPage"></app-section-main>
+  <app-section-compareprices></app-section-compareprices>
+  <app-section-bestprices
+    [data_]="pricesData"
+    [LandingPage]="LandingPage"
+    [lastUpdate]="lastUpdate"
+  ></app-section-bestprices>
+  <app-section-why></app-section-why>
+  <app-section-why2></app-section-why2>
+  <app-historical-price-chart
+    [data_]="data_res"
+    [lastUpdate]="lastUpdate"
+    [loaded]="enable_chartData"
+    *ngIf="loadComp && innerWidth < 500 && (clientbase.typeParam == 'subType=2' || clientbase.typeURL == 'heating_oil/')"></app-historical-price-chart>
+  <!-- <app-subscription></app-subscription> -->
+  <app-section-howitworks></app-section-howitworks>
+  <app-section-faqs
+    [faqsContentTown]="faqsContentTown"
+    *ngIf="(faqsContentTown && faqsContentTown.length > 0) || clientbase.onlyLanding"
+  ></app-section-faqs>
+  <app-heating-oil-locations
+    [LandingPage]="LandingPage"
+    [topTowns]="topTowns"
+    [topCounties]="topCounties"
+  ></app-heating-oil-locations>
+  <app-section-footer></app-section-footer>
+</div>

@@ -1,0 +1,35 @@
+<app-header-client></app-header-client>
+<section>
+  <div class="container"></div>
+  <!-- <div class="row">
+    <div class="col-12">
+      <ul class="breadcrumb">
+        <ng-container *ngFor="let breadcrumb of breadcrumbsService.breadcrumbs$ | async;let index=index"> </ng-container>
+        <li class="active">
+          <h1 class="active">{{breadcrumb.label | titlecase}}</h1>
+        </li>
+      </ul>
+    </div>
+  </div> -->
+</section>
+<div class="desktop-container">
+  <div class="container-fluid container-lg">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 d-flex justify-content-center" *ngFor="let service of services">
+        <div class="card" (click)="navigateUrl($event, getUrl())">
+          <div class="card_image"><img [src]="service.img" [alt]="service.title" loading="lazy"/></div>
+          <div class="infos container-fluid">
+            <div class="row justify-content-center align-items-center w-12">
+              <div class="col-12 align-items-center justify-content-center d-flex w-12"><a class="service" [href]="getUrl()" (click)="navigateUrl($event, getUrl())">{{ service.title  }}</a>
+                <h2 class="service">Best Home Heating Oil Prices</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footersection">
+  <app-section-footer></app-section-footer>
+</div>

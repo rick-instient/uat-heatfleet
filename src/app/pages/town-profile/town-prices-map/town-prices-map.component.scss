@@ -1,0 +1,150 @@
+.inner-contain {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+p.title-price {
+  font-family: "HK-Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 39px;
+  color: #060d19;
+  font-family: "font-bold";
+}
+
+p.txt-desc-price {
+  margin-top: -22px;
+  font-family: "HK-Grotesk";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #76797d;
+  font-family: "HK-Grotesk";
+  margin-top: -28px;
+  margin-left: -1px;
+}
+
+.outer-container.pricemap {
+  background: #f5f9fd;
+}
+
+img.map-full {
+  width: 100%;
+}
+
+@media only screen and (min-width: 489px) {
+  .outer-container.pricemap {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .outer-container.pricemap {
+    height: 671px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .outer-container.pricemap {
+    height: 550px !important;
+  }
+
+  .map-container {
+    height: 350px !important;
+  }
+}
+
+.map-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: 6px;
+  height: 500px;
+  margin-right: 5px;
+  z-index: 1;
+}
+
+.map-frame {
+  border-radius: 16px;
+  overflow: hidden;
+  height: 100%;
+}
+
+#map {
+  height: 100%;
+}
+
+.outer-container.pricemap {
+  height: 700px;
+}
+
+.leaflet-tooltip {
+  position: absolute;
+  padding: 6px;
+  background-color: var(--ion-color-primary) !important;
+  border: none;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  white-space: nowrap;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 40%);
+  &::before {
+    bottom: 0;
+    margin-bottom: -12px;
+    border-top-color: #0e8bde;
+  }
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &-title {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  &-content {
+    display: flex;
+    align-items: flex-start;
+    span {
+      font-size: 16px;
+      line-height: 110%;
+      font-weight: 500;
+    }
+    small {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 110%;
+    }
+  }
+}
+
+.leaflet-tooltip-title {
+  font-size: 5px !important;
+}
+
+@media only screen and (max-width: 573px) {
+  .title-price {
+    font-size: 1.25rem !important;
+    line-height: 1.4rem !important;
+    font-weight: 600;
+    margin-bottom: 28px;
+  }
+
+  p.txt-subscription {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  p.txt-desc-price {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+.container_innr {
+  text-align: center;
+}

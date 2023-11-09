@@ -1,0 +1,50 @@
+@import "../../variables";
+@import "../../mixins";
+
+@include global-css;
+
+.heading-container {
+  width: 100%;
+  background-color: #43c3f6;
+
+  .title {
+    width: $width-lg;
+    margin: 0 auto;
+    padding: 10px 0px;
+    @extend heading-title;
+  }
+}
+
+.content {
+  width: $width-lg;
+  margin: 2rem auto;
+
+  img {
+    max-width: 800px;
+    height: auto;
+  }
+}
+
+.tank-diagram {
+  text-align: center;
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 768px) {
+  .content,
+  .title {
+    width: $width-sm;
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 992px) {
+  .content,
+  .title {
+    width: $width-md !important;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+}

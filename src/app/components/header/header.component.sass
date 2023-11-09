@@ -1,0 +1,549 @@
+.nav-wrapper
+    display: flex
+    flex-direction: row
+    align-items: flex-start
+    justify-content: space-between
+    width: 100%
+    height: var(--nav-bar-height)
+    padding: 0
+    background: white
+    border-bottom: 1px solid lightgray
+    
+    
+    .nav-logo
+        // padding: 16px 24px 16px 41px
+        cursor: pointer
+        height: var(--nav-bar-height)
+        height: 30px
+        margin-left: 20px
+        min-height: 30px
+        max-height: 30px
+        img
+            height: 30px
+            min-height: 30px
+            max-height: 30px
+            width: 100%
+
+        &:hover
+            //background-color: rgba(77,77,77,0.05)
+
+    .nav-container
+        width: auto
+        height: var(--nav-bar-height)
+        display: flex
+        flex-direction: row
+        align-items: center
+        padding: 0
+        background: white
+
+        ion-label
+            padding: 0 16px
+            font-size: 15px
+            color: var(--brand-secondary-color)
+            cursor: pointer
+            font-family: 'HK-Grotesk'
+            height: var(--nav-bar-height)
+            line-height: var(--nav-bar-height)
+            white-space: nowrap
+            &:hover
+                color: var(--brand-secondary-color)
+                //background-color: rgba(77,77,77,0.05)
+        
+        .menu-active
+            color: var(--brand-secondary-color)
+
+    .nav-account
+        width: fit-content
+        height: var(--nav-bar-height)
+        display: flex
+        flex-direction: row
+        align-items: center
+        padding: 0px
+        align-self: flex-end
+        white-space: nowrap
+        justify-content: center
+
+        
+        .nav-account-wrapper
+            display: flex
+            width: auto
+            height: 100%
+            flex-direction: row
+            align-items: center
+            padding: 0 24px
+            align-self: flex-end
+            white-space: nowrap
+            cursor: pointer
+            justify-content: space-between
+            .nav-account-icon
+                margin: 0 4px 0 0
+                height: 28px
+                ion-icon
+                    color: var(--brand-secondary-color)
+                    width: 28px
+                    height: 28px
+                    margin-right: 2px
+                img
+                    margin: 2px 0
+
+            .nav-account-label
+                ion-label
+                    height: 28px
+                    line-height: 28px
+                    font-size: 15px
+                    color: var(--brand-secondary-color)
+                    font-family: 'HK-Grotesk'
+            &:hover
+                //background-color: rgba(77,77,77,0.05)
+                .nav-account-icon ion-icon,
+                .nav-account-label ion-label
+                    color: var(--brand-secondary-color)
+        
+        .popovertarget
+            padding-right: 0
+
+        .nav-account-button
+            padding-left: 16px
+
+            button
+                //--padding: 0 20px
+                //padding: 0 20px
+                --padding-start: 20px
+                --padding-end: 20px
+                --background: white
+                background: white
+                color: var(--brand-secondary-color)
+                --border: 2px solid var(--brand-secondary-color)
+                border: 2px solid var(--brand-secondary-color)
+                --box-shadow: none
+                box-shadow: none
+                font-size: 14px
+                font-family: "HK-Grotesk", Arial, Helvetica, sans-serif
+                font-weight: bold
+                text-transform: none
+                letter-spacing: 0
+                border-radius: var(--button-radius)
+                --border-radius:var(--corner-radius)
+                --margin: 0
+                margin: 0
+                height: 40px
+
+        .nav-account-button:hover
+            button
+                --background-hover: var(--brand-secondary-color)
+                --background-hover-opacity: 0.1
+                --background-focused: var(--brand-secondary-color)
+                --background-focused-opacity: 0.1
+
+        .nav-account-button-spacer
+            width: 238px
+            text-align: right
+.hamburger-menu
+    width: 40px
+    height: 40px
+    margin-right: 12px
+    display: flex
+    align-items: center
+    justify-content: center
+    cursor: pointer
+    ion-icon
+        color: var(--brand-secondary-color)
+        width: 36px
+        height: 36px
+
+.nav-wrapper-mobile
+    align-items: center !important
+    padding-left: 12px
+    .col-start
+        display: flex
+        flex-direction: row
+        align-items: center
+        .nav-logo
+            padding: 0
+    
+    .nav-account
+        align-items: center
+        padding: 0
+        .nav-account-wrapper
+            padding-right: 24px
+            padding-left: 12px
+
+.common-buttton
+    min-width: 85px
+    background: var(--brand-primary2-color)
+    --background: var(--brand-primary2-color)
+    border-radius: 5px
+    font-family: "font-bold"
+    margin-left: 12px
+    color: white
+    margin-right: 12px
+    --box-shadow: none
+    height: 35px
+    padding-top: 0px
+    font-size: var(--button-font-desktop)
+
+
+    
+.transparentbuttton
+    --background: none
+    --box-shadow: none
+    font-family: 'HK-Grotesk'
+    font-style: normal
+    font-weight: 500
+    font-size: 14px
+    --background-hover: var(--background)
+
+.transparentbuttton.ctc
+    margin-right: 0px
+
+
+.transparentbuttton:hover
+    --background: none
+    --box-shadow: none
+    background: transparent
+    --background: transparent
+    font-family: 'HK-Grotesk'
+    color: var(--ion-color-primary)
+
+.borderbuttton
+    border: 1px solid var(--ion-color-primary)
+    --background: none
+    align-items: center
+    text-align: center
+    text-transform: uppercase
+    border-radius: 4px
+    --box-shadow: none
+    color: var(--ion-color-primary)
+    font-family: 'font-bold'
+
+// .hamburger-menu.popovertarget 
+//     display: none
+
+
+@media only screen and (max-width: 420px) 
+    .nav-wrapper
+        .nav-logo
+            scale: 0.8
+            margin-left: -5px
+            img
+                padding-left: 3px
+
+
+
+@media only screen and (max-width: 500px) 
+    img.sc-menu-icn
+        margin-right: 16px !important
+    .left-btn
+        padding: 0px !important
+    .menu-list
+        right: 10px !important
+        left: auto !important
+    .common-buttton
+        font-size: var(--button-font-mobile)
+    
+@media only screen and (min-width: 550px) and (max-width: 767px) 
+    .nav-wrapper 
+        // .nav-logo
+            // padding: 16px 24px 16px 30px 
+        .nav-account
+            padding: 0 15px 0 24px
+
+@media only screen and (min-width: 200px) and (max-width: 549px) 
+    
+
+    button.transparentbuttton
+        font-size: 14px !important
+
+@media only screen and (max-width: 830px) 
+    .borderbuttton
+        display: none
+    .transparentbuttton
+        display: none
+    .common-buttton
+        display: none
+    .navbar 
+        display: none
+    .transparentbuttton.ol
+        display: block
+        white-space: nowrap
+
+@media only screen and (min-width: 601px) 
+    .nav-logo
+        width: 168px !important
+
+@media only screen and (max-width: 600px) 
+    a.logo-link
+        width: 73px
+    .nav-wrapper
+        .nav-logo
+            img
+                padding-left: 0px !important
+                width: auto !important
+                //margin-top: auto
+@media only screen and (min-width: 831px) 
+    .borderbuttton
+        display: block
+    .transparentbuttton
+        display: block
+    .common-buttton
+        display: block
+    .navbar 
+        display: block
+    // .hamburger-menu.popovertarget 
+    //     display: block !important
+
+
+img.sc-menu-icn 
+    margin-left: 12px
+    margin-right: 25px
+    cursor: pointer
+    width: 26px
+    height: 22px
+    margin-top: 2px
+
+a
+    float: left
+    font-size: 16px
+    color: white
+    text-align: center
+    padding: 16.5px 16px
+    text-decoration: none
+
+.dropdown 
+    .dropbtn
+        border: 1px solid var(--ion-color-primary)
+        background: white
+        align-items: center
+        text-align: center
+        text-transform: uppercase
+        border-radius: 4px
+        --box-shadow: none
+        color: var(--ion-color-primary)
+        font-family: 'font-bold'
+        height: 35px
+        padding-left: 10px
+        font-size: 14px
+        display: flex
+        padding-right: 10px
+        margin-right: 12px
+
+// .navbar a:hover, .dropdown:hover .dropbtn
+//   background-color: red
+
+.dropdown-content
+  display: none
+  position: absolute
+  background-color: #f9f9f9
+  min-width: 160px
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2)
+  z-index: 1
+  padding-left: 12px
+  margin-top: -10px
+
+  a
+    float: none
+    color: black
+    padding: 12px 16px
+    text-decoration: none
+    display: block
+    text-align: left
+    cursor: pointer
+
+    &:hover
+      background-color: #ddd
+
+.dropdown:hover .dropdown-content
+  display: block
+
+ion-icon.down-arr.md.hydrated 
+    margin-top: 1px
+    margin-left: 2px
+ion-icon.down-arr.ios.hydrated 
+    margin-top: 1px
+    margin-left: 2px
+.menu-label
+    padding: 0px 20px
+.menu-list.dl
+    left: 215px
+    right: auto
+.menu-list
+    // min-width: 200px
+    // position: absolute
+    // overflow: hidden
+    // float: right
+    // right: 20px
+    // border-radius: 5px
+    // transition-delay: 1s
+    // top: 4rem
+    min-width: 200px
+    position: absolute
+    overflow: hidden
+    float: right
+    right: 20px
+    margin-right: 19px
+    border-radius: 5px
+    border: 1px solid lightgray
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px
+    // transition-delay: 1s
+
+.mobile-view-menu
+    // height: 100%
+    // width: 100%
+    // position: absolute
+    // z-index: 1000
+    // left: 0
+    // background-color: #0000006e
+    // top: 0px
+    height: 100%
+    width: 100%
+    // background: rgba(0, 0, 0, 0.4)
+    // position: fixed
+    position: absolute
+    // content: ''
+    left: 0
+    // top: 0
+    z-index: 1000
+.mobile-view-menu-1
+    height: 100%
+    width: 100%
+    // background: rgba(0, 0, 0, 0.4)
+    position: absolute
+    // position: fixed
+    // content: ''
+    left: 0
+    // top: 0
+p.txt-dealer-nav 
+    padding: 0 24px
+    color: #476172 !important
+    --color: #476172 !important
+    font-size: 15px !important
+    font-family: "HK-Grotesk", Arial, Helvetica, sans-serif !important
+    font-weight: normal
+    height: 46px
+    line-height: 46px
+    margin: -1px 0 0
+    padding-bottom: 7px
+p.txt-dealer-nav:hover
+    color: var(--ion-color-primary)
+ion-label.fordealer.sc-ion-label-md-h.sc-ion-label-md-s.md.hydrated
+    margin-top: 20px
+    padding: 0px 20px
+    padding-bottom: 12px
+    font-family: 'HK-Grotesk'
+    font-weight: 500
+ion-label.fordealer.sc-ion-label-ios-h.sc-ion-label-ios-s.ios.hydrated
+    margin-top: 20px
+    padding: 0px 20px
+    padding-bottom: 12px
+    font-family: 'HK-Grotesk'
+    font-weight: 500
+.nav-logo
+    width: auto
+p.link
+    padding-left: 8px
+img.logo-desktop
+    padding-left: 15px !important
+    //margin-left: 13px
+    margin-top: 17px
+.company-logo-name
+    display: flex
+img.logo-desktop.company
+    width: auto !important
+    max-height: 50px
+img.logo-desktop.company
+    height: 100%
+    margin-top: auto
+    margin-bottom: auto
+    max-height: 50px
+.company-logo-name
+    display: flex
+    margin-top: -2px
+p.company_name
+    font-family: font-bold
+    font-size: 20px
+    text-align: left
+img.logo-desktop.company
+    margin-right: 5px
+img.logo-mobile
+    height: 100%
+    margin-top: auto
+    margin-bottom: auto
+    max-height: 40px
+    margin-left: 0px    
+a.logo-link, a.login-btn
+    padding: revert
+p.link-text
+    cursor: pointer
+.menu-list.dlgit 
+    right: 40%
+.transparentbuttton.ol.heating_oil
+    color: var(--ion-color-primary)
+    font-weight: bold
+.transparentbuttton.rp.repair
+    color: var(--ion-color-primary)
+    font-weight: bolds
+
+a.submenu-link.o.oil_companies\/, a.submenu-link.t.heating_oil_prices\/, a.submenu-link.th.oil_delivery\/, a.submenu-link-b.heating_oil\/
+    color: var(--ion-color-primary)
+    font-weight: bold
+.nav-account.yo
+    margin-left: auto
+.left-btn
+    width: auto
+    height: var(--nav-bar-height)
+    display: flex
+    flex-direction: row
+    align-items: center
+    padding: 0 10px 0 24px
+a.submenu-link-b, a.submenu-link
+    color: black
+    text-align: left
+.menu-list.dl
+    display: inline-grid
+    background: white
+a.submenu-link-b
+    font-weight: 600
+a.submenu-link
+    margin-top: -18px
+    margin-left: 20px
+a.submenu-link:hover
+    text-decoration: underline
+.button
+    background: white
+    border-bottom: 1px solid lightgray
+    padding: 10px
+    cursor: pointer
+a.button
+    font-size: 16px
+    color: black
+    width: 100%
+    text-align: left
+button.transparentbuttton
+    text-transform: uppercase
+
+button.transparentbuttton
+    background: none
+    color: black
+    border: none
+    /* --background: none; */
+    box-shadow: none
+    font-family: HK-Grotesk
+    font-style: normal
+    font-weight: 500
+    font-size: 16px
+    background-hover: var( --background)
+    outline: none
+    opacity: 0.9
+p.txt-btn
+    text-transform: uppercase
+    font-weight: 700
+    color: #fff
+    letter-spacing: 0px
+    font-family: HK-Grotesk
+    font-size: var(--button-font-desktop)
+    padding-top: 4px
+button.btn.btn-primary.common-buttton:hover
+    background: #007bff
+
+button.btn.btn-primary.common-buttton
+    border: none

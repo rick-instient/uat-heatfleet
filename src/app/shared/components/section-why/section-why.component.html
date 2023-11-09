@@ -1,0 +1,53 @@
+<div class="outer-container howitworks-content">
+  <div class="row cus-row">
+    <div class="col-12 col-md-12 col-lg-12 cl-cus right">
+      <div class="container right">
+        <h3 class="txt-why-heat-fleet" *ngIf="townData">
+          Why {{ city }} Homeowners Choose Heat Fleet
+        </h3>
+        <h3 class="txt-why-heat-fleet" *ngIf="!townData">Why Heat Fleet?</h3>
+        <div class="checkbx">
+          <div class="checkbx-row">
+            <div class="cl-cls" *ngFor="let n of sectionContent">
+              <div class="chchkbox-container">
+                <img
+                  src="/assets/icons/small-tick-icon.svg"
+                  style="height: 18px; width: 23px"
+                  alt="Checkmark"
+                  title="checkmark icon"
+                  fetchpriority="high"
+                  class="tickicn"
+                />
+                <p class="txt-chkbox">{{ n.title }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="paypalContainer">
+
+
+            
+
+            <img
+              src="/assets/icons/5t-Paypal-Logo.svg"
+              alt="Logo of PayPal"
+              title="PayPal Logo"
+              class="paypal-short"
+              fetchpriority="high"
+            />
+            <div class="paypal-txt">
+              <p class="textPaylater">Pay Later</p>
+              <p class="lbl-paypal">4 interest free payments with</p>
+              <img
+                src="/assets/icons/26-Paypal-Pay-Later.svg"
+                alt="PayLater with PayPal"
+                title="PayLater Icon PayPal"
+                class="paypal-logo"
+                fetchpriority="high"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

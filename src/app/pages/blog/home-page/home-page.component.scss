@@ -1,0 +1,104 @@
+@import "../variables";
+@import "../mixins";
+
+.headContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #43C3F6;
+    padding: 85px 0px 0px 0px;
+
+    .headInnerContainer {
+        width: 559px;
+        margin: 0px auto;
+        text-align: center;
+        padding: 10px;
+
+        .titleContainer {
+            h1 {
+                margin: 8px 0px 16px;
+                font-size: 26px;
+                font-weight: 600;
+                line-height: 1.2;
+            }
+        }
+
+        .contentContainer {
+            display: flex;
+            flex-direction: column;
+
+            .selector {
+                display: flex;
+                gap: 25px;
+
+                a {
+                    font-family: "HK GROTESK-700", Sans-serif;
+                    font-size: 19px;
+                    font-weight: 800;
+                    background-color: #000000;
+                    border-radius: 20px;
+                    padding: 15px 0px;
+                    color: #FFFFFF;
+                    width: 100%;
+                }
+            }
+
+            .coverImgContainer {
+                margin: 17px 0px 80px;
+
+                .coverImg {
+                    width: 55%;
+                }
+            }
+
+            .downArrowContainer {
+                height: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+
+                .downArrow {
+                    width: 36.95px;
+                    margin-bottom: 20px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.middleContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .middleInnerContainer {
+        width: 910px;
+        padding: 10px;
+        text-align: center;
+        margin: 0px auto;
+        margin-top: 40px;
+
+        img {
+            margin: 27.3px 0px 20px;
+            width: 318.5px;
+        }
+
+        .contentContainer {
+            display: flex;
+            flex-wrap: wrap;
+            row-gap: 10px;
+            div {
+                width: 50%;
+            }
+        }
+
+        .contentContainer div:nth-child(2) h3 {
+            color: gray;
+        }
+
+        .imgContainer {
+            @include col-3-grid;
+        }
+    }
+}

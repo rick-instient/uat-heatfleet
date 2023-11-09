@@ -1,0 +1,50 @@
+<div class="outer-container faqs-content" *ngIf="heatingOilPricesData.priceTrend && priceHistory">
+  <div>
+    <div class="col-title main">
+      <h3 class="txt-title">{{heatingOilPricesData?.location}} Heating Oil Price Trends </h3>
+      <p class="update">Updated {{lastUpdate}}</p>
+    </div>
+  </div>
+  <div class="secondary table" *ngIf="heatingOilPricesData.priceTrend">
+    <div class="inner-col" size="12" size-sm="12" size-md="12" size-lg="12" size-xs="12">   
+      <table>
+        <thead> 
+          <tr> 
+            <th class="tb">Time Horizon</th>
+            <th class="tb">Price Change</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tb" *ngFor="let trend of heatingOilPricesData.priceTrend | keyvalue">
+            <td>{{trend.key}}</td>
+            <td>{{trend.value}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="secondary" *ngIf="isPriceAvailable">
+    <div class="col-title">
+      <h3 class="txt-title">{{heatingOilPricesData?.location}} Home Heating Oil Price History </h3>
+      <p class="update">Updated {{lastUpdate}}</p>
+    </div>
+  </div>
+  <div class="secondary table">
+    <div class="inner-col table" size="12" size-sm="12" size-md="12" size-lg="12" size-xs="12">   
+      <table>
+        <thead> 
+          <tr> 
+            <th class="tb">Date</th>
+            <th class="tb">Average Oil Price</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tb" *ngFor="let data of priceHistory">
+            <td [innerHTML]="getFormattedDate(data.date)"> </td>
+            <td>${{data.price.toFixed(3)}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="outer-container pricehart">
+  <div class="bottom-container">
+    <div class="row cu-end">
+      <div class="col-sm-12 col-md-6 cls" size="12" size-md="12" size-lg="6">
+        <div class="sub-box">
+          <p class="txt-subscription">
+            <span class="txt-mobiletxt">Subscribe to deals and price alerts</span>
+          </p>
+        </div>
+      </div>
+  
+      
+      <div class="col-sm-12 col-md-6 cls btm" size="12" size-md="12" size-lg="6">
+        <div class="sub-input" [formGroup]="emailForm">
+          <input
+            class="inp-bx"
+            placeholder="me@email.com"
+            formControlName="email"
+            style="border-top-right-radius: 0px; border-bottom-right-radius: 0px"
+          />
+          <button
+            class="btn-subscribe"
+            (click)="contact()"
+            style="border-top-left-radius: 0px; border-bottom-left-radius: 0px"
+          >
+            Subscribe
+          </button>
+        </div>
+      </div>
+  
+  </div>
+  
+  
+  </div>
+</div>

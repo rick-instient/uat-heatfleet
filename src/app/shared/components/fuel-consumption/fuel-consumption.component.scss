@@ -1,0 +1,146 @@
+.col-title {
+  padding-left: 0px;
+}
+
+.secondary {
+  margin-top: 20px;
+}
+
+@media only screen and (min-width: 489px) {
+  .outer-container.faqs-content {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .first,
+  .secondary {
+    padding: 0px;
+  }
+}
+
+h3.txt-title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 39px;
+  text-align: center;
+  color: #060d19;
+  font-family: "font-bold";
+  margin-bottom: -12px;
+  margin-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 35px;
+}
+
+@media only screen and (max-width: 573px) {
+  h3.txt-title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+  }
+}
+
+.mainrow.ios.hydrated {
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+h3.txt-title {
+  margin-top: 16px;
+}
+
+h3.comparison-header {
+  margin: 0px;
+  font-size: 18px;
+  font-weight: 600;
+  // font-size: var(--h2-font-mobile) !important;
+}
+
+p.comparison-desc {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: #4c515b;
+  font-family: HK-Grotesk, Arial, Helvetica, sans-serif, Arial, Helvetica,
+    sans-serif;
+}
+
+p.comparison-desc.table-txt {
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  color: black;
+}
+
+sup.supertxt {
+  font-size: 12px;
+  // margin-left: 2px;
+  top: 1px;
+  position: relative;
+  line-height: 0;
+  vertical-align: super;
+}
+
+canvas#pieChart,
+canvas#lineGraph {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.inner-col {
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 15px;
+}
+
+.secondary.table {
+  margin-top: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+table {
+  background: #ffffff;
+  border: 1px solid #f8f8f8;
+  border-radius: 4px;
+  width: 100%;
+}
+
+th.tb {
+  padding: 8px;
+  font-size: 16px;
+  border-top: none;
+  border-bottom: none;
+  text-align: center;
+}
+
+td {
+  padding: 8px;
+  font-size: 16px;
+  // cursor: pointer;
+  width: 50%;
+  text-align: center;
+  border-top: none;
+}
+
+tr.tb:hover {
+  background-color: #eaebee;
+}
+
+th {
+  border-top: none;
+  border-bottom: none;
+}
+
+table {
+  border-top: none;
+  border: none;
+}

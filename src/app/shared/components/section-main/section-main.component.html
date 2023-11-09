@@ -1,0 +1,274 @@
+<div class="bd-ct" *ngIf="!LandingPage">
+  <div class="col-12 bread"  *ngIf="breadcrumbs">
+    <ul class="breadcrumb">
+      <ng-container *ngFor="let breadcrumb of breadcrumbs; let last = last;">
+        <li>
+          <ng-container><a [href]="breadcrumb.url" (click)="navigateUrl($event, breadcrumb.url)" *ngIf="!last">{{breadcrumb.label}}</a>
+
+
+            <p class="dark" *ngIf="last">{{breadcrumb.label}}</p>
+
+          </ng-container>
+        </li>
+      </ng-container>
+    </ul>
+    <div class="breadcrumb-div-2">
+      <p class="cheapest">{{bsAltLine}}</p>
+    </div>
+  </div>
+</div>
+<div class="wrap" [ngClass]="{'EnableLoggedInUser': townData}"  [ngClass]="{ 'text-success':defaultTown === 'enable'}">
+
+
+  <div class="container-main">
+
+    <!-- <div class="image-container" *ngIf="!LandingPage">
+      <div class="placeholder-image"></div>
+      <img
+
+      [srcset]="srcSetConfig"
+
+        class="bg-img"
+        (load)="onImageLoad()"
+      />
+
+    </div> -->
+
+    <img class="bg-img" [srcset]="srcSetConfig" title="{{titleTag}}" alt="{{altTag}}" *ngIf="srcSetConfig"  />
+
+
+    <div class="row-cus">
+      <div class="col-cus">
+        <div class="main-cntre">
+          <div class="white-row desktop scrollme" *ngIf="config.onScrollFix" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
+            <div class="aligner-1" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}"><img class="imglogo scroll" src="/assets/icons/01-Heatfleet.svg" title="Heatfleet" alt="Heatfleet" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}" (click)="navigateHome()"  fetchpriority="high"/>
+              <div class="inputs scrollcontainer add" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
+                <div class="inp scrolldown"></div>
+                <div class="location-icon png"><img class="sc-loc-icn" src="/assets/icons/dark-location.svg" alt="Location icon" title="Search Location" (click)="navigateModal()"  fetchpriority="high"/></div>
+                <div class="inp scrolldown">
+                  <p class="label-white-row" *ngIf="!config.delivery_address">Delivery ZIP </p>
+                  <p class="label-white-row sticky-label" *ngIf="config.delivery_address">Deliver to</p>
+                  <input class="cus-white-inp" [(ngModel)]="zipCodeInput"  type="text" aria-label="zipCodeInput"  *ngIf="!config.delivery_address" max="5" maxlength="5" (keyup.enter)="findDeal()" (click)="clearInput()" (input)="find($event)" (focusout)="ZipFocusOut($any($event.target).value)"/>
+                  <div class="dilvery-zip-address" *ngIf="config.delivery_address" (keyup.enter)="findDeal()" (click)="presentModal()"><span class="cus-white-inp add-p">{{AddressInput }}</span><span class="span-zipcode-sticky">{{zipCodeInput}}</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="aligner-2" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
+              <div class="inputs scrollcontainer scroll qty" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
+                <div class="inp"></div>
+
+                <div class="location-icon png"><img class="sc-loc-icn-1" src="/assets/icons/quantity.svg" alt="Quantity icon" title="Search Quantity"  fetchpriority="high"/></div>
+                <div class="inp">
+                  <p class="label-white-row quantity-input">Quantity</p>
+                  <input class="cus-white-inp" [(ngModel)]="quantityInput_withGal" type="text"  aria-label="quantityInput_withGal"  inputmode="tel" (keyup.enter)="findDeal()" maxlength="5"  onfocus="this.select()" (input)="updateQuantity($event)" (click)="focusFunction($any($event.target)); clearInputQty()" (focusout)="focusOutFunction($any($event.target).value)"/>
+                </div>
+              </div>
+              <div class="btn scrolldown" size="2.9">
+                <button class="common-button scrolldown small" (click)="findDeal()" [disabled]="loadingZipResponse" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}"><img class="sc-search-icn scroll" src="/assets/icons/Search.svg" alt="Search icon" title="Search icon"  fetchpriority="high"/>
+                  <p class="txt-btn scrol-c" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">SEARCH</p>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="white-row desktop small-screen" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
+            <div class="containInp" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
+              <div class="inputs plain" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
+                <div class="inp"></div>
+                <div class="location-icon png"><img class="sc-loc-icn" src="/assets/icons/dark-location.svg" alt="Location icon" (click)="navigateModal()"  fetchpriority="high"/></div>
+                <div class="inp">
+                  <p class="label-white-row" *ngIf="!config.delivery_address">Delivery ZIP</p>
+                  <p class="label-white-row" *ngIf="config.delivery_address">Deliver to</p>
+                  <input class="cus-white-inp input" [(ngModel)]="zipCodeInput"  max="5" type="text"  aria-label="zipCodeInput"  *ngIf="!config.delivery_address" maxlength="5" (keyup.enter)="findDeal()" (click)="clearInput()" (input)="find($event)" (focusout)="ZipFocusOut($any($event.target).value)"/>
+                  <div class="dilvery-zip-address flex" *ngIf="config.delivery_address" (keyup.enter)="findDeal()" (click)="presentModal()"><span class="cus-white-inp add">{{AddressInput }}</span><span class="span-zipcode">{{zipCodeInput}}</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="containInp btn" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
+              <div class="inputs plain">
+                <div class="inp"></div>
+                <div class="location-icon png"><img class="sc-loc-icn-1" src="/assets/icons/quantity.svg" alt="Quantity icon"  fetchpriority="high"/></div>
+                <div class="inp">
+                  <p class="label-white-row quantity-input">Quantity</p>
+                  <input class="cus-white-inp" [(ngModel)]="quantityInput_withGal" type="text" aria-label="quantityInput_withGal"  inputmode="tel" (keyup.enter)="findDeal()" maxlength="5"  onfocus="this.select()" (input)="updateQuantity($event)" (click)="focusFunction($any($event.target)); clearInputQty()" (focusout)="focusOutFunction($any($event.target).value)"/>
+                </div>
+              </div>
+              <div class="btn" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
+                <button class="common-button" (click)="findDeal()" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}" [disabled]="loadingZipResponse"><img class="sc-search-icn" src="/assets/icons/Search.svg" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}" alt="Search icon"/>
+                  <p class="txt-btn" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">SEARCH</p>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="big-desktop">
+            <div class="white-row-left deskto-" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
+
+              <div class="cta-text" *ngIf="InfoCheckboxLoaded">
+                <h1 class="title-main-desktop" *ngIf="ctaText">{{ctaText}}</h1>
+
+
+              </div>
+              <div class="section-loading text" *ngIf="!InfoCheckboxLoaded && !LandingPage"></div>
+
+              <h1 class="title-main-desktop" *ngIf="LandingPage">Find today's best local <span class="hf" *ngIf="config.typeParam == 'type=1'">oil </span><span class="hf" *ngIf="config.typeParam == 'type=2'">heating repair </span>prices per gallon, instantly.</h1>
+
+
+              <!-- <h1 class="title-main-desktop" *ngIf="townData &amp;&amp; !ctaText">Find today's best <span class="hf" *ngIf="config.typeParam == 'type=1'">oil </span><span class="hf" *ngIf="config.typeParam == 'type=2'">heating repair </span>prices in {{city}}<span class="state" *ngIf="state">, {{state}}</span></h1> -->
+              <div class="containInp flex" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
+                <div class="inputs plain mr-10 w-50" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
+                  <div class="inp"></div>
+                  <div class="location-icon png"><img class="sc-loc-icn" src="/assets/icons/dark-location.svg" alt="Location icon" (click)="navigateModal()"  fetchpriority="high"/></div>
+                  <div class="inp">
+                    <p class="label-white-row" *ngIf="!config.delivery_address">Delivery ZIP</p>
+                    <p class="label-white-row" *ngIf="config.delivery_address">Deliver to</p>
+                    <input class="cus-white-inp input op" [(ngModel)]="zipCodeInput" inputmode="tel"  type="text" aria-label="zipCodeInput"  *ngIf="!config.delivery_address" maxlength="5" (keyup.enter)="findDeal()" (click)="clearInput()" (input)="find($event)" (focusout)="ZipFocusOut($any($event.target).value)"/>
+                    <div class="dilvery-zip-address flex" *ngIf="config.delivery_address" (keyup.enter)="findDeal()" (click)="presentModal()"><span class="cus-white-inp add">{{AddressInput }}</span><span class="span-zipcode">{{zipCodeInput}}</span></div>
+                  </div>
+                </div>
+                <div class="containBtn-qty" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
+                  <div class="inputs plain ml-10 qty W-100" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
+                    <div class="inp"></div>
+                    <div class="location-icon png"><img class="sc-loc-icn-1" src="/assets/icons/quantity.svg" alt="Quantity icon"  fetchpriority="high"/></div>
+                    <div class="inp">
+                      <p class="label-white-row quantity-input">Quantity</p>
+                      <input class="cus-white-inp" [(ngModel)]="quantityInput_withGal" type="text"  aria-label="quantityInput_withGal"  inputmode="tel" (keyup.enter)="findDeal()" maxlength="5"  onfocus="this.select()" (input)="updateQuantity($event)" (click)="focusFunction($any($event.target)); clearInputQty()" (focusout)="focusOutFunction($any($event.target).value)"/>
+                    </div>
+                  </div>
+                  <div class="btn desktop" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
+                    <button class="common-button w-100" (click)="findDeal()" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}" [disabled]="loadingZipResponse"><img class="sc-search-icn" src="/assets/icons/Search.svg" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}" alt="Search icon"  fetchpriority="high"/>
+                      <p class="txt-btn" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">SEARCH</p>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="btn deals-desktop" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
+                <button class="common-button w-100" (click)="findDeal()" [disabled]="loadingZipResponse == true"
+                [ngClass]="setStyles()" ><img class="sc-search-icn" src="/assets/icons/Search.svg" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}" alt="Search icon"  fetchpriority="high"/>
+                  <p class="txt-btn" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">SEARCH</p>
+                </button>
+              </div>
+              <div class="img-content"   fetchpriority="high">
+                <div class="row first-logourls" *ngIf="logoUrls && logoUrls.length > 0">
+                  <div class="col-sm-3 img-col" *ngFor="let n of logoUrls | slice:0:4" size="3"><img class="logo-img" *ngIf="n"  [src]="n" alt="Oil Provider" title="Oil Provider"  fetchpriority="high"/></div>
+                </div>
+                <div class="row" *ngIf="logoUrls && logoUrls.length > 0">
+                  <div class="col-sm-3 img-col" *ngFor="let n of logoUrls | slice:4:8" size="3"><img class="logo-img" *ngIf="n"  [src]="n" alt="Oil Provider" title="Oil Provider"  fetchpriority="high"/></div>
+                </div>
+              </div>
+
+            </div>
+            <div class="right-section">
+              <div class="infoText">
+
+                <div class="infoCheck gif"  *ngIf="!infoCheckBox && !LandingPage && !InfoCheckboxLoaded">
+
+
+                  <div class="section-loading info">
+
+                  </div>
+
+                  </div>
+
+
+                <div class="infoCheck"  *ngIf="infoCheckBox && InfoCheckboxLoaded">
+                  <h2 class="heading">{{infoCheckBox.header}}</h2>
+                  <p class="list" *ngFor="let n of infoCheckBox.checkPoints">
+
+
+                       <span class="img-span">
+                    <img class="check-icon" src="/assets/icons/Check.svg" alt="checkmark icon" title="checkmark icon"  fetchpriority="high"/>
+                  </span>
+
+
+                    {{n}}</p>
+                  <div class="paypalContainer" *ngIf="payLater"><img class="paypal-short paypal-short" src="/assets/icons/5t-Paypal-Logo.svg" alt="Logo of PayPal" title="PayPal Logo"  fetchpriority="high"/>
+                    <div class="paypal-txt">
+                      <p class="textPaylater">Pay Later</p>
+                      <p class="lbl-paypal">4 interest free payments with<img class="paypal-logo" src="/assets/icons/26-Paypal-Pay-Later.svg" alt="PayLater with PayPal" title="PayLater Icon PayPal"  fetchpriority="high"/></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="infoCheck"  *ngIf="!infoCheckBox && (InfoCheckboxLoaded || LandingPage)">
+
+                  <h2 class="heading">Let HEAT FLEET do the searching</h2>
+
+
+                  <p class="list">
+
+                       <span class="img-span">
+                    <img class="check-icon" src="/assets/icons/Check.svg" alt="checkmark icon" title="checkmark icon"  fetchpriority="high"/>
+                  </span>
+
+
+
+                    You save 20% or more</p>
+                  <p class="list">   <span class="img-span">
+                    <img class="check-icon" src="/assets/icons/Check.svg" alt="checkmark icon" title="checkmark icon"  fetchpriority="high"/>
+                  </span>  Search hundreds of oil companies at once<span class="text" *ngIf="townData"> for {{city}} <span class="hf" *ngIf="config.typeParam == 'type=1'">heating oil </span><span class="hf" *ngIf="config.typeParam == 'type=2'">heating repair </span>deals</span></p>
+                  <p class="list">   <span class="img-span">
+                    <img class="check-icon" src="/assets/icons/Check.svg" alt="checkmark icon" title="checkmark icon"  fetchpriority="high"/>
+                  </span>  We're completely free to use - no hidden charges or fees</p>
+                  <p class="list">   <span class="img-span">
+                    <img class="check-icon" src="/assets/icons/Check.svg" alt="checkmark icon" title="checkmark icon"  fetchpriority="high"/>
+                  </span>  No contracts</p>
+                  <div class="paypalContainer" *ngIf="payLater"><img class="paypal-short paypal-short" src="/assets/icons/5t-Paypal-Logo.svg" alt="Logo of PayPal" title="PayPal Logo"  fetchpriority="high"/>
+                    <div class="paypal-txt">
+                      <p class="textPaylater">Pay Later</p>
+                      <p class="lbl-paypal">4 interest free payments with<img class="paypal-logo" src="/assets/icons/26-Paypal-Pay-Later.svg" alt="PayLater with PayPal" title="PayLater Icon PayPal"  fetchpriority="high"/></p>
+                    </div>
+                  </div>
+
+
+                  </div>
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-modal
+[modalTitle]="'Error'"
+[modalMessage]="Error"
+*ngIf="modalView"
+(closeModalEvent)="closeModel()"
+></app-modal>
+
+<app-modal
+[modalTitle]="'Error'"
+[modalMessage]="Error"
+[suspiciousModal]="suspiciousModal"
+*ngIf="suspiciousModal"
+[ip]="ip"
+[zipCode1]="zipCode1"
+(closeModalEvent)="close_suspiciousModal()"
+></app-modal>
+
+
+<app-modal
+
+[NotifyZipDialog]="NotifyZipDialog"
+*ngIf="NotifyZipDialog"
+[ip]="ip"
+[zipCode1]="zipCode1"
+(closeModalEvent)="closeNotify()"
+></app-modal>
+
+
+<app-modal
+[modalTitle]="'Error'"
+[modalMessage]="Error"
+[NotifyZipDialog]="NotifyZipDialog"
+*ngIf="NotifyZipDialog"
+[zipCode]= "zipCodeInput",
+[isValidUSZip]= "Notify_1",
+[maxQuantity]="Notify_2",
+[city]="Notify_3",
+(closeModalEvent)="closeNotify()"
+></app-modal>
+
