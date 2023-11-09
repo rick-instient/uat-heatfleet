@@ -4,6 +4,7 @@ import {
   OnInit,
   ViewChild,
   ChangeDetectorRef,
+  PLATFORM_ID,
 } from '@angular/core';
 import {
   HttpClient,
@@ -30,8 +31,9 @@ import { FormBuilder } from '@angular/forms';
 import { CommonService } from 'src/app/shared/services/common.config';
 import { Title, Meta } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
+// import { isPlatformServer } from '@angular/common';
 import { ServiceType } from 'src/app/shared/models/types';
-
+import { HostListener } from '@angular/core';
 
 export interface CustomWindow extends Window {
 
@@ -457,8 +459,6 @@ export class CompanyProfileComponent implements OnInit {
           },
         ],
       };
-
-      this.config.schema.push(bc);
     }
 
     this.config.schema[1].potentialAction.target =
@@ -575,16 +575,16 @@ export class CompanyProfileComponent implements OnInit {
 
       let url_ = url + `?Slug=${this.currentSlug}&amount=100&isHF=true`;
       console.log(url_);
-
+      
 
       console.log("this.currentSlug");
       // this.http.post(url, send).subscribe((data: any) => {
         this.http.get(url_).subscribe((data: any) => {
           console.log(data);
-
+          
         this.companyData = data;
-
-
+    
+        
         data.nearByCompanies.forEach((element: any) => {
 
           if(element.logoURL){
@@ -687,6 +687,27 @@ export class CompanyProfileComponent implements OnInit {
           this.companyData.truckUrl =
             this.companyData.truckUrl +
             `?tr=w-225 225w,`;
+        }
+        if (this.companyData.profileTruckUrl) {
+          this.companyData.profileTruckUrl =
+            this.companyData.profileTruckUrl +
+            `?tr=w-480 480w,` +
+            this.companyData.profileTruckUrl +
+            `?tr=w-640 640w,` +
+            this.companyData.profileTruckUrl +
+            `?tr=w-768 768w,` +
+            this.companyData.profileTruckUrl +
+            `?tr=w-960 960w,` +
+            this.companyData.profileTruckUrl +
+            `?tr=w-1024 1024w,` +
+            this.companyData.profileTruckUrl +
+            `?tr=w-1366 1366w,` +
+            this.companyData.profileTruckUrl +
+            `?tr=w-1600 1600w,` +
+            this.companyData.profileTruckUrl +
+            `?tr=w-1920 1920w,` +
+            this.companyData.profileTruckUrl +
+            `?tr=w-4096 4096w`;
         }
 
         this.schemaAdd();
@@ -946,7 +967,7 @@ export class CompanyProfileComponent implements OnInit {
 
       // this.loadingZipResponse = true;
       // this.loadZipcode();
-      //
+      // 
       // if (this.networkService.ip_address) {
       //   this.loadZipcode();
       // } else {
@@ -1731,4 +1752,8 @@ export class CompanyProfileComponent implements OnInit {
     }
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
+  }
 }

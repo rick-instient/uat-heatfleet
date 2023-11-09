@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input, ElementRef, TemplateRef} from '@angular/core';
+import { Component, OnInit, ViewChild, Input, ElementRef, TemplateRef, HostListener, PLATFORM_ID } from '@angular/core';
 import {
   HttpBackend,
   HttpErrorResponse,
@@ -119,6 +119,7 @@ export class SectionMainComponent implements OnInit {
 
   public defaultZip = '01568';
   constructor(
+    @Inject(PLATFORM_ID) private platformId: any,
     protected route: ActivatedRoute,
     private clientApiService: ClientApiService,
     public config: CommonService,
@@ -1083,6 +1084,18 @@ export class SectionMainComponent implements OnInit {
     this.modalView = false;
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = this.window.innerWidth;
+  }
+
+  @ViewChild('bgImg') background!:ElementRef;
+  @HostListener('window:load', ['$event'])
+  onLoad(event) {
+    if (event.target.innerWidth <= 500){
+      this.background.nativeElement.remove();
+    }
+  }
 
   protected getHttpOptionsWithKey(withoutToken: boolean = false) {
     const token = environment.token;

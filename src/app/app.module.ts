@@ -17,10 +17,9 @@ import {
   LocationStrategy,
   PathLocationStrategy,
 } from '@angular/common';
-import { ComponentsModule } from './shared/components/components.module';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, ComponentsModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule,],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
   providers: [

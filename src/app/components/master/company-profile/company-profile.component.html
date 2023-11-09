@@ -7,7 +7,7 @@
                     <li [ngClass]="getClasses(index)">
                         <ng-container *ngIf="index == 0">
 
-
+               
                             <a [href]="'/'" (click)="navigateUrl($event, breadcrumb.url)">{{ breadcrumb.label |
                                 titlecase }}</a>
                         </ng-container>
@@ -27,7 +27,7 @@
                     Heating Oil Delivery in Long Island
                   </p>
                   <p class="cheapest" *ngIf="VisibleCompanyType(companyData?.isOilDel, companyData?.isService) && !companyData?.isLongIslandCompany">
-                    Heating Oil Delivery
+                    Heating Oil Delivery 
                     <span *ngIf="state_">in {{ state_ }}</span>
                   </p> -->
                 <p class="cheapest"
@@ -52,7 +52,7 @@
 
     <div class="imgbg">
         <figure *ngIf="companyData?.profileTruckUrl">
-            <img class="bg-img tk" [srcset]="companyData?.profileTruckUrl | imageResize"
+            <img class="bg-img tk" [srcset]="companyData?.profileTruckUrl"
                 [ngClass]="{ 'transparentImage': companyData?.isTransparentTruck }"
                 sizes="(max-width: 1279px) 100vw, (min-width: 1280px) 1280px" [title]="companyData?.profileTitleTag"
                 [alt]="companyData?.profileAltTag" />
@@ -64,7 +64,7 @@
           https://media-cdn.heatfleet.com/company-profile-img.png?tr=w-700 700w,
           https://media-cdn.heatfleet.com/company-profile-img.png?tr=w-900 900w,
           https://media-cdn.heatfleet.com/company-profile-img.png?tr=w-1200 1200w
-        " *ngIf="!companyImage" />
+        " *ngIf="!companyImage && innerWidth > 716" />
 
     </div>
 
@@ -110,7 +110,7 @@
                         <input type="text" class="cus-white-inp mb" id="zipCodeInput" [(ngModel)]="zipCodeInput"
                             aria-label="zipCodeInput" inputmode="tel" maxlength="5" (keyup.enter)="orderNow(true)"
                             (input)="find($event)" (focusout)="ZipFocusOut()" (click)="clearInput()"/>
-
+                        
                         <!-- <span class="invalidZip" *ngIf="zipCodeInput.length != 5">Invalid Input</span> -->
                     </div>
                 </div>
@@ -159,7 +159,7 @@
                             <div class="content content-companyname">
                                 <img class="flag" [srcset]="companyData?.coFlagUrl + '?tr=w-120'"
                                     [alt]="companyData?.coFlagUrlAltTag" [title]="companyData?.coFlagUrlTitleTag"
-                                    *ngIf="companyData?.coFlagUrl"
+                                    *ngIf="companyData?.coFlagUrl" 
                                     loading="lazy"/>
                                 <div class="innrcontent">
                                     <h2 class="text-company-name">

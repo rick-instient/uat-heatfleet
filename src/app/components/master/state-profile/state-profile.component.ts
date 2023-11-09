@@ -10,14 +10,13 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { LocationService } from 'src/app/shared/api/location.service';
 import { ILocation } from 'src/app/shared/models/location.model';
 import { first } from 'rxjs/operators';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Title, Meta } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { CommonService } from 'src/app/shared/services/common.config';
 import { DOCUMENT } from '@angular/common';
-import { SharedService } from 'src/app/shared/services/shared-service.service';
 // import { isPlatformServer } from '@angular/common';
 
 export interface CustomWindow extends Window {
@@ -167,45 +166,25 @@ export class StateProfileComponent implements OnInit {
     private router: Router,
     public activeRoute: ActivatedRoute,
     public config: CommonService,
-    public sharedService: SharedService,
     private title: Title,
     private meta: Meta,
     public http: HttpClient,
     @Inject(DOCUMENT) private document: Document,
+    // @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.window = <any>this.document.defaultView;
-
-  }
-
-
-  ngAfterViewInit() {
-    // commented_v
-    // this.content.ionScroll.subscribe(($event) => {
-    //   let sc_position = $event.detail.scrollTop;
-    //   if (sc_position > 196.66) {
-    //     this.config.onScrollFix = true;
-    //     this.config.islogin = true;
-    //     this.config.login = true;
-    //   } else {
-    //     this.config.onScrollFix = false;
-    //   }
-    // });
-  }
-
-  ngOnInit() {
-    let sp = this.router.url.split('/')[2];
-    this.config.updateCanonicalUrl(
-      'https://heatfleet.com/' + this.config.typeURL + sp
-    );
-    this.fetchInit();
-  }
-
-
-
-  fetchInit() {
     let routeUrl = this.router.url;
     this.fields = routeUrl.split('/')[2].split('-');
     this.config.getTypeURL();
+    // console.log(isPlatformServer(this.platformId));
+
+
+    // if (isPlatformServer(this.platformId)) {
+    //   console.log("IF");
+
+
+    // } else {
+
 
 
     this.stateName = this.fields[1]
@@ -307,17 +286,185 @@ export class StateProfileComponent implements OnInit {
       '&stateName=' +
       stateName;
 
+    // this.makeApiCalls(slug, url3);
+
+    // Running in the browser, perform API requests
+    // }
+
+    // this.stateName = this.config.replaceAll(fileds[2], '_', ' ');
+
+
+    // setTimeout(() => {
+    // this.fetchWeatherHistory(this.townZip);
+
+    // }, 1000);
+
+
+  }
+
+//   makeApiCalls(slug: any, url3: any) {
+
+//     const url1Api = this.http.get(environment.api_url +`locations/getPageDetails?${url3}`);
+
+//     const url2Api = this.http.get(environment.api_url +`locations/hash?hash=${slug}`);
+
+//     const url3Api = this.http.get(environment.api_url + `locations/towns?stateId=${this.currentStateHash}&page=${1}&text=`);
+
+
+
+
+//     url1Api.subscribe((res: any) => {
+    
+
+//       this.loaded = false;
+
+//       this.breadcrumbs = res.breadcrumbs;
+//       this.ctaText = res.ctaText;
+//       this.infoCheckBox = res.infoCheckBox;
+//       this.bsAltLine = res.bsAltLine;
+//       this.faqsContentTown = res.faqs;
+//       this.faQsSchema = res.faQsSchema;
+//       this.topTowns = res.topTowns;
+//       this.topCounties = res.topCounties;
+//       this.heatingOilPricesData = res.heatingOilPricesData;
+//       this.oilCompaniesData = res.oilCompaniesData;
+//       this.oilDeliverydata = res.oilDeliverydata;
+//       console.log(this.oilCompaniesData);
+      
+//       this.comparePricesText = res.underLine;
+//       this.showComponent = true;
+//       if (this.loadedFirstTime == false) {
+//         this.loadedFirstTime = true;
+//         // this.fetchForecast(this.townZip);
+//         // this.fetchWeatherHistory(this.townZip);
+//       }
+    
+//       this.addFaqsSchema();
+      
+
+//     });
+
+// url2Api.subscribe((res: any) => {
+
+
+//   this.currentLocation = res;
+//   this.townZip = res.zipcode;
+//   this.national_avg_price = res.nationalAvgPrice;
+//   this.totalCompanies = res.totalCompanies;
+//   this.fullserviceComapnies = res.fullserviceComapnies;
+//   this.discountComapnies = res.discountComapnies;
+//   this.logoUrls = res.logos;
+//   this.townImage_url = res.townImage;
+
+//   this.LowValue = res.minPrice.toFixed(2);
+//   this.MaxValue = res.maxPrice.toFixed(2);
+
+
+
+//   this.meta.addTags([
+//     { property: 'og:image', content: this.townImage_url },
+//     { property: 'twitter:image', content: this.townImage_url },
+//   ]);
+
+//   this.loading = true;
+//   this.loadChart = true;
+
+//   const url4Api = this.http.get(environment.api_url + 'locations/heatingoil-forecast?zip=' +
+//   this.townZip +
+//   '&homeSize=' +
+//   this.homeSize +
+//   '&oilHotWater=' +
+//   this.oilHotWater +
+//   '&householdSize=' +
+//   this.householdSize);
+
+//   const url5Api = this.http.get( `${environment.api_url}locations/weather-history?zip=${this.townZip}`);
+
+
+//   url4Api.subscribe((res: any) => {
+//     this.annual_oil = +res[0].oilUse * 52;
+//   });
+
+//   url5Api.subscribe((res: any) => {
+
+//     this.stateWeatherHistory = res;
+//     this.enableComponent = true;
+
+//   });
+
+
+// });
+
+
+// url3Api.subscribe((res: any) => {
+//   this.townList = res.data;
+
+
+
+//   if (res.data.length < 9) {
+//     this.paginationView = false;
+//   } else {
+//     this.paginationView = true;
+//   }
+//   this.currentPage = res.page;
+//   this.length = res.total;
+
+// });
+
+
+//   }
+
+  ngAfterViewInit() {
+    // commented_v
+    // this.content.ionScroll.subscribe(($event) => {
+    //   let sc_position = $event.detail.scrollTop;
+    //   if (sc_position > 196.66) {
+    //     this.config.onScrollFix = true;
+    //     this.config.islogin = true;
+    //     this.config.login = true;
+    //   } else {
+    //     this.config.onScrollFix = false;
+    //   }
+    // });
+  }
+
+  ngOnInit() {
+    let sp = this.router.url.split('/')[2];
+    this.config.updateCanonicalUrl(
+      'https://heatfleet.com/' + this.config.typeURL + sp
+    );
+    // this.getPageDetils();
+
+    var slug = this.fields[0];
+    
+    var type_ = '';
+    if (this.config.typeParam != 'type=1') {
+      var type_ = this.config.typeCategory + '&';
+    }
+
+    let stateName = this.stateName.replace(/\b\w/g, (match) =>
+      match.toUpperCase()
+    );
+
+    let url3 =
+      type_ +
+      this.config.typeParam +
+      '&level=3&stateId=' +
+      this.currentStateHash +
+      '&stateName=' +
+      stateName;
+
+    // this.makeApiCalls(slug, url3);
 
     this.getPageDetails(url3);
     this.getloctionsbyHash(slug);
     this.getTownsOfState();
-
   }
 
   fetchWeatherHistory(zip) {
     let url = `${environment.api_url}locations/weather-history?zip=${zip}`;
 
-    this.http.get(url).subscribe((response: any) => {
+    this.http.get(url).subscribe((response : any)=>{
       this.stateWeatherHistory = response;
       this.enableComponent = true;
     })
@@ -887,11 +1034,11 @@ export class StateProfileComponent implements OnInit {
     this.router.navigate([url]);
   }
 
-  getPageDetails(url3) {
-    const url1Api = this.http.get(environment.api_url + `locations/getPageDetails?${url3}`);
+  getPageDetails(url3){
+    const url1Api = this.http.get(environment.api_url +`locations/getPageDetails?${url3}`);
 
     url1Api.subscribe((res: any) => {
-      this.sharedService.getPageDetailsApiData.next(res)
+    
 
       this.loaded = false;
 
@@ -907,22 +1054,22 @@ export class StateProfileComponent implements OnInit {
       this.oilCompaniesData = res.oilCompaniesData;
       this.oilDeliverydata = res.oilDeliverydata;
       console.log(this.oilCompaniesData);
-
+      
       this.comparePricesText = res.underLine;
       this.showComponent = true;
       if (this.loadedFirstTime == false) {
         this.loadedFirstTime = true;
       }
-
+    
       this.addFaqsSchema();
     });
   }
 
-  getloctionsbyHash(slug) {
-    const url2Api = this.http.get(environment.api_url + `locations/hash?hash=${slug}`);
+  getloctionsbyHash(slug){
+    const url2Api = this.http.get(environment.api_url +`locations/hash?hash=${slug}`);
 
     url2Api.subscribe((res: any) => {
-      this.sharedService.stateHashApiData.next(res)
+
       this.currentLocation = res;
       this.townZip = res.zipcode;
       this.national_avg_price = res.nationalAvgPrice;
@@ -931,34 +1078,34 @@ export class StateProfileComponent implements OnInit {
       this.discountComapnies = res.discountComapnies;
       this.logoUrls = res.logos;
       this.townImage_url = res.townImage;
-
+    
       this.LowValue = res.minPrice.toFixed(2);
       this.MaxValue = res.maxPrice.toFixed(2);
-
-
-
+    
+    
+    
       this.meta.addTags([
         { property: 'og:image', content: this.townImage_url },
         { property: 'twitter:image', content: this.townImage_url },
       ]);
-
+    
       this.loading = true;
       this.loadChart = true;
 
       this.fetchWeatherHistory(this.townZip);
       this.getHeatingOilForecast();
     });
-
+    
   }
 
-  getTownsOfState() {
+  getTownsOfState(){
     const url3Api = this.http.get(environment.api_url + `locations/towns?stateId=${this.currentStateHash}&page=${1}&text=`);
 
     url3Api.subscribe((res: any) => {
       this.townList = res.data;
-
-      this.sharedService.townsApiData.next(res);
-
+    
+    
+    
       if (res.data.length < 9) {
         this.paginationView = false;
       } else {
@@ -966,30 +1113,26 @@ export class StateProfileComponent implements OnInit {
       }
       this.currentPage = res.page;
       this.length = res.total;
-
+    
     });
   }
 
-  getHeatingOilForecast() {
+  getHeatingOilForecast(){
     const url4Api = this.http.get(environment.api_url + 'locations/heatingoil-forecast?zip=' +
-      this.townZip +
-      '&homeSize=' +
-      this.homeSize +
-      '&oilHotWater=' +
-      this.oilHotWater +
-      '&householdSize=' +
-      this.householdSize);
+    this.townZip +
+    '&homeSize=' +
+    this.homeSize +
+    '&oilHotWater=' +
+    this.oilHotWater +
+    '&householdSize=' +
+    this.householdSize);
+  
 
-
-    url4Api.subscribe((res: any) => {
+     url4Api.subscribe((res: any) => {
       this.annual_oil = +res[0].oilUse * 52;
     });
 
   }
 
-  ngOnDestroy() {
-    this.sharedService.townsApiData.next({});
-    this.sharedService.getPageDetailsApiData.next({});
-    this.sharedService.stateHashApiData.next({});
-  }
+
 }

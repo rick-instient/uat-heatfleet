@@ -23,11 +23,11 @@ deploy_uat:
   script:
     - chmod og= $ID_RSA
     - apk update && apk add openssh-client
-    - DEPLOY_FOLDER="/home/ub/apps/heatfleet/seo/uat"  # Define the deployment folder based on branch
-    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER_UAT@$SERVER_IP_UAT "cd $DEPLOY_FOLDER && rm -f src/environments/environment.ts && git fetch && git checkout uat && git pull && cp -f src/environments/environment.uat.ts src/environments/environment.ts"
-    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER_UAT@$SERVER_IP_UAT "cd $DEPLOY_FOLDER && npm install -f && npm run build:ssr"
-    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER_UAT@$SERVER_IP_UAT "echo $SERVER_USER_PWD_UAT | sudo -S service nginx restart"
-    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER_UAT@$SERVER_IP_UAT "pm2 restart all"
+    - DEPLOY_FOLDER="/home/deploy/client-seo/uat"  # Define the deployment folder based on branch
+    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "cd $DEPLOY_FOLDER && rm -f src/environments/environment.ts && git fetch && git checkout uat && git pull && cp -f src/environments/environment.uat.ts src/environments/environment.ts"
+    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "cd $DEPLOY_FOLDER && npm install -f && npm run build:ssr"
+    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "echo $SERVER_USER_PWD | sudo -S service nginx restart"
+    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "/home/deploy/.npm-global/bin/pm2 restart all"
   only:
     refs:
       - uat

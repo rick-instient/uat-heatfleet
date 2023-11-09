@@ -30,7 +30,6 @@ import { OilDeliveryComponent } from './oil-delivery/oil-delivery.component';
 import { HeatingOilPricesComponent } from './heating-oil-prices/heating-oil-prices.component';
 import { OilCompaniesComponent } from './oil-companies/oil-companies.component';
 import { LocationTypeComponent } from './location-type/location-type.component';
-import { PipeAndDirectiveModule } from 'src/app/shared/pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -67,8 +66,7 @@ import { PipeAndDirectiveModule } from 'src/app/shared/pipes/pipes.module';
     ReactiveFormsModule,
     FormsModule,
     MasterRoutingModule,
-    ComponentsModule,
-    PipeAndDirectiveModule,
+    ComponentsModule
   ]
 })
 export class MasterModule { }

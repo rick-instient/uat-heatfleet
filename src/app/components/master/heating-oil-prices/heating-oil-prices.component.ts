@@ -10,7 +10,6 @@ import { NetworkService } from 'src/app/shared/api/network.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { LocationService } from 'src/app/shared/api/location.service';
 import { CommonService } from 'src/app/shared/services/common.config';
-import { SharedService } from 'src/app/shared/services/shared-service.service';
 
 export interface CustomWindow extends Window {
 
@@ -54,7 +53,6 @@ export class HeatingOilPricesComponent implements OnInit {
   topCounties: any;
   loading = false;
   constructor(
-    public sharedService: SharedService,
     public clientbase: CommonService,
     public http: HttpClient,
     public route: ActivatedRoute,
@@ -67,7 +65,7 @@ export class HeatingOilPricesComponent implements OnInit {
     private locationService: LocationService,
     private sanitizer: DomSanitizer
   ) {
-
+  
     this.window = <any>this.document.defaultView;
     this.scrollTop();
   }
@@ -93,9 +91,47 @@ export class HeatingOilPricesComponent implements OnInit {
     this.getPageDeatails();
     this.getNearestLocation();
     this.getChartData();
-    this.addSchema();
   }
 
+  ionViewDidEnter() {
+    this.scrollTop();
+
+    this.clientbase.onScrollFix = false;
+
+    setTimeout(() => {
+      let schema = [];
+      schema = [
+        {
+          '@context': 'http:\u002F\u002Fschema.org',
+          '@type': 'Organization',
+          name: 'Heat Fleet',
+          url: 'https:\u002F\u002Fheatfleet.com\u002F',
+          logo: 'https:\u002F\u002Fmedia-cdn.heatfleet.com\u002F9m-Heat-Fleet-Heating-Oil-Logo.svg',
+          description:
+            'Search hundreds of oil companies at once to find the best home heating oil prices.',
+        },
+        {
+          '@context': 'http:\u002F\u002Fschema.org',
+          '@type': 'WebSite',
+          name: 'Heat Fleet',
+          url: 'https:\u002F\u002Fheatfleet.com\u002F',
+          potentialAction: {
+            '@type': 'SearchAction',
+            target: '',
+            'query-input': '',
+          },
+        },
+      ];
+
+      let typeURL = this.clientbase.typeURL.replace('/', '.html');
+      schema[0].url = 'https:\u002F\u002Fheatfleet.com/' + typeURL;
+      schema[1].potentialAction.target =
+        'https://heatfleet.com/oil-select-provider/{zip}/0/0/4/100';
+      schema[1].potentialAction['query-input'] = 'required name=zip';
+      schema.push(this.faQsSchema);
+      this.clientbase.insertSchema(schema, 'structured-data-org');
+    }, 1000);
+  }
 
   fetchInit() {
     this.clientbase.getTypeURL();
@@ -277,100 +313,37 @@ export class HeatingOilPricesComponent implements OnInit {
     }
   }
 
-  getPageDeatails() {
+  getPageDeatails(){
     var type_ = '';
-    if (this.clientbase.typeParam != 'type=1') {
-      var type_ = this.clientbase.typeCategory + '&';
-    }
-    let url3 = type_ + this.clientbase.typeParam + '&level=1';
-    const url = environment.api_url + `locations/getPageDetails?${url3}`;
-
-    this.http.get(url).subscribe((response: any) => {
-      this.sharedService.getPageDetailsApiData.next(response);
+      if (this.clientbase.typeParam != 'type=1') {
+        var type_ = this.clientbase.typeCategory + '&';
+      }
+      let url3 = type_ + this.clientbase.typeParam + '&level=1';
+      const url = environment.api_url + `locations/getPageDetails?${url3}`;
+    
+    this.http.get(url).subscribe((response: any)=>{
       this.breadcrumbs = response.breadcrumbs;
-      this.ctaText = response.ctaText;
-      this.infoCheckBox = response.infoCheckBox;
-      this.bsAltLine = response.bsAltLine;
-      this.faqsContentTown = response.faqs;
-      this.faQsSchema = response.faQsSchema;
-      this.comparePricesText = response.underLine;
-      this.topTowns = response.topTowns;
-      this.topCounties = response.topCounties;
-      this.loading = true;
+        this.ctaText = response.ctaText;
+        this.infoCheckBox = response.infoCheckBox;
+        this.bsAltLine = response.bsAltLine;
+        this.faqsContentTown = response.faqs;
+        this.faQsSchema = response.faQsSchema;
+        this.comparePricesText = response.underLine;
+        this.topTowns = response.topTowns;
+        this.topCounties = response.topCounties;
+        this.loading = true;
     });
   }
 
-  getNearestLocation() {
+  getNearestLocation(){  
     const url = this.getUrl('customer/offer/get-nearest-location');
     let httpOptions = this.getHttpOptions();
 
-    this.http.get(url, httpOptions).subscribe((response) => {
-      this.sharedService.nearestLocationApiData.next(response);
+    this.http.get(url, httpOptions).subscribe((response)=>{
       this.enable_pricesData = false;
-      this.pricesData = response['nearestTown'];
-      this.data_map = response['nearestTown'];
-      this.loaded = true;
+        this.pricesData = response['nearestTown'];
+        this.data_map = response['nearestTown'];
+        this.loaded = true;
     })
-  }
-
-  ngOnDestroy() {
-    this.sharedService.getPageDetailsApiData.next({});
-  }
-  
-  addSchema(){
-    let schema = [];
-      schema = [
-        {
-          '@context': 'http:\u002F\u002Fschema.org',
-          '@type': 'Organization',
-          name: 'Heat Fleet',
-          url: 'https:\u002F\u002Fheatfleet.com\u002F',
-          logo: 'https:\u002F\u002Fmedia-cdn.heatfleet.com\u002F9m-Heat-Fleet-Heating-Oil-Logo.svg',
-          description:
-            'Search hundreds of oil companies at once to find the best home heating oil prices.',
-        },
-        {
-          '@context': 'http:\u002F\u002Fschema.org',
-          '@type': 'WebSite',
-          name: 'Heat Fleet',
-          url: 'https:\u002F\u002Fheatfleet.com\u002F',
-          potentialAction: {
-            '@type': 'SearchAction',
-            target: '',
-            'query-input': '',
-          },
-        },
-        {
-          '@context': 'http:\u002F\u002Fschema.org',
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-    
-            {
-              '@type': 'ListItem',
-              position: '1',
-              item: {
-                '@id': '\u002F',
-                name: this.breadcrumbs[0].label,
-              },
-            },
-            {
-              '@type': 'ListItem',
-              position: '2',
-              item: {
-                '@id': '\u002F' + this.breadcrumbs[1].url,
-                name: this.breadcrumbs[1].label,
-              },
-            },
-          ],
-        },
-      ];
-
-      let typeURL = this.clientbase.typeURL.replace('/', '.html');
-      schema[0].url = 'https:\u002F\u002Fheatfleet.com/' + typeURL;
-      schema[1].potentialAction.target =
-        'https://heatfleet.com/oil-select-provider/{zip}/0/0/4/100';
-      schema[1].potentialAction['query-input'] = 'required name=zip';
-      schema.push(this.faQsSchema);
-      this.clientbase.insertSchema(schema, 'structured-data-org');
   }
 }

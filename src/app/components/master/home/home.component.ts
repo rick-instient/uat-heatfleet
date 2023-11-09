@@ -24,7 +24,6 @@ import { LocationService } from 'src/app/shared/api/location.service';
 import { finalize, fromEvent } from 'rxjs';
 import { AuthenticationService } from 'src/app/shared/authentication/authentication.service';
 import { CookieService } from 'ngx-cookie-service';
-import { SharedService } from 'src/app/shared/services/shared-service.service';
 
 export interface CustomWindow extends Window {
 
@@ -72,7 +71,6 @@ export class HomeComponent implements OnInit {
   loadComp = false;
   innerWidth: number;
   constructor(
-    public sharedService: SharedService,
     public clientbase: CommonService,
     public http: HttpClient,
     public route: ActivatedRoute,
@@ -121,13 +119,13 @@ export class HomeComponent implements OnInit {
 
     if (this.clientbase.innerWidth <= 500) {
       this.clientbase.mobile_view = true;
-      this.innerWidth = this.clientbase.innerWidth;
+      this.innerWidth =  this.clientbase.innerWidth;
     } else {
       console.log("Comm");
       // this.getChartData();
       this.loadComp = true;
       this.clientbase.mobile_view = false;
-      this.innerWidth = this.clientbase.innerWidth;
+      this.innerWidth =  this.clientbase.innerWidth;
     }
     // this.content.scrollToTop(0);
   }
@@ -139,13 +137,13 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
-    this.fetchInit();
-    this.scrollTop();
-
-    // if(this.clientbase.innerWidth >= 500) {
+  this.fetchInit();
+  this.scrollTop();
+  
+  // if(this.clientbase.innerWidth >= 500) {
     this.getChartData();
-    // }
-
+  // }
+   
   }
 
 
@@ -175,7 +173,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-
+  
   fetchInit() {
     this.clientbase.onlyLanding = true;
     this.faqsContentTown = this.clientbase.faqsContent;
@@ -219,20 +217,18 @@ export class HomeComponent implements OnInit {
     }
     let url3 = type_ + this.clientbase.typeParam + '&level=1';
 
-    this.getNearestLocation(url, this.getHttpOptions()).subscribe((response) => {
-      this.sharedService.nearestLocationApiData.next(response);
+    this.getNearestLocation(url, this.getHttpOptions()).subscribe((response)=>{
       this.pricesData = response['nearestTown'];
       this.data_map = response['nearestTown'];
       this.loaded = true;
       this.scrollTop();
     })
 
-    this.getPageDeatails(url3).subscribe((response: any) => {
-      this.sharedService.getPageDetailsApiData.next(response);
+    this.getPageDeatails(url3).subscribe((response: any)=>{
       this.topTowns = response.topTowns;
-      this.topCounties = response.topCounties;
-      this.fullServiceCompaniesInUS =
-        response.fullServiceCompaniesInUS;
+        this.topCounties = response.topCounties;
+        this.fullServiceCompaniesInUS =
+          response.fullServiceCompaniesInUS;
     });
 
     // this.locationService
@@ -285,26 +281,26 @@ export class HomeComponent implements OnInit {
     ];
 
     this.mainEntity = [];
-
+    // commented_v
     this.clientbase.faqsContent.forEach((el) => {
-      this.mainEntity.push({
-        '@type': 'Question',
-        name: el.question,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text:
-            "\u003Cdiv class='faqItem'\u003E\u003Cdiv class='answer'\u003E" +
-            el.answer +
-            '\u003C\u002Fa\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E',
-        },
-      });
+      // this.mainEntity.push({
+      //   '@type': 'Question',
+      //   name: el.question,
+      //   acceptedAnswer: {
+      //     '@type': 'Answer',
+      //     text:
+      //       "\u003Cdiv class='faqItem'\u003E\u003Cdiv class='answer'\u003E" +
+      //       el.answer +
+      //       '\u003C\u002Fa\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E',
+      //   },
+      // });
     });
 
     schema_[2].mainEntity = this.mainEntity;
-  
-    schema_[1].potentialAction.target =
-      'https://heatfleet.com/oil-select-provider/{zip}/0/0/4/100';
-    schema_[1].potentialAction['query-input'] = 'required name=zip';
+    // commented_v
+    // schema_[1].potentialAction.target =
+    //   'https://heatfleet.com/oil-select-provider/{zip}/0/0/4/100';
+    // schema_[1].potentialAction['query-input'] = 'required name=zip';
 
     this.clientbase.insertSchema(schema_, 'structured-data-org');
 
@@ -461,16 +457,12 @@ export class HomeComponent implements OnInit {
     this.innerWidth = this.window.innerWidth;
   }
 
-  getPageDeatails(url3) {
+  getPageDeatails(url3){
     const url = environment.api_url + `locations/getPageDetails?${url3}`;
     return this.http.get(url);
   }
 
-  getNearestLocation(url, httpOptions) {
+  getNearestLocation(url, httpOptions){  
     return this.http.get(url, httpOptions);
-  }
-
-  ngOnDestroy() {
-    this.sharedService.getPageDetailsApiData.next({});
   }
 }

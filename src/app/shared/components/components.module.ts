@@ -28,16 +28,9 @@ import { TownHistoricChartComponent } from 'src/app/pages/town-profile/town-hist
 import { SectionAboutComponent } from './section-about/section-about.component';
 import { ModalComponent } from './modal/modal.component';
 import { ToasterComponent } from './toaster/toaster.component';
-import { BestPriceComponent } from './best-price/best-price.component';
-import { RouterModule } from '@angular/router';
-import { HeroSectionComponent } from './hero-section/hero-section.component';
-import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
-import { OilDeliveryMapComponent } from './oil-delivery-map/oil-delivery-map.component';
-import { PipeAndDirectiveModule } from '../pipes/pipes.module';
-import { PopupComponent } from './popup/popup.component';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, PipeAndDirectiveModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   declarations: [
     // HeaderClientComponent,
     SectionBestpricesComponent,
@@ -62,17 +55,11 @@ import { PopupComponent } from './popup/popup.component';
     SectionNearComponent,
     SectionAboutComponent,
     ModalComponent,
-    ToasterComponent,
-    BestPriceComponent,
-    HeroSectionComponent,
-    BreadcrumbComponent,
-    OilDeliveryMapComponent,
-    PopupComponent
+    ToasterComponent
   ],
   exports: [
     // HeaderClientComponent,
     SectionBestpricesComponent,
-    HeroSectionComponent,
     SectionMainComponent,
     HeatingOilLocationsComponent,
     SectionComparepricesComponent,
@@ -94,11 +81,7 @@ import { PopupComponent } from './popup/popup.component';
     SectionNearComponent,
     SectionAboutComponent,
     ModalComponent,
-    BestPriceComponent,
-    ToasterComponent,
-    BreadcrumbComponent,
-    OilDeliveryMapComponent,
-    PopupComponent
+    ToasterComponent
   ],
 })
 export class ComponentsModule { }

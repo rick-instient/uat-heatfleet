@@ -220,11 +220,106 @@ export class StateSelectionComponent implements OnInit {
         }
         this.ctaText = response.ctaText;
         this.infoCheckBox = response.infoCheckBox;
-
-        this.addSchema(title, description);
     });
 
-   
+    // this.locationService
+    //   .requestDataFromMultipleSources_Landing(url, url3, true, true)
+    //   .subscribe((responseList) => {
+    //     this.states = responseList[0];
+
+    //     this.breadcrumbs = responseList[1].breadcrumbs;
+
+    //     if (this.config.isRegion) {
+    //       this.breadcrumbs[2].label = type + ' by Region';
+    //       this.bsAltLine = responseList[1].bsAltLine.replaceAll(
+    //         'State',
+    //         'Regions'
+    //       );
+    //     } else {
+    //       this.breadcrumbs[2].label = type + ' by State';
+    //       this.bsAltLine = responseList[1].bsAltLine;
+    //     }
+    //     this.ctaText = responseList[1].ctaText;
+    //     this.infoCheckBox = responseList[1].infoCheckBox;
+    //   });
+
+    let input = this.router.url;
+    let fields = input.split('-');
+
+    this.config.schema = [
+      {
+        '@context': 'http:\u002F\u002Fschema.org',
+        '@type': 'Organization',
+        name: title,
+        url: 'https:\u002F\u002F' + 'heatfleet.com' + fields[0],
+        logo: 'https:\u002F\u002Fmedia-cdn.heatfleet.com\u002F9m-Heat-Fleet-Heating-Oil-Logo.svg',
+        description: description,
+      },
+      {
+        '@context': 'http:\u002F\u002Fschema.org',
+        '@type': 'WebSite',
+        name: 'Heat Fleet',
+        url: 'https:\u002F\u002Fheatfleet.com\u002F',
+      },
+
+      {
+        '@context': 'http:\u002F\u002Fschema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          // commented_v
+          // {
+          //   '@type': 'ListItem',
+          //   position: '1',
+          //   item: {
+          //     '@id': '\u002F' + this.breadcrumbsService.breadcrumbs[0].url,
+          //     name: this.breadcrumbsService.breadcrumbs[0].label,
+          //   },
+          // },
+          // {
+          //   '@type': 'ListItem',
+          //   position: '2',
+          //   item: {
+          //     '@id': '\u002F' + page_type + '.html',
+          //     name: this.breadcrumbsService.breadcrumbs[1].label,
+          //   },
+          // },
+        ],
+      },
+    ];
+    setTimeout(() => {
+      let topSection = this.document.getElementById('topSection');
+      let header = this.document.getElementById('header');
+      // commented_v
+      // this.content.scrollToPoint(
+      //   0,
+      //   topSection.offsetTop - header.clientHeight - 5
+      // );
+
+      let schema_ = [];
+      this.states.forEach((el) => {
+        el.default = false;
+        var imageUrl;
+        if (el.imageUrl) {
+          imageUrl = el.imageUrl;
+        } else {
+          imageUrl = '';
+        }
+        schema_.push({
+          '@context': 'http:\u002F\u002Fschema.org',
+          '@type': 'State',
+          name: el.stateName,
+          url: 'https://heatfleet.com/' + this.config.typeURL + this.getUrl(el),
+          image: imageUrl,
+          address: {
+            '@type': 'PostalAddress',
+            addressCountry: 'United States',
+          },
+        });
+      });
+
+      this.config.schema = [...this.config.schema, ...schema_];
+      this.config.insertSchema(this.config.schema, 'structured-data-org');
+    }, 1000);
   }
   public getRandomId() {
     return Math.floor(Math.random() * 6 + 1);
@@ -237,6 +332,15 @@ export class StateSelectionComponent implements OnInit {
     return url;
   }
 
+  ionViewWillEnter() {
+    // commented_v
+    // this.breadcrumbsService.createFromUrl(
+    //   this.router.url.split('/')[1],
+    //   'home'
+    // );
+
+    // this.breadcrumbsService.breadcrumbs$.subscribe((data) => {});
+  }
 
   getClasses(n) {
     if (n == 0) {
@@ -278,86 +382,5 @@ export class StateSelectionComponent implements OnInit {
   getPageDetails(url3){
     const url = environment.api_url + `locations/getPageDetails?${url3}`;
     return this.http.get(url);
-  }
-
-  addSchema(title, description){
-
-
-    let input = this.router.url;
-    let fields = input.split('-');
-
-    this.config.schema = [
-      {
-        '@context': 'http:\u002F\u002Fschema.org',
-        '@type': 'Organization',
-        name: title,
-        url: 'https:\u002F\u002F' + 'heatfleet.com' + fields[0],
-        logo: 'https:\u002F\u002Fmedia-cdn.heatfleet.com\u002F9m-Heat-Fleet-Heating-Oil-Logo.svg',
-        description: description,
-      },
-      {
-        '@context': 'http:\u002F\u002Fschema.org',
-        '@type': 'WebSite',
-        name: 'Heat Fleet',
-        url: 'https:\u002F\u002Fheatfleet.com\u002F',
-      },
-
-      {
-        '@context': 'http:\u002F\u002Fschema.org',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-  
-          {
-            '@type': 'ListItem',
-            position: '1',
-            item: {
-              '@id': '\u002F' + this.breadcrumbs[0].url,
-              name: this.breadcrumbs[0].label,
-            },
-          },
-          {
-            '@type': 'ListItem',
-            position: '2',
-            item: {
-              '@id': '\u002F' + this.breadcrumbs[1].url,
-              name: this.breadcrumbs[1].label,
-            },
-          },
-          {
-            '@type': 'ListItem',
-            position: '3',
-            item: {
-              '@id': '\u002F' + this.config.typeURL + '\u002F' + this.breadcrumbs[2].url ,
-              name: this.breadcrumbs[2].label,
-            },
-          },
-        ],
-      },
-    ];
-
-    let schema_ = [];
-      this.states.forEach((el) => {
-        el.default = false;
-        var imageUrl;
-        if (el.imageUrl) {
-          imageUrl = el.imageUrl;
-        } else {
-          imageUrl = '';
-        }
-        schema_.push({
-          '@context': 'http:\u002F\u002Fschema.org',
-          '@type': 'State',
-          name: el.stateName,
-          url: 'https://heatfleet.com/' + this.config.typeURL + this.getUrl(el),
-          image: imageUrl,
-          address: {
-            '@type': 'PostalAddress',
-            addressCountry: 'United States',
-          },
-        });
-      });
-
-      this.config.schema = [...this.config.schema, ...schema_];
-      this.config.insertSchema(this.config.schema, 'structured-data-org');
   }
 }

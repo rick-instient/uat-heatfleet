@@ -10,7 +10,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { CommonService } from 'src/app/shared/services/common.config';
 import { NetworkService } from 'src/app/shared/api/network.service';
 import { LocationService } from 'src/app/shared/api/location.service';
-import { SharedService } from 'src/app/shared/services/shared-service.service';
 
 export interface CustomWindow extends Window {
 
@@ -57,7 +56,6 @@ export class HeatingOilComponent implements OnInit {
   loading = false;
 
   constructor(
-    public sharedService: SharedService,
     public clientbase: CommonService,
     public http: HttpClient,
     public route: ActivatedRoute,
@@ -94,118 +92,50 @@ export class HeatingOilComponent implements OnInit {
     // this.config.checkCookie();
     this.getNearestLocation();
     this.getPageDeatails();
-    this.addSchema();
-  }
-
-  addSchema() {
-    var content_ =
-      'Our heating oil search engine can save you up to $100 PER OIL DELIVERY. Enter your ZIP to instantly compare oil prices from trusted local heating oil companies.';
-
-    let schema = [];
-    schema = [
-      {
-        '@context': 'http:\u002F\u002Fschema.org',
-        '@type': 'Organization',
-        name: 'Heat Fleet',
-        url: 'https:\u002F\u002Fheatfleet.com\u002F',
-        logo: 'https:\u002F\u002Fmedia-cdn.heatfleet.com\u002F9m-Heat-Fleet-Heating-Oil-Logo.svg',
-        description: content_,
-      },
-      {
-        '@context': 'http:\u002F\u002Fschema.org',
-        '@type': 'WebSite',
-        name: 'Heat Fleet',
-        url: 'https:\u002F\u002Fheatfleet.com\u002F',
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: '',
-          'query-input': '',
-        },
-      }
-    ];
-
-    let typeURL = this.clientbase.typeURL.replace('/', '.html');
-
-    schema[0].url = 'https:\u002F\u002Fheatfleet.com/' + typeURL;
-
-    schema[1].potentialAction.target =
-      'https://heatfleet.com/oil-select-provider/{zip}/0/0/4/100';
-    schema[1].potentialAction['query-input'] = 'required name=zip';
-
-    schema.push(this.faQsSchema);
-
-    if (this.breadcrumbs[0] && this.breadcrumbs[1]) {
-      var bc = {
-        '@context': 'http:\u002F\u002Fschema.org',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: '1',
-            item: {
-              '@id': '\u002F',
-              name: this.breadcrumbs[0].label,
-            },
-          },
-          {
-            '@type': 'ListItem',
-            position: '2',
-            item: {
-              '@id': '\u002F' + this.breadcrumbs[1].url,
-              name: this.breadcrumbs[1].label,
-            },
-          }
-        ],
-      };
-    }
-
-    schema.push(bc);
-    this.clientbase.insertSchema(schema, 'structured-data-org');
-
   }
 
   ionViewDidEnter() {
     this.clientbase.onScrollFix = false;
     this.scrollTop();
 
-    // var content_ =
-    //   'Our heating oil search engine can save you up to $100 PER OIL DELIVERY. Enter your ZIP to instantly compare oil prices from trusted local heating oil companies.';
+    var content_ =
+      'Our heating oil search engine can save you up to $100 PER OIL DELIVERY. Enter your ZIP to instantly compare oil prices from trusted local heating oil companies.';
 
-    // setTimeout(() => {
-    //   let schema = [];
-    //   schema = [
-    //     {
-    //       '@context': 'http:\u002F\u002Fschema.org',
-    //       '@type': 'Organization',
-    //       name: 'Heat Fleet',
-    //       url: 'https:\u002F\u002Fheatfleet.com\u002F',
-    //       logo: 'https:\u002F\u002Fmedia-cdn.heatfleet.com\u002F9m-Heat-Fleet-Heating-Oil-Logo.svg',
-    //       description: content_,
-    //     },
-    //     {
-    //       '@context': 'http:\u002F\u002Fschema.org',
-    //       '@type': 'WebSite',
-    //       name: 'Heat Fleet',
-    //       url: 'https:\u002F\u002Fheatfleet.com\u002F',
-    //       potentialAction: {
-    //         '@type': 'SearchAction',
-    //         target: '',
-    //         'query-input': '',
-    //       },
-    //     },
-    //   ];
+    setTimeout(() => {
+      let schema = [];
+      schema = [
+        {
+          '@context': 'http:\u002F\u002Fschema.org',
+          '@type': 'Organization',
+          name: 'Heat Fleet',
+          url: 'https:\u002F\u002Fheatfleet.com\u002F',
+          logo: 'https:\u002F\u002Fmedia-cdn.heatfleet.com\u002F9m-Heat-Fleet-Heating-Oil-Logo.svg',
+          description: content_,
+        },
+        {
+          '@context': 'http:\u002F\u002Fschema.org',
+          '@type': 'WebSite',
+          name: 'Heat Fleet',
+          url: 'https:\u002F\u002Fheatfleet.com\u002F',
+          potentialAction: {
+            '@type': 'SearchAction',
+            target: '',
+            'query-input': '',
+          },
+        },
+      ];
 
-    //   let typeURL = this.clientbase.typeURL.replace('/', '.html');
+      let typeURL = this.clientbase.typeURL.replace('/', '.html');
 
-    //   schema[0].url = 'https:\u002F\u002Fheatfleet.com/' + typeURL;
+      schema[0].url = 'https:\u002F\u002Fheatfleet.com/' + typeURL;
 
-    //   schema[1].potentialAction.target =
-    //     'https://heatfleet.com/oil-select-provider/{zip}/0/0/4/100';
-    //   schema[1].potentialAction['query-input'] = 'required name=zip';
+      schema[1].potentialAction.target =
+        'https://heatfleet.com/oil-select-provider/{zip}/0/0/4/100';
+      schema[1].potentialAction['query-input'] = 'required name=zip';
 
-    //   schema.push(this.faQsSchema);
-    //   this.clientbase.insertSchema(schema, 'structured-data-org');
-    // }, 1000);
+      schema.push(this.faQsSchema);
+      this.clientbase.insertSchema(schema, 'structured-data-org');
+    }, 1000);
   }
 
   ionViewWillEnter() {
@@ -267,7 +197,7 @@ export class HeatingOilComponent implements OnInit {
     //     this.pageDetails = responseList[1];
 
     //     console.log(this.pageDetails);
-
+        
     //     this.showComponent = true;
     //     this.loading = true;
     //   });
@@ -391,49 +321,43 @@ export class HeatingOilComponent implements OnInit {
     }
   }
 
-  getPageDeatails() {
+  getPageDeatails(){
     var type_ = '';
     if (this.clientbase.typeParam != 'type=1') {
       var type_ = this.clientbase.typeCategory + '&';
     }
     let url3 = type_ + this.clientbase.typeParam + '&level=1';
     const url = environment.api_url + `locations/getPageDetails?${url3}`;
-
-    this.http.get(url).subscribe((response: any) => {
-      this.sharedService.getPageDetailsApiData.next(response);
+    
+    this.http.get(url).subscribe((response: any)=>{
       this.breadcrumbs = response.breadcrumbs;
-      this.ctaText = response.ctaText;
-      this.infoCheckBox = response.infoCheckBox;
-      this.bsAltLine = response.bsAltLine;
-      this.faqsContentTown = response.faqs;
-      this.faQsSchema = response.faQsSchema;
-      this.topTowns = response.topTowns;
-      this.topCounties = response.topCounties;
+        this.ctaText = response.ctaText;
+        this.infoCheckBox = response.infoCheckBox;
+        this.bsAltLine = response.bsAltLine;
+        this.faqsContentTown = response.faqs;
+        this.faQsSchema = response.faQsSchema;
+        this.topTowns = response.topTowns;
+        this.topCounties = response.topCounties;
 
-      this.comparePricesText = response.underLine;
-      this.pageDetails = response;
+        this.comparePricesText = response.underLine;
+        this.pageDetails = response;
 
-      console.log(this.pageDetails);
-
-      this.showComponent = true;
-      this.loading = true;
+        console.log(this.pageDetails);
+        
+        this.showComponent = true;
+        this.loading = true;
     });
   }
 
-  getNearestLocation() {
+  getNearestLocation(){  
     const url = this.getUrl('customer/offer/get-nearest-location');
     let httpOptions = this.getHttpOptions();
 
-    this.http.get(url, httpOptions).subscribe((response) => {
-      this.sharedService.nearestLocationApiData.next(response);
+    this.http.get(url, httpOptions).subscribe((response)=>{
       this.enable_pricesData = false;
-      this.pricesData = response['nearestTown'];
-      this.data_map = response['nearestTown'];
-      this.loaded = true;
+        this.pricesData = response['nearestTown'];
+        this.data_map = response['nearestTown'];
+        this.loaded = true;
     })
-  }
-
-  ngOnDestroy() {
-    this.sharedService.getPageDetailsApiData.next({});
   }
 }

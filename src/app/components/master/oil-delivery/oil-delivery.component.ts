@@ -10,7 +10,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { LocationService } from 'src/app/shared/api/location.service';
 import { first } from 'rxjs/operators';
 import { CommonService } from 'src/app/shared/services/common.config';
-import { SharedService } from 'src/app/shared/services/shared-service.service';
 
 @Component({
   selector: 'app-oil-delivery',
@@ -52,7 +51,6 @@ export class OilDeliveryComponent implements OnInit {
   oilDeliverydata: any;
 
   constructor(
-    public sharedService: SharedService,
     public clientbase: CommonService,
     public http: HttpClient,
     public route: ActivatedRoute,
@@ -88,71 +86,6 @@ export class OilDeliveryComponent implements OnInit {
     this.getPageDeatails();
     this.fetchInit();
     this.fetchWeatherHistory(10001);
-    this.addSchema();
-  }
-
-  addSchema() {
-    var content_ =
-      'Find reliable, affordable oil delivery with our free heating oil search engine. Save up to $1.00 PER GALLON on heating oil delivery.';
-
-    let schema = [];
-    schema = [
-      {
-        '@context': 'http:\u002F\u002Fschema.org',
-        '@type': 'Organization',
-        name: 'Heat Fleet',
-        url: 'https:\u002F\u002Fheatfleet.com\u002F',
-        logo: 'https:\u002F\u002Fmedia-cdn.heatfleet.com\u002F9m-Heat-Fleet-Heating-Oil-Logo.svg',
-        description: content_,
-      },
-      {
-        '@context': 'http:\u002F\u002Fschema.org',
-        '@type': 'WebSite',
-        name: 'Heat Fleet',
-        url: 'https:\u002F\u002Fheatfleet.com\u002F',
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: '',
-          'query-input': '',
-        },
-      },
-    ];
-
-    let typeURL = this.clientbase.typeURL.replace('/', '.html');
-
-    schema[0].url = 'https:\u002F\u002Fheatfleet.com/' + typeURL;
-
-    schema[1].potentialAction.target =
-      'https://heatfleet.com/oil-select-provider/{zip}/0/0/4/100';
-    schema[1].potentialAction['query-input'] = 'required name=zip';
-
-    schema.push(this.faQsSchema);
-    if (this.breadcrumbs[0] && this.breadcrumbs[1]) {
-      var bc = {
-        '@context': 'http:\u002F\u002Fschema.org',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: '1',
-            item: {
-              '@id': '\u002F',
-              name: this.breadcrumbs[0].label,
-            },
-          },
-          {
-            '@type': 'ListItem',
-            position: '2',
-            item: {
-              '@id': '\u002F' + this.breadcrumbs[1].url,
-              name: this.breadcrumbs[1].label,
-            },
-          }
-        ],
-      };
-    }
-    schema.push(bc);
-    this.clientbase.insertSchema(schema, 'structured-data-org');
   }
 
   ionViewDidEnter() {
@@ -383,7 +316,7 @@ export class OilDeliveryComponent implements OnInit {
   fetchWeatherHistory(zip) {
     let url = `${environment.api_url}locations/weather-history?zip=${zip}`;
 
-    this.http.get(url).subscribe((response: any) => {
+    this.http.get(url).subscribe((response: any)=>{
       if (response) {
         this.WeatherHistory = response;
         this.enableComponent = true;
@@ -391,45 +324,41 @@ export class OilDeliveryComponent implements OnInit {
     });
   }
 
-  getPageDeatails() {
+  getPageDeatails(){
     var type_ = '';
-    if (this.clientbase.typeParam != 'type=1') {
-      var type_ = this.clientbase.typeCategory + '&';
-    }
-    let url3 = type_ + this.clientbase.typeParam + '&level=1';
-    const url = environment.api_url + `locations/getPageDetails?${url3}`;
-
-    this.http.get(url).subscribe((response: any) => {
-      this.sharedService.getPageDetailsApiData.next(response);
+      if (this.clientbase.typeParam != 'type=1') {
+        var type_ = this.clientbase.typeCategory + '&';
+      }
+      let url3 = type_ + this.clientbase.typeParam + '&level=1';
+      const url = environment.api_url + `locations/getPageDetails?${url3}`;
+    
+    this.http.get(url).subscribe((response: any)=>{
       this.loaded = true;
       this.breadcrumbs = response.breadcrumbs;
-      this.ctaText = response.ctaText;
-      this.infoCheckBox = response.infoCheckBox;
-      this.bsAltLine = response.bsAltLine;
-      this.faqsContentTown = response.faqs;
-      this.faQsSchema = response.faQsSchema;
-      this.comparePricesText = response.underLine;
-      this.topTowns = response.topTowns;
-      this.topCounties = response.topCounties;
-      this.pageDetails = response;
-      this.enableComponent = true;
-      this.oilDeliverydata = response.oilDeliverydata;
+        this.ctaText = response.ctaText;
+        this.infoCheckBox = response.infoCheckBox;
+        this.bsAltLine = response.bsAltLine;
+        this.faqsContentTown = response.faqs;
+        this.faQsSchema = response.faQsSchema;
+        this.comparePricesText = response.underLine;
+        this.topTowns = response.topTowns;
+        this.topCounties = response.topCounties;
+        this.pageDetails = response;
+        this.enableComponent = true;
+        this.oilDeliverydata = response.oilDeliverydata;
     });
   }
 
-  getNearestLocation() {
+  getNearestLocation(){  
     const url = this.getUrl('customer/offer/get-nearest-location');
     let httpOptions = this.getHttpOptions();
 
-    this.http.get(url, httpOptions).subscribe((response) => {
-      this.sharedService.nearestLocationApiData.next(response);
+    this.http.get(url, httpOptions).subscribe((response)=>{
       this.pricesData = response['nearestTown'];
       this.data_map = response['nearestTown'];
       this.enable_pricesData = false;
     })
-  }
 
-  ngOnDestroy() {
-    this.sharedService.getPageDetailsApiData.next({});
+    
   }
 }

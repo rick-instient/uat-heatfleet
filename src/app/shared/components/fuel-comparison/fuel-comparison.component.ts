@@ -95,11 +95,9 @@ export class FuelComparisonComponent implements OnChanges {
   }
 
   ngOnInit() {
-    if(this.townData.isTownHouseholdDataAvailable){
-      this.isTownHouseholdDataAvailable =
-      this.townData.isTownHouseholdDataAvailable;
-    }
-   
+    this.isTownHouseholdDataAvailable =
+        this.townData.isTownHouseholdDataAvailable;
+
     console.log("heatingOilHistory check 1:",this.heatingOilHistory);
         
 

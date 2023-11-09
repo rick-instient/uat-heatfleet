@@ -950,7 +950,7 @@ p.label-white-row {
     display: flex;
     align-items: center;
     text-transform: capitalize;
-    color: #575757;
+    color: #aaaaaa;
     font-family: "HK-Grotesk";
     margin-top: 12px;
     margin-bottom: -13px;
@@ -1190,6 +1190,10 @@ p.txt-btn {
         display: block !important;
     }
 
+    // img.bg-img {
+    //   display: none;
+    // }
+
     // .white-row.desktop.inline {
     //   margin-top: -40px;
     // }
@@ -1220,8 +1224,7 @@ p.txt-btn {
 @media only screen and (max-width: 600px) {
 
     img.bg-img.tk.transparentImage {
-        visibility: hidden;
-        position: absolute;
+        display: none;
     }
 
     .search-card.desktop {
@@ -1431,13 +1434,6 @@ img.bg-img.tk.transparentImage {
 
 .location-icon.png {
     margin-left: -14px;
-}
-
-.location-icon {
-  img {
-    width: 16px;
-    height: 23px;
-  }
 }
 
 ion-label.line1.sc-ion-label-md-h.sc-ion-label-md-s.md.hydrated {
@@ -2685,10 +2681,4 @@ img.bg-img {
 
 td.l.address {
     height: 70px;
-}
-.common-button-icon {
-  img {
-    width: 23px;
-    height: 23px;
-  }
 }

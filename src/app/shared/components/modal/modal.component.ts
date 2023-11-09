@@ -39,9 +39,7 @@ export class ModalComponent implements OnInit{
   ViewToast = false;
   private window: CustomWindow;
   
-  constructor(public config: CommonService, private clientApiService: ClientApiService, public networkService: NetworkService,     private toastService: ToastService){
-    this.isLoading = false;
-  }
+  constructor(public config: CommonService, private clientApiService: ClientApiService, public networkService: NetworkService,     private toastService: ToastService){}
 
   ngOnInit() {
     this.selectedZip = this.areaServed[0].postalCode;

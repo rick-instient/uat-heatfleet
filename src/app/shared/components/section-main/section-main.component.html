@@ -4,10 +4,10 @@
       <ng-container *ngFor="let breadcrumb of breadcrumbs; let last = last;">
         <li>
           <ng-container><a [href]="breadcrumb.url" (click)="navigateUrl($event, breadcrumb.url)" *ngIf="!last">{{breadcrumb.label}}</a>
-
-
+            
+            
             <p class="dark" *ngIf="last">{{breadcrumb.label}}</p>
-
+          
           </ng-container>
         </li>
       </ng-container>
@@ -18,28 +18,28 @@
   </div>
 </div>
 <div class="wrap" [ngClass]="{'EnableLoggedInUser': townData}"  [ngClass]="{ 'text-success':defaultTown === 'enable'}">
-
+  
 
   <div class="container-main">
-
+    
     <!-- <div class="image-container" *ngIf="!LandingPage">
       <div class="placeholder-image"></div>
       <img
-
-      [srcset]="srcSetConfig"
-
+   
+      [srcset]="srcSetConfig" 
+      
         class="bg-img"
         (load)="onImageLoad()"
       />
 
     </div> -->
-
-    <img class="bg-img" [srcset]="srcSetConfig" title="{{titleTag}}" alt="{{altTag}}" *ngIf="srcSetConfig"  />
+    
+    <img #bgImg class="bg-img" [srcset]="srcSetConfig" title="{{titleTag}}" alt="{{altTag}}" *ngIf="srcSetConfig"  />
 
 
     <div class="row-cus">
       <div class="col-cus">
-        <div class="main-cntre">
+        <div class="main-cntre">                                                  
           <div class="white-row desktop scrollme" *ngIf="config.onScrollFix" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
             <div class="aligner-1" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}"><img class="imglogo scroll" src="/assets/icons/01-Heatfleet.svg" title="Heatfleet" alt="Heatfleet" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}" (click)="navigateHome()"  fetchpriority="high"/>
               <div class="inputs scrollcontainer add" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
@@ -56,7 +56,7 @@
             <div class="aligner-2" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
               <div class="inputs scrollcontainer scroll qty" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
                 <div class="inp"></div>
-
+     
                 <div class="location-icon png"><img class="sc-loc-icn-1" src="/assets/icons/quantity.svg" alt="Quantity icon" title="Search Quantity"  fetchpriority="high"/></div>
                 <div class="inp">
                   <p class="label-white-row quantity-input">Quantity</p>
@@ -105,13 +105,13 @@
               <div class="cta-text" *ngIf="InfoCheckboxLoaded">
                 <h1 class="title-main-desktop" *ngIf="ctaText">{{ctaText}}</h1>
 
-
+              
               </div>
               <div class="section-loading text" *ngIf="!InfoCheckboxLoaded && !LandingPage"></div>
 
               <h1 class="title-main-desktop" *ngIf="LandingPage">Find today's best local <span class="hf" *ngIf="config.typeParam == 'type=1'">oil </span><span class="hf" *ngIf="config.typeParam == 'type=2'">heating repair </span>prices per gallon, instantly.</h1>
 
-
+             
               <!-- <h1 class="title-main-desktop" *ngIf="townData &amp;&amp; !ctaText">Find today's best <span class="hf" *ngIf="config.typeParam == 'type=1'">oil </span><span class="hf" *ngIf="config.typeParam == 'type=2'">heating repair </span>prices in {{city}}<span class="state" *ngIf="state">, {{state}}</span></h1> -->
               <div class="containInp flex" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
                 <div class="inputs plain mr-10 w-50" [ngClass]="{'EnableLoggedInUser': config.EnableLoggedInUser}">
@@ -154,14 +154,14 @@
                   <div class="col-sm-3 img-col" *ngFor="let n of logoUrls | slice:4:8" size="3"><img class="logo-img" *ngIf="n"  [src]="n" alt="Oil Provider" title="Oil Provider"  fetchpriority="high"/></div>
                 </div>
               </div>
-
+       
             </div>
             <div class="right-section">
               <div class="infoText">
 
                 <div class="infoCheck gif"  *ngIf="!infoCheckBox && !LandingPage && !InfoCheckboxLoaded">
 
-
+        
                   <div class="section-loading info">
 
                   </div>
@@ -171,14 +171,14 @@
 
                 <div class="infoCheck"  *ngIf="infoCheckBox && InfoCheckboxLoaded">
                   <h2 class="heading">{{infoCheckBox.header}}</h2>
-                  <p class="list" *ngFor="let n of infoCheckBox.checkPoints">
-
-
+                  <p class="list" *ngFor="let n of infoCheckBox.checkPoints"> 
+                    
+                    
                        <span class="img-span">
                     <img class="check-icon" src="/assets/icons/Check.svg" alt="checkmark icon" title="checkmark icon"  fetchpriority="high"/>
-                  </span>
-
-
+                  </span>  
+                    
+                    
                     {{n}}</p>
                   <div class="paypalContainer" *ngIf="payLater"><img class="paypal-short paypal-short" src="/assets/icons/5t-Paypal-Logo.svg" alt="Logo of PayPal" title="PayPal Logo"  fetchpriority="high"/>
                     <div class="paypal-txt">
@@ -192,15 +192,15 @@
 
                   <h2 class="heading">Let HEAT FLEET do the searching</h2>
 
-
+                  
                   <p class="list">
-
+              
                        <span class="img-span">
                     <img class="check-icon" src="/assets/icons/Check.svg" alt="checkmark icon" title="checkmark icon"  fetchpriority="high"/>
-                  </span>
-
-
-
+                  </span>  
+          
+                  
+                    
                     You save 20% or more</p>
                   <p class="list">   <span class="img-span">
                     <img class="check-icon" src="/assets/icons/Check.svg" alt="checkmark icon" title="checkmark icon"  fetchpriority="high"/>
@@ -221,9 +221,9 @@
 
                   </div>
 
-
+         
               </div>
-
+         
             </div>
           </div>
         </div>

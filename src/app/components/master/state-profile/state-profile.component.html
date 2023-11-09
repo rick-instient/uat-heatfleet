@@ -1,20 +1,16 @@
-<!-- <app-section-main [townData]="enableImg" [enableTown]="enableState" [city]="stateName" [zipFetched]="townZip"
+<app-section-main [townData]="enableImg" [enableTown]="enableState" [city]="stateName" [zipFetched]="townZip"
     [loaded]="loading" [townImageUrl]="townImage_url" [titleTagTown]="tagName" [altTagTown]="tagName"
     [logoUrls]="logoUrls" [logoUrls_loaded]="logoUrls_loaded" [breadcrumbs]="breadcrumbs" [ctaText]="ctaText"
-    [infoCheckBox]="infoCheckBox" [bsAltLine]="bsAltLine"></app-section-main> -->
-<app-breadcrumb></app-breadcrumb>
-<app-hero-section></app-hero-section>
+    [infoCheckBox]="infoCheckBox" [bsAltLine]="bsAltLine"></app-section-main>
 <app-section-compareprices [townData]="enableImg" [city]="stateName" [LowValue]="LowValue" [MaxValue]="MaxValue"
     [comparePricesText]="comparePricesText"></app-section-compareprices>
 <app-section-why [townData]="enableImg" [city]="stateName"></app-section-why>
 <app-section-why2 [townData]="enableImg" [city]="stateName" [state]="stateName"
     *ngIf="config.typeParam != 'subType=3'"></app-section-why2>
 <app-subscription *ngIf="config.typeParam != 'subType=2'"></app-subscription>
-<!-- <app-section-bestprices [data_]="townList" [lastUpdate]="lastUpdate" [townSelector]="townSelector"
-    [stateName]="stateName" [stateId]="currentLocation?.stateId"></app-section-bestprices> -->
-<app-best-price></app-best-price>
-<!-- <app-oil-delivery-map></app-oil-delivery-map> -->
-<!-- <div class="big-map-contain" *ngIf="!currentLocation?.service_image_url"></div> -->
+<app-section-bestprices [data_]="townList" [lastUpdate]="lastUpdate" [townSelector]="townSelector"
+    [stateName]="stateName" [stateId]="currentLocation?.stateId"></app-section-bestprices>
+<div class="big-map-contain" *ngIf="!currentLocation?.service_image_url"></div>
 <div class="outer-container faqs-content" *ngIf="currentLocation?.service_image_url">
     <div>
         <div class="col-heading">

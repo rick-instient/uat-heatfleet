@@ -11,7 +11,6 @@ import { first } from 'rxjs/operators';
 import { FormBuilder } from '@angular/forms';
 import { CommonService } from 'src/app/shared/services/common.config';
 import { DOCUMENT } from '@angular/common';
-import { SharedService } from 'src/app/shared/services/shared-service.service';
 // import { isPlatformServer } from '@angular/common';
 export interface CustomWindow extends Window {
 
@@ -121,7 +120,6 @@ export class TownProfileComponent implements OnInit {
   areaServed_: any;
   constructor(
     private locationService: LocationService,
-    public sharedService: SharedService,
     protected route: ActivatedRoute,
     public router: Router,
     private clientApiService: ClientApiService,
@@ -309,7 +307,6 @@ export class TownProfileComponent implements OnInit {
     console.log("getTownDetailsByHash");
     this.http.get(environment.api_url + `locations/getTownDetailsByHash?hash=${this.TownHash}`)
       .subscribe((res: any) => {
-        this.sharedService.townHashApiData.next(res);
         this.townDetails = res;
 
         this.nearestTowns = this.townDetails.nearestTowns;
@@ -348,7 +345,6 @@ export class TownProfileComponent implements OnInit {
     console.log("getTownCompaniesByHash");
     this.http.get(environment.api_url + 'locations/getTownCompaniesByHash?hash=' + this.TownHash)
       .subscribe((res: any) => {
-        this.sharedService.townCompaniesHashApiData.next(res);
         this.townCompanies = [];
         this.townCompanies = res.data;
 
@@ -365,9 +361,9 @@ export class TownProfileComponent implements OnInit {
           this.logoUrls = res.logoUrls;
 
 
-          // this.LowValue = res.lowPrice.toFixed(2);
-          // this.MaxValue = res.highPrice.toFixed(2);
-
+            // this.LowValue = res.lowPrice.toFixed(2);
+            // this.MaxValue = res.highPrice.toFixed(2);
+     
 
           if (this.config.mobile_view) {
             if (this.townCompanies && this.townCompanies.length > 15) {
@@ -401,32 +397,31 @@ export class TownProfileComponent implements OnInit {
     let url3 = type_ + this.config.typeParam + '&level=4&stateId=' + this.state_id.toUpperCase() + '&stateName=' +
       stateName + '&townName=' + this.stateName + '&townHash=' + this.TownHash;
 
-    const url1Api = this.http.get(environment.api_url + `locations/getPageDetails?${url3}`);
+      const url1Api = this.http.get(environment.api_url + `locations/getPageDetails?${url3}`);
 
-    url1Api.subscribe((res: any) => {
-      this.sharedService.getPageDetailsApiData.next(res);
+      url1Api.subscribe((res: any) => {
 
-      this.loaded = false;
+        this.loaded = false;
+        
+        this.infoCheckBox = res.infoCheckBox;
+        this.breadcrumbs_ = res.breadcrumbs;
+        this.ctaText = res.ctaText;
+        this.infoCheckBox = res.infoCheckBox;
+        this.bsAltLine = res.bsAltLine;
+        this.faqsContentTown = res.faqs;
+        this.faQsSchema = res.faQsSchema;
+        this.oilCompaniesData = res.oilCompaniesData;
+        this.heatingOilPricesData = res.heatingOilPricesData;
+        this.oilDeliverydata = res.oilDeliverydata;
+        this.comparePricesText = res.underLine;
 
-      this.infoCheckBox = res.infoCheckBox;
-      this.breadcrumbs_ = res.breadcrumbs;
-      this.ctaText = res.ctaText;
-      this.infoCheckBox = res.infoCheckBox;
-      this.bsAltLine = res.bsAltLine;
-      this.faqsContentTown = res.faqs;
-      this.faQsSchema = res.faQsSchema;
-      this.oilCompaniesData = res.oilCompaniesData;
-      this.heatingOilPricesData = res.heatingOilPricesData;
-      this.oilDeliverydata = res.oilDeliverydata;
-      this.comparePricesText = res.underLine;
-      this.addSchema();
-    });
+      });
 
 
     // this.http.get(environment.api_url + `locations/getPageDetails?${url3}`)
     //   .subscribe((res: any) => {
 
-
+        
     //     this.infoCheckBox = res.infoCheckBox;
     //     this.breadcrumbs_ = res.breadcrumbs;
     //     this.ctaText = res.ctaText;
@@ -444,6 +439,238 @@ export class TownProfileComponent implements OnInit {
     //   });
   }
 
+  // async makeTwoApiCalls() {
+  //   let stateName = this.config.getCityName(this.state_id.toUpperCase());
+
+  //   var type_ = '';
+  //   if (this.config.typeParam != 'type=1') {
+  //     var type_ = this.config.typeCategory + '&';
+  //   }
+
+  //   let url3 =
+  //     type_ +
+  //     this.config.typeParam +
+  //     '&level=4&stateId=' +
+  //     this.state_id.toUpperCase() +
+  //     '&stateName=' +
+  //     stateName +
+  //     '&townName=' +
+  //     this.stateName +
+  //     '&townHash=' +
+  //     this.TownHash;
+
+  //   const url =
+  //     environment.api_url +
+  //     'locations/getTownCompaniesByHash?hash=' +
+  //     this.TownHash;
+
+  // await this.locationService
+  //   .requestDataFromMultipleSources(this.TownHash, url, url3)
+  //   .subscribe((responseList) => {
+  //     this.townDetails = responseList[0];
+
+  //     this.nearestTowns = this.townDetails.nearestTowns;
+  //     this.areaServed_ = this.townDetails.areaServed;
+
+  //     this.national_avg_price = responseList[0].national_avg_price;
+  //     this.townZip = this.townDetails.zip;
+  //     const imgurl = this.townDetails.image_url;
+
+  //     this.townImage_url = imgurl;
+  //     this.meta.addTags([
+  //       { property: 'og:image', content: this.townImage_url },
+  //       { property: 'twitter:image', content: this.townImage_url },
+  //     ]);
+
+  //     this.showComponent = true;
+
+  //     this.otherTownImages = this.townDetails.otherTownImages;
+  //     var townImageUrl;
+  //     townImageUrl = this.townImage_url;
+
+  //     this.srcSetConfig = `${townImageUrl}?tr=w-350 350w,${townImageUrl}?tr=w-480 480w, ${townImageUrl}?tr=w-500 500w`;
+
+  //     var data_: any = [];
+  //     data_.push(responseList[0]);
+  //     this.data_map = data_;
+
+  //     this.loaded = true;
+  //     this.townZip_loaded = true;
+
+  //     this.loading = true;
+  //     this.loadChart = true;
+
+  //     // =========
+
+  //     this.townCompanies = [];
+  //     this.townCompanies = responseList[1].data;
+
+  //     this.isCompanyAvailable = responseList[1].activeCompaniesPresent;
+
+  //     if (this.townCompanies.length) {
+  //       this.enableCompanyData = true;
+  //       this.discountCompany = '';
+  //       this.fullserviceCompany = '';
+  //       this.fullserviceCompany = responseList[1].fullServiceCompaniesCount;
+  //       this.discountCompany = responseList[1].discountCompaniesCount;
+  //       this.comparePricesText = responseList[1].underLine;
+
+  //       this.logoUrls = responseList[1].logoUrls;
+
+  //       if (responseList[1].lowPrice) {
+  //         this.LowValue = responseList[1].lowPrice.toFixed(2);
+  //         this.MaxValue = responseList[1].highPrice.toFixed(2);
+  //       }
+
+  //       if (this.config.mobile_view) {
+  //         if (this.townCompanies && this.townCompanies.length > 15) {
+  //           this.showMore = true;
+  //         }
+  //         this.townCompanies_Arr = this.townCompanies.slice(0, 15);
+  //       } else {
+  //         if (this.townCompanies && this.townCompanies.length > 30) {
+  //           this.showMore = true;
+  //           this.townCompanies_Arr = this.townCompanies.slice(0, 30);
+  //         } else {
+  //           this.townCompanies_Arr = this.townCompanies;
+  //         }
+  //       }
+
+  //       // ==========
+  //       this.infoCheckBox = responseList[2].infoCheckBox;
+
+  //       this.breadcrumbs_ = responseList[2].breadcrumbs;
+  //       this.ctaText = responseList[2].ctaText;
+  //       this.infoCheckBox = responseList[2].infoCheckBox;
+  //       this.bsAltLine = responseList[2].bsAltLine;
+  //       this.faqsContentTown = responseList[2].faqs;
+  //       this.faQsSchema = responseList[2].faQsSchema;
+  //       this.oilCompaniesData = responseList[2].oilCompaniesData;
+  //       this.heatingOilPricesData = responseList[2].heatingOilPricesData;
+  //       this.oilDeliverydata = responseList[2].oilDeliverydata;
+  //       this.comparePricesText = responseList[2].underLine;
+  //       this.topTowns = responseList[2].topTowns;
+  //       this.topCounties = responseList[2].topCounties;
+  //       this.pageView = true;
+  //     }
+  //     // commented_v
+  //     // this.fetchWeatherHistory(this.townZip);
+  //   });
+
+
+
+  // commented_v
+  // setTimeout(() => {
+  //   this.config.schema = [
+  //     {
+  //       '@context': 'http:\u002F\u002Fschema.org',
+  //       '@type': 'Organization',
+  //       name: this.title_,
+  //       url:
+  //         'https:\u002F\u002F' +
+  //         'heatfleet.com/' +
+  //         this.config.typeURL +
+  //         this.fields[0] +
+  //         '-' +
+  //         this.fields[1] +
+  //         '-' +
+  //         this.fields[2],
+  //       logo: 'https:\u002F\u002Fmedia-cdn.heatfleet.com\u002F9m-Heat-Fleet-Heating-Oil-Logo.svg',
+  //       description: this.content_,
+  //       areaServed: [],
+
+  //     },
+  //     {
+  //       '@context': 'http:\u002F\u002Fschema.org',
+  //       '@type': 'WebSite',
+  //       name: 'Heat Fleet',
+  //       url: 'https:\u002F\u002Fheatfleet.com\u002F',
+  //       potentialAction: {
+  //         '@type': 'SearchAction',
+  //         target: '',
+  //         'query-input': '',
+  //       },
+  //     },
+  //   ];
+
+  //   let arr = this.townCompanies_Arr.slice(0, 9);
+
+
+  //   if (this.config.typeParam == 'subType=2') {
+  //     this.config.schema[0].offers = [];
+  //     let off = [];
+  //     arr.forEach((el) => {
+  //       if (el.price) {
+  //         off.push({
+  //           '@type': 'Offer',
+  //           priceSpecification: {
+  //             '@type': 'PriceSpecification',
+  //             price: el.price,
+  //             priceCurrency: 'USD',
+  //           },
+  //         });
+  //       }
+  //     });
+
+
+  //     this.config.schema[0].makesOffer = off;
+  //   }
+
+  //   this.config.schema[1].potentialAction.target =
+  //     this.config.schema[1].potentialAction.target =
+  //       'https://heatfleet.com/oil-select-provider/{zip}/0/0/4/100';
+  //   this.config.schema[1].potentialAction['query-input'] =
+  //     'required name=zip';
+
+  //   if (this.breadcrumbs_[0] && this.breadcrumbs_[3]) {
+  //     var bc = {
+  //       '@context': 'http:\u002F\u002Fschema.org',
+  //       '@type': 'BreadcrumbList',
+  //       itemListElement: [
+  //         {
+  //           '@type': 'ListItem',
+  //           position: '1',
+  //           item: {
+  //             '@id': '\u002F' + this.breadcrumbs_[0].url,
+  //             name: this.breadcrumbs_[0].label,
+  //           },
+  //         },
+  //         {
+  //           '@type': 'ListItem',
+  //           position: '2',
+  //           item: {
+  //             '@id': '\u002F' + this.breadcrumbs_[1].url,
+  //             name: this.breadcrumbs_[1].label,
+  //           },
+  //         },
+  //         {
+  //           '@type': 'ListItem',
+  //           position: '3',
+  //           item: {
+  //             '@id': '\u002F' + this.breadcrumbs_[2].url,
+  //             name: this.breadcrumbs_[2].label,
+  //           },
+  //         },
+  //         {
+  //           '@type': 'ListItem',
+  //           position: '4',
+  //           item: {
+  //             '@id': '\u002F' + this.breadcrumbs_[3].url,
+  //             name: this.breadcrumbs_[3].label,
+  //           },
+  //         },
+  //       ],
+  //     };
+  //   }
+
+  //   this.config.schema.push(bc);
+
+  //   this.addFaqsSchema();
+  // }, 1000);
+  // }
+
+  scrollTop() {
+  }
 
   getChild(activatedRoute: ActivatedRoute) {
     if (activatedRoute.firstChild) {
@@ -454,12 +681,12 @@ export class TownProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    // if (!isPlatformServer(this.platformId)) {
     this.fetchInit();
     this.getTownDetailsByHash();
     this.getTownCompaniesByHash();
     this.getPageDetails();
-
+    // }
 
     this.document.addEventListener('scroll', (ev) => {
       this.keepTrack();
@@ -860,127 +1087,5 @@ export class TownProfileComponent implements OnInit {
     //   //   this.quantityInput,
     //   // ]);
     // }
-  }
-
-  ngOnDestroy() {
-    this.sharedService.getPageDetailsApiData.next({});
-    this.sharedService.townHashApiData.next({});
-    this.sharedService.townCompaniesHashApiData.next({});
-  }
-
-  addSchema() {
-    this.config.schema = [
-      {
-        '@context': 'http:\u002F\u002Fschema.org',
-        '@type': 'Organization',
-        name: this.title_,
-        url:
-          'https:\u002F\u002F' +
-          'heatfleet.com/' +
-          this.config.typeURL +
-          this.fields[0] +
-          '-' +
-          this.fields[1] +
-          '-' +
-          this.fields[2],
-        logo: 'https:\u002F\u002Fmedia-cdn.heatfleet.com\u002F9m-Heat-Fleet-Heating-Oil-Logo.svg',
-        description: this.content_,
-        areaServed: [],
-
-      },
-      {
-        '@context': 'http:\u002F\u002Fschema.org',
-        '@type': 'WebSite',
-        name: 'Heat Fleet',
-        url: 'https:\u002F\u002Fheatfleet.com\u002F',
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: '',
-          'query-input': '',
-        },
-      },
-    ];
-
-    let arr = this.townCompanies_Arr.slice(0, 9);
-
-
-    if (this.config.typeParam == 'subType=2') {
-      this.config.schema[0].offers = [];
-      let off = [];
-      arr.forEach((el) => {
-        if (el.price) {
-          off.push({
-            '@type': 'Offer',
-            priceSpecification: {
-              '@type': 'PriceSpecification',
-              price: el.price,
-              priceCurrency: 'USD',
-            },
-          });
-        }
-      });
-
-
-      this.config.schema[0].makesOffer = off;
-    }
-
-    this.config.schema[1].potentialAction.target =
-      this.config.schema[1].potentialAction.target =
-      'https://heatfleet.com/oil-select-provider/{zip}/0/0/4/100';
-    this.config.schema[1].potentialAction['query-input'] =
-      'required name=zip';
-
-    if (this.breadcrumbs_[0] && this.breadcrumbs_[3]) {
-      var bc = {
-        '@context': 'http:\u002F\u002Fschema.org',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: '1',
-            item: {
-              '@id': '\u002F',
-              name: this.breadcrumbs_[0].label,
-            },
-          },
-          {
-            '@type': 'ListItem',
-            position: '2',
-            item: {
-              '@id': '\u002F' + this.breadcrumbs_[1].url,
-              name: this.breadcrumbs_[1].label,
-            },
-          },
-          {
-            '@type': 'ListItem',
-            position: '3',
-            item: {
-              '@id': '\u002F' + this.breadcrumbs_[2].url,
-              name: this.breadcrumbs_[2].label,
-            },
-          },
-          {
-            '@type': 'ListItem',
-            position: '4',
-            item: {
-              '@id': '\u002F' + this.breadcrumbs_[3].url,
-              name: this.breadcrumbs_[3].label,
-            },
-          },
-        ],
-      };
-    }
-
-    this.config.schema.push(bc);
-
-    this.config.schema.push(this.faQsSchema);
-
-    this.config.schema[0].areaServed = [];
-
-    if (this.townDetails.areaServed) {
-      this.config.schema[0].areaServed = this.townDetails.areaServed;
-    }
-
-    this.config.insertSchema(this.config.schema, 'structured-data-org');
   }
 }

@@ -3,7 +3,6 @@ import { CommonService } from './shared/services/common.config';
 import { DOCUMENT } from '@angular/common';
 import { AuthenticationService } from './shared/authentication/authentication.service';
 import { finalize } from 'rxjs';
-import { SharedService } from './shared/services/shared-service.service';
 // import { CookieService } from 'ngx-cookie-service';
 
 
@@ -17,15 +16,12 @@ export interface CustomWindow extends Window {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-
 export class AppComponent {
   private window: CustomWindow;
-
   title = 'Tour of Heroes';
   constructor(
     //
     public config: CommonService,
-    public sharedService: SharedService,
     @Inject(DOCUMENT) private document: Document,
     protected authenticationServie: AuthenticationService,
 

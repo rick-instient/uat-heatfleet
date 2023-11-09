@@ -75,14 +75,10 @@ export class OilPriceDetailsComponent implements OnChanges {
 
       var temp = [];
       for (let i = this.priceHistory.length - 1; i >= 0; i--) {
-        if(this.priceHistory[i].price){
-          temp.push(this.priceHistory[i]);
-        }
+        temp.push(this.priceHistory[i]);
       }
       this.priceHistory = temp;
       // this.historyUpdateDate = this.priceHistory[0].date.substring(0, 10);
-      console.log(this.priceHistory);
-      
       this.lastUpdate = this.priceHistory[0].date;
 
       const date = new Date(this.lastUpdate);

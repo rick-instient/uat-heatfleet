@@ -28,6 +28,16 @@ ion-col.inputs.md.hydrated {
   width: 100vw;
 }
 
+// img.bg-img {
+// width: 100%;
+// height: 100%;
+// object-fit: cover;
+// opacity: 0;
+// // position: absolute;
+// z-index: 1;
+// transition: opacity 0.5s;
+// }
+
 .loader {
   position: absolute;
   top: 50%;
@@ -48,7 +58,6 @@ img.bg-img {
   color: black;
   width: 100vw;
   height: 700px;
-  object-fit: cover;
 }
 
 .right-section {
@@ -151,6 +160,7 @@ ion-col.inputs.ios.hydrated {
   }
 
   img.bg-img {
+
     height: 800px;
   }
 
@@ -410,6 +420,11 @@ button.common-button {
   .white-row-left.deskto- {
     padding-bottom: 15px !important;
   }
+
+
+  // img.bg-img {
+  //   display: none !important;
+  // }
 
   .wrap {
     background: var(--ion-color-light-background) !important;
@@ -887,6 +902,13 @@ ion-icon.searchcon.md.hydrated {
   margin-top: 2px;
   margin-right: 5px;
 }
+
+img.bg-img {
+  object-fit: cover;
+  // width: 100%;
+  width: 100vw;
+}
+
 
 .row-cus {
   position: absolute;
@@ -1906,10 +1928,10 @@ span.hf {
 
 @media (max-width: 500px) {
   img.bg-img {
-    visibility: hidden !important;
-  }
+    display: none !important;
+}
 
-
+  
   .white-row.desktop.scrollme {
     gap: 2px;
     padding: 12px 10px 12px 10px;

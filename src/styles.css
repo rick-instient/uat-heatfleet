@@ -24,13 +24,6 @@ p.label {
   font-display: swap;
 }
 
-/* 
-@font-face {
-  font-family: "HK-Grotesk";
-  src: url("./assets/fonts/HKGrotesk-Regular.woff2");
-  font-display: swap;
-} */
-
 /* @font-face {
   font-family: "font-rambla";
   src: url("https://media-cdn.heatfleet.com/fonts/Rambla-Regular.otf");
@@ -43,18 +36,11 @@ p.label {
   font-display: swap;
 } */
 
-
 @font-face {
   font-family: "font-bold";
   src: url("./assets/fonts/HKGrotesk-Bold.otf");
   font-display: swap;
 }
-
-/* @font-face {
-  font-family: "font-bold";
-  src: url("./assets/fonts/HKGrotesk-Bold.woff2");
-  font-display: swap;
-} */
 
 :root {
   /** primary **/
@@ -201,81 +187,9 @@ p.label {
   --button-height-mobile: 40px;
   --button-font-mobile: 18px;
 
-  /** New styel palette**/
+  /** New styel paltte**/
   --a-tag-noraml-color: #0404bc;
   --a-tag-hover-color: #0e8bde;
-
-  --primary-background-color: #fff;
-  --secondary-background-color: #f5f9fd;
-
-  --bold-font: "font-bold";
-
-  --button-normal-color: #428cff;
-  --button-hover-color: #47a7f5;
-  --button-text-color: #fff;
-  --button-text-size: 16px;
-  --button-border-radius: 5px;
-
-  --small-border-radius: 6px;
-  --normal-border-radius: 12px;
-  --large-border-radius: 18px;
-
-  --primary-border-color: #e6e7e8;
-
-  --primary-border-size: 1px;
-
-  --font-size-extra-large: 30px;
-  --font-size-large: 24px;
-  --font-size-medium: 16px;
-  --font-size-small: 12px;
-  --font-size-extra-small: 8px;
-
-  --font-bold-extra-large: 900;
-  --font-bold-large: 700;
-  --font-bold-medium: 500;
-  --font-bold-small: 300;
-  --font-bold-extra-small: 100;
-
-  --font-line-extra-large: 24px;
-  --font-line-large: 20px;
-  --font-line-medium: 16px;
-  --font-line-small: 12px;
-  --font-line-extra-small: 8px;
-
-  --font-highlight-color: #0e8bde;
-
-  --primary-font-color: #000;
-  --secondary-font-color: #4c515b;
-}
-
-/* New table style */
-table {
-  width: 100%;
-  border: 1px solid #f8f8f8;
-}
-
-table tr:nth-child(odd) {
-  background-color: #fff;
-  color: #212529;
-}
-
-table tr:nth-child(even) {
-  background-color: #f8f8f8;
-  color: #212529;
-}
-
-table tr:hover {
-  background-color: #eaebee;
-}
-
-/* New anchor style */
-a {
-  color: var(--a-tag-noraml-color);
-  text-decoration: underline;
-}
-
-a:hover {
-  color: var(--a-tag-hover-color);
 }
 
 /* ====== Heatfleet common css */
@@ -314,11 +228,10 @@ button {
   background-position: center;
   transition: background 0.8s;
 }
-
 button:hover {
-  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%)
+    center/15000%;
 }
-
 button:active {
   background-color: #6eb9f7;
   background-size: 100%;
@@ -331,7 +244,6 @@ button:active {
   padding-top: var(--vertical-space-top);
   padding-bottom: var(--vertical-space-bottom);
 }
-
 button.btn.btn-primary.common-buttton {
   background: var(--brand-primary2-color);
   font-size: 20px;
@@ -386,26 +298,22 @@ button.btn.btn-primary.common-buttton {
     padding-left: 1%;
     padding-right: 1%;
   }
-
   .chart-svg {
     display: block !important;
     width: 100% !important;
     height: 100% !important;
     touch-action: pan-y !important;
   }
-
   .axis-g {
     color: #8bb5de;
     font-family: inherit;
     font-size: 0.75rem;
     pointer-events: none;
   }
-
   .area-path,
   .area-rect {
     fill: #f5f9fd !important;
   }
-
   .line-path {
     fill: none !important;
     stroke-width: 2px !important;
@@ -415,12 +323,10 @@ button.btn.btn-primary.common-buttton {
     &.state {
       stroke: #000 !important;
     }
-
     &.heat-fleet {
       stroke: #007cd5 !important;
     }
   }
-
   .focus-circle {
     stroke: #fff;
     stroke-width: 1px;
@@ -428,12 +334,10 @@ button.btn.btn-primary.common-buttton {
     &.state {
       fill: #000;
     }
-
     &.heat-fleet {
       fill: #007cd5;
     }
   }
-
   .chart-tooltip {
     pointer-events: none;
     position: fixed;
@@ -452,30 +356,24 @@ button.btn.btn-primary.common-buttton {
       visibility: visible;
       opacity: 1;
     }
-
     :is(table) {
       border-collapse: collapse;
     }
   }
-
   .focus-date {
     font-size: 0.75rem;
   }
-
   .focus-value {
     padding-left: 0.5rem;
   }
-
   .focus {
     &.state {
       color: #000;
     }
-
     &.heat-fleet {
       color: #007cd5;
     }
   }
-
   :is(sup) {
     vertical-align: super;
     font-size: 0.75rem;
@@ -493,9 +391,10 @@ input {
   padding-left: 10px;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  appearance: none;
-  margin: 0;
+.show-item {
+  display: block;
+}
+
+.hide-item {
+  display: none;
 }

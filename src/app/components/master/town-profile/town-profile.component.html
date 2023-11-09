@@ -1,16 +1,13 @@
 <div #div class="scrollable">
-    <app-breadcrumb></app-breadcrumb>
-    <app-hero-section></app-hero-section>
-    <!-- <app-section-main [townData]="enableImg" [enableTown]="enableTown" [city]="townDetails?.city"
+    <app-section-main [townData]="enableImg" [enableTown]="enableTown" [city]="townDetails?.city"
         [state]="townDetails?.state_id" [zipFetched]="townZip" [loaded]="loading" [townImageUrl]="townImage_url"
         [titleTagTown]="townDetails?.title" [altTagTown]="townDetails?.alt" [logoUrls]="logoUrls"
         [logoUrls_loaded]="logoUrls_loaded" [breadcrumbs]="breadcrumbs_" [ctaText]="ctaText"
-        [infoCheckBox]="infoCheckBox" [bsAltLine]="bsAltLine"></app-section-main> -->
+        [infoCheckBox]="infoCheckBox" [bsAltLine]="bsAltLine"></app-section-main>
     <!-- <app-section-compareprices [townData]="enableImg" [comparePricesText]="comparePricesText" [city]="townDetails?.city"
      ></app-section-compareprices> -->
 
-    <app-section-compareprices [townData]="enableImg" [city]="townDetails?.city"
-        [comparePricesText]="comparePricesText"></app-section-compareprices>
+     <app-section-compareprices [townData]="enableImg" [city]="townDetails?.city" [comparePricesText]="comparePricesText"></app-section-compareprices>
 
     <app-town-historic-chart (oncomponentdataoutpu)="DataOutputEv($event)" (townAverage)="townAv($event)"
         [townData]="townZip" [city]="townDetails?.city" [state]="townDetails?.state_id" [loaded]="loadChart"
@@ -32,7 +29,6 @@
         <img class="bg-img" [srcset]="srcSetConfig" title="{{townDetails?.title}}" alt="{{townDetails?.alt}}"
             loading="lazy" />
     </div>
-    <!-- <app-oil-delivery-map></app-oil-delivery-map> -->
     <app-delivery-map *ngIf="townDetails?.service_image_url" [service_image_url]="townDetails?.service_image_url"
         [service_alt]="townDetails?.service_alt" [service_title]="townDetails?.service_title"></app-delivery-map>
     <div class="container-main-in" *ngIf="otherTownImages.length > 1 && otherTownImages">
